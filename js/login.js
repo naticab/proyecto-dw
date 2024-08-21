@@ -5,3 +5,14 @@ document.getElementById('togglePassword').addEventListener('click', function () 
     
     this.classList.toggle('fa-eye-slash');
 });
+
+document.getElementById('button').addEventListener('click', function(event) {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    if (username !== '' && password !== '') {
+         localStorage.setItem('isAuthenticated', 'true');
+        window.location.href = 'index.html';
+    } else {
+         alert('Usuario o contraseña incorrectos.');
+     }
+});
