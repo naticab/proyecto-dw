@@ -1,17 +1,25 @@
-body {
+/* General styles */
+html, body {
+    height: 100%;
+    margin: 0;
     display: flex;
     flex-direction: column;
+}
+
+/* Body styles */
+body {
     justify-content: center;
     align-items: center;
-    height: 90vh;
     background-color: #f8f9fa;
     text-align: center;
 }
 
+/* Login container styles */
 .login-container {
     width: 30em;
 }
 
+/* Input styles */
 input {
     width: 100%;
     padding: 10px;
@@ -20,6 +28,7 @@ input {
     border: 1px solid #ccc;
 }
 
+/* Password container styles */
 .password-container {
     position: relative;
 }
@@ -33,6 +42,7 @@ input {
     color: #aaa;
 }
 
+/* Button styles */
 button {
     width: 50%;
     padding: 10px;
@@ -48,13 +58,13 @@ button:hover {
     background-color: #0056b3;
 }
 
+/* Footer styles */
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    background-color: #f8f9fa; /* Puedes ajustar el color de fondo si lo deseas */
-    text-align: center;
+    margin-top: auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+footer p {
+    margin-bottom: .25rem;
 }
