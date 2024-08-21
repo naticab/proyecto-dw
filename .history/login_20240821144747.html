@@ -15,36 +15,33 @@
 </head>
 
 <body>
+  <div class="login-container">
+    <h2>INGRESA A TU CUENTA</h2>
+    <hr>
+    <label for="username">Usuario</label>
+    <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
 
-  <header>
-    <div class="login-container">
-      <h2>INGRESA A TU CUENTA</h2>
-      <hr>
-      <label for="username">Usuario</label>
-      <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
-
-      <label for="password">Contraseña</label>
-      <div class="password-container">
-        <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
-        <i class="far fa-eye" id="togglePassword"></i>
-      </div>
-
-      <button type="submit">Ingresar</button>
+    <label for="password">Contraseña</label>
+    <div class="password-container">
+      <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+      <i class="far fa-eye" id="togglePassword"></i>
     </div>
-  </header>
+
+    <button type="submit">Ingresar</button>
+  </div>
 
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
-      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
 
   <script src="js/login.js"></script>
 
+  
 </body>
 
 </html>
