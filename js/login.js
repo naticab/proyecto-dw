@@ -11,6 +11,7 @@ document.getElementById('button').addEventListener('click', function(event) {
     const password = document.getElementById('password').value;
     if (username !== '' && password !== '') {
          localStorage.setItem('isAuthenticated', 'true');
+         localStorage.setItem('username', username);
         window.location.href = 'index.html';
     } else {
          alert('Usuario o contraseña incorrectos.');
