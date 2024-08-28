@@ -59,6 +59,10 @@ footer {
     text-align: center;
 }
 
+hr {
+    width: 100%;
+}
+
 @media (max-width: 768px) {
     .login-container {
         width: 25em;
