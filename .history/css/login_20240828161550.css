@@ -39,13 +39,13 @@ button {
     margin-top: 20px;
     border: none;
     border-radius: 5px;
-    background-color: #252628;
+    background-color: #007bff;
     color: white;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #3f3f3f;
+    background-color: #0056b3;
 }
 
 footer {
@@ -58,6 +58,7 @@ footer {
     background-color: #f8f9fa;
     text-align: center;
 }
+
 
 @media (max-width: 768px) {
     .login-container {
