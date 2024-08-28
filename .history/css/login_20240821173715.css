@@ -3,13 +3,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+
     background-color: #f8f9fa;
     text-align: center;
 }
 
 .login-container {
     width: 30em;
+    height: 100vh;
 }
 
 input {
