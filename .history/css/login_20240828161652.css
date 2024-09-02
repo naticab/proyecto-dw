@@ -59,6 +59,7 @@ footer {
     text-align: center;
 }
 
+
 @media (max-width: 768px) {
     .login-container {
         width: 25em;
@@ -78,10 +79,12 @@ footer {
 
     button {
         width: 50%;
+        /* Botón a pantalla completa en dispositivos pequeños */
     }
 
     input {
         margin: 5px 0;
+        /* Ajustar márgenes para pantallas pequeñas */
     }
 
     footer {
