@@ -1,6 +1,8 @@
 // URL del endpoint que devuelve el JSON de productos
-const productsUrl = 'https://japceibal.github.io/emercado-api/cats_products/101.json'; 
-
+function getCatID(){
+    const catID= localStorage.getItem("catID");
+    return catID ? catID: '101';
+}
 // Función para crear las tarjetas de producto
 function createProductCard(product) {
     return `
@@ -20,14 +22,23 @@ function createProductCard(product) {
     `;
 }
 
+function setCategoryDescription(catName){
+    const descriptionText= `Verás aquí todos los productos de la categoría <strong>${catName}</strong>`;
+    document.getElementById('category-description').innerHTML = descriptionText;
+}
+
 // Función para cargar productos desde el JSON
 async function loadProducts() {
+    const catID= getCatID();
+    const productsUrl = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
+
     try {
         const response = await fetch(productsUrl);
         const data = await response.json();
+        setCategoryDescription(data.catName);
         const products = data.products; // Accede a la propiedad 'products'
         const container = document.getElementById('products-container');
-
+        container.innerHTML= "";
         products.forEach(product => {
             const productCard = createProductCard(product);
             container.innerHTML += productCard;
