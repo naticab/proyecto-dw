@@ -1,8 +1,12 @@
+// Definimos la variable de manera global para que sea accesible en toda la página
+let products = [];
+
 // URL del endpoint que devuelve el JSON de productos
-function getCatID(){
-    const catID= localStorage.getItem("catID");
-    return catID ? catID: '101';
+function getCatID() {
+    const catID = localStorage.getItem("catID");
+    return catID ? catID : '101'; // Si no hay catID en localStorage, usar '101' por defecto
 }
+
 // Función para crear las tarjetas de producto
 function createProductCard(product) {
     return `
@@ -22,23 +26,25 @@ function createProductCard(product) {
     `;
 }
 
-function setCategoryDescription(catName){
-    const descriptionText= `Verás aquí todos los productos de la categoría <strong>${catName}</strong>`;
+// Función para establecer la descripción de la categoría
+function setCategoryDescription(catName) {
+    const descriptionText = `Verás aquí todos los productos de la categoría <strong>${catName}</strong>`;
     document.getElementById('category-description').innerHTML = descriptionText;
 }
 
 // Función para cargar productos desde el JSON
 async function loadProducts() {
-    const catID= getCatID();
+    const catID = getCatID();
     const productsUrl = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
 
     try {
         const response = await fetch(productsUrl);
         const data = await response.json();
         setCategoryDescription(data.catName);
-        const products = data.products; // Accede a la propiedad 'products'
+        products = data.products; // Guardamos los productos en la variable global
+
         const container = document.getElementById('products-container');
-        container.innerHTML= "";
+        container.innerHTML = "";
         products.forEach(product => {
             const productCard = createProductCard(product);
             container.innerHTML += productCard;
@@ -48,5 +54,37 @@ async function loadProducts() {
     }
 }
 
-// Cargar productos cuando la página esté lista
+// Filtrar productos en tiempo real, seleccionamos el input del buscador por su id
+const searchInput = document.getElementById("buscador");
+
+// Escucha el evento input del buscador
+searchInput.addEventListener('input', () => {
+    // Cada vez que el uruarui ingresa texto en el input, se ejecuta esta función
+    console.log("Texto ingresado:", searchInput.value); // Mostramos el texto ingresado en la consola para verificar si funciona
+    const searchText = searchInput.value.toLowerCase();  // Convertimos el texto a minúsculas para comparar sin importar mayúsculas/minúsculas
+
+    // Filtrar los productos por nombre o descripción
+    const filteredProducts = products.filter(product =>
+        product.name.toLowerCase().includes(searchText) || 
+        product.description.toLowerCase().includes(searchText)
+    );
+
+    // Renderizar los productos que pasaron el filtro
+    renderProducts(filteredProducts);
+});
+
+// Función para renderizar (mostrar) los productos en el HTML
+function renderProducts(filteredProducts) {
+    // Seleccionamos el contenedor de productos
+    const container = document.getElementById('products-container');
+    container.innerHTML = "";  // Limpiamos el contenedor antes de mostrar los productos filtrados
+
+    // Recorremos la lista de productos filtrados y generamos su tarjeta HTML
+    filteredProducts.forEach(product => {
+        const productCard = createProductCard(product); // Creamos la tarjeta de cada producto filtrado
+        container.innerHTML += productCard; // Agregamos la tarjeta al contenedor
+    });
+}
+
+// Cargar los productos cuando el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', loadProducts);
