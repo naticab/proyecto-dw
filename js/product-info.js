@@ -1,24 +1,19 @@
-
-
-/*document.addEventListener('DOMContentLoaded', async () => {
-    const productId = localStorage.getItem('selectedProductID');
+document.addEventListener('DOMContentLoaded', async () => {
+    const productId = localStorage.getItem('selectedProductId');
     if (productId) {
         console.log(productId);
-        const response = await fetch( PRODUCT_INFO_URL+`/${productId}${EXT_TYPE}`);
+        const response = await fetch(PRODUCT_INFO_URL + `/${productId}${EXT_TYPE}`);
         const product = await response.json();
-        console.log(product);
+        console.log(productId);
         // lleva el producto al HTML
-        document.getElementById('product-name').textContent = product.name;
-        document.getElementById('product-description').textContent = product.description;
-        document.getElementById('product-price').textContent = `${product.currency} ${product.cost}`;
-        document.getElementById('product-category').textContent = product.category;
-        document.getElementById('product-sold').textContent = `${product.soldCount} vendidos`;
-        document.getElementById('main-image').src = product.image;
-        // Maneja la galería de imágenes y otros 
+        document.getElementById('name').textContent = product.name;
+        document.getElementById('description').textContent = product.description;
+        document.getElementById('price').textContent = `${product.currency} ${product.cost}`;
+        document.getElementById('category').textContent = product.category;
+        document.getElementById('soldCount').textContent = `${product.soldCount} vendidos`;
+        document.getElementById('main-image').src = product.image;  
     }
 });
-
-
 
 // Función para hacer las tarjetas de producto
 function createProductCard(product) {
@@ -37,4 +32,4 @@ function createProductCard(product) {
             </div>
         </div>
     `;
-}*/
+}

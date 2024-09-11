@@ -54,7 +54,6 @@ function setCategoryDescription(catName){
     document.getElementById('category-description').innerHTML = descriptionText;
 }
 
-
 // Cargar productos cuando la página esté lista
 document.addEventListener('DOMContentLoaded', loadProducts);
 
