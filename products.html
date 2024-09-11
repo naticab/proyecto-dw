@@ -32,14 +32,22 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
+          <li class="nav-item d-flex align-items-center"></li>
+            <div class="d-none" id="user-container">
+              <span id="user-name" class="navbar-text nav-link" href="my-profile.html"></span>
+            </div>
+            <a id="loginLink"></a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
   
   <!-- prueba catálogo -->
-  <h1 class="titulop">Productos - Autos</h1>
-
+  <div class="text-center p-4">
+    <h1 class="titulop">Productos</h1>
+    <p id="category-description" class="lead"></p> <!--Aquí se inserta el texto descriptivo de cada categoría de productos-->
+  </div>
   <div class="container" id="products-container">
       <!-- Los productos se insertarán aquí dinámicamente -->
   </div>
