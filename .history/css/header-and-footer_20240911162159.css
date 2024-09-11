@@ -1,0 +1,29 @@
+.site-header a {
+    color: white;
+    transition: ease-in-out color .15s;
+}
+
+.site-header .dropdown-menu a {
+    color: black;
+}
+
+footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+@media screen and (max-width:768px) {
+    footer {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    footer {
+        font-size: 10px;
+    }
+}
+
+footer p {
+    margin-bottom: .25rem;
+}

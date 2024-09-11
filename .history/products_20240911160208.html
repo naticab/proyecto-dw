@@ -12,55 +12,49 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css\styles-cards.css" rel="stylesheet">
   <link href="css/products.css" rel="stylesheet">
-  <link href="css/header-and-footer.css" rel="stylesheet">
-
+  
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-      <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav w-100 justify-content-between">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="categories.html">Categorías</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sell.html">Vender</a>
-            </li>
-            <li class="nav-item">
-            </li>
-            <li class="nav-item d-flex align-items-center"></li>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-between">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+          
+          <li class="nav-item d-flex align-items-center"></li>
             <div class="d-none" id="user-container">
               <span id="user-name" class="navbar-text nav-link" href="my-profile.html"></span>
             </div>
             <a id="loginLink"></a>
-            </li>
-          </ul>
-        </div>
+          </li>
+        </ul>
       </div>
-    </nav>
-  </header>
-
+    </div>
+  </nav>
+  
   <!-- prueba catálogo -->
   <div class="text-center p-4">
     <h1 class="titulop">Productos</h1>
-    <p id="category-description" class="lead"></p>
-    <!--Aquí se inserta el texto descriptivo de cada categoría de productos-->
-    <div class="d-flex justify-content-center"> <!-- Aplico las clases de Bootstrap para centrar -->
+    <p id="category-description" class="lead"></p> <!--Aquí se inserta el texto descriptivo de cada categoría de productos-->
+    <div class="buscador">
       <input class="form-control" id="buscador" type="search" placeholder="Buscar artículos">
     </div>
   </div>
-
   <div class="container" id="products-container">
-    <!-- Los productos se insertarán aquí dinámicamente -->
+      <!-- Los productos se insertarán aquí dinámicamente -->
   </div>
 
   <footer class="text-muted">
@@ -68,8 +62,7 @@
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
-      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
   <div id="spinner-wrapper">
