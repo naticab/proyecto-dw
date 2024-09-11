@@ -7,6 +7,7 @@ function getCatID(){
 function createProductCard(product) {
     return `
         <div class="product-card">
+            <a href="product-info.html" onclick="saveProductId(${product.id})" class="products-link">
             <div class="product-info">
                 <div class="product-title">
                     <span>${product.name}</span>
@@ -17,14 +18,14 @@ function createProductCard(product) {
             <img src="${product.image}" alt="${product.name}">
             <div class="product-description">
                 ${product.description}
-            </div>
+            
+            </div></a>
         </div>
     `;
 }
 
-function setCategoryDescription(catName){
-    const descriptionText= `Verás aquí todos los productos de la categoría <strong>${catName}</strong>`;
-    document.getElementById('category-description').innerHTML = descriptionText;
+function saveProductId(productId) {
+    localStorage.setItem('selectedProductId', productId);
 }
 
 // Función para cargar productos desde el JSON
@@ -48,5 +49,13 @@ async function loadProducts() {
     }
 }
 
+function setCategoryDescription(catName){
+    const descriptionText= `Verás aquí todos los productos de la categoría <strong>${catName}</strong>`;
+    document.getElementById('category-description').innerHTML = descriptionText;
+}
+
+
 // Cargar productos cuando la página esté lista
 document.addEventListener('DOMContentLoaded', loadProducts);
+
+
