@@ -28,16 +28,9 @@ function createProductCard(product) {
     `;
 }
 
-<<<<<<< HEAD
 function saveProductId(productId) {
     localStorage.setItem('selectedProductId', productId);
-=======
-// Función para establecer la descripción de la categoría
-function setCategoryDescription(catName) {
-    const descriptionText = `Verás aquí todos los productos de la categoría <strong>${catName}</strong>`;
-    document.getElementById('category-description').innerHTML = descriptionText;
->>>>>>> main
-}
+    }
 
 // Función para cargar productos desde el JSON
 async function loadProducts() {
@@ -61,14 +54,12 @@ async function loadProducts() {
     }
 }
 
-<<<<<<< HEAD
-function setCategoryDescription(catName){
-    const descriptionText= `Verás aquí todos los productos de la categoría <strong>${catName}</strong>`;
+// Función para establecer la descripción de la categoría
+function setCategoryDescription(catName) {
+    const descriptionText = `Verás aquí todos los productos de la categoría <strong>${catName}</strong>`;
     document.getElementById('category-description').innerHTML = descriptionText;
 }
 
-// Cargar productos cuando la página esté lista
-=======
 // Filtrar productos en tiempo real, seleccionamos el input del buscador por su id
 const searchInput = document.getElementById("buscador");
 
@@ -102,7 +93,6 @@ function renderProducts(filteredProducts) {
 }
 
 // Cargar los productos cuando el DOM esté completamente cargado
->>>>>>> main
 document.addEventListener('DOMContentLoaded', loadProducts);
 
 

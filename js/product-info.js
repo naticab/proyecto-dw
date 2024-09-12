@@ -11,7 +11,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('price').textContent = `${product.currency} ${product.cost}`;
         document.getElementById('category').textContent = product.category;
         document.getElementById('soldCount').textContent = `${product.soldCount} vendidos`;
-        document.getElementById('main-image').src = product.image;  
+        document.getElementById('images').src = product.image;
+
+        let htmlToAppend="<div class=`row`>";
+        for (let img of product.images){
+            htmlToAppend += `<div class="col-4 mb-3"><img src="${img}" class="img-fluid"></div>`;
+        }
+        htmlToAppend += `</div>`;
+        document.getElementById('images').innerHTML = htmlToAppend;
     }
 });
 
