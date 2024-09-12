@@ -11,6 +11,7 @@ function getCatID() {
 function createProductCard(product) {
     return `
         <div class="product-card">
+            <a href="product-info.html" onclick="saveProductId(${product.id})" class="products-link">
             <div class="product-info">
                 <div class="product-title">
                     <span>${product.name}</span>
@@ -21,16 +22,15 @@ function createProductCard(product) {
             <img src="${product.image}" alt="${product.name}">
             <div class="product-description">
                 ${product.description}
-            </div>
+            
+            </div></a>
         </div>
     `;
 }
 
-// Función para establecer la descripción de la categoría
-function setCategoryDescription(catName) {
-    const descriptionText = `Verás aquí todos los productos de la categoría <strong>${catName}</strong>`;
-    document.getElementById('category-description').innerHTML = descriptionText;
-}
+function saveProductId(productId) {
+    localStorage.setItem('selectedProductId', productId);
+    }
 
 // Función para cargar productos desde el JSON
 async function loadProducts() {
@@ -52,6 +52,12 @@ async function loadProducts() {
     } catch (error) {
         console.error('Error al cargar los productos:', error);
     }
+}
+
+// Función para establecer la descripción de la categoría
+function setCategoryDescription(catName) {
+    const descriptionText = `Verás aquí todos los productos de la categoría <strong>${catName}</strong>`;
+    document.getElementById('category-description').innerHTML = descriptionText;
 }
 
 // Filtrar productos en tiempo real, seleccionamos el input del buscador por su id
@@ -88,3 +94,5 @@ function renderProducts(filteredProducts) {
 
 // Cargar los productos cuando el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', loadProducts);
+
+
