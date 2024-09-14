@@ -1,5 +1,5 @@
 #buscador {
-    width: 45%;
+    width: 40%;
 }
 
 .inputs-y-selectores {
@@ -88,23 +88,40 @@ body {
     color: inherit;
 }
 
+
+/* Asegúrate de que la tarjeta tenga el cursor pointer */
 .product-card {
-    background-color: #fff;
-    border-radius: 8px; 
-    box-shadow: 0 2px 4px #0000001a;
-    transition: box-shadow 0.3s ease;
+    background-color: #fff; /* Color de fondo de la tarjeta */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Transición suave para el efecto de hover */
+    position: relative; /* Para ajustar el posicionamiento del enlace dentro de la tarjeta */
+    overflow: hidden; /* Para que no se salga el contenido */
+    cursor: pointer; /* Cambia el cursor a pointer cuando se pasa sobre la tarjeta */
 }
 
-.product-card:hover {
-    box-shadow: 0 4px 8px #00000033;
-    background-color: #fbf0e2b4;
-    cursor: pointer;
-}
-
+/* Asegúrate de que el enlace ocupe todo el contenedor de la tarjeta */
 .product-card-link {
-    text-decoration: none;
-    color: inherit;
+    display: block; /* Hace que el enlace ocupe todo el espacio de la tarjeta */
+    height: 100%; /* Asegura que el enlace ocupe toda la altura */
+    width: 100%; /* Asegura que el enlace ocupe toda la anchura */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: inherit; /* Hereda el color del contenedor para asegurar que no cambie el color del texto */
 }
+
+/* Asegúrate de que el cursor pointer se aplica correctamente sobre el enlace dentro de la tarjeta */
+.product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+    background-color: #fbf0e2b4; /* Color de fondo de la tarjeta */
+}
+
+.product-card img {
+    width: 100%; /* Asegura que la imagen ocupe el ancho de la tarjeta */
+    border-bottom: 1px solid #ddd; /* Línea de separación entre imagen y contenido */
+}
+
+
+
 
 .sold-count {
     font-size: 12px;
@@ -114,10 +131,6 @@ body {
 @media (max-width: 768px) {
     #related-images {
       grid-template-columns: 1fr;
-    }
-
-    .inputs-y-selectores {
-        width: 120px; /* Reducción del tamaño de los inputs y selectores */
     }
 }
   

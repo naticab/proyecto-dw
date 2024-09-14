@@ -1,22 +1,23 @@
 #buscador {
-    width: 45%;
+    width: 40%;
 }
 
 .inputs-y-selectores {
-    width: 150px; /* Ajustamos el tamaño para que todos los inputs sean consistentes */
+    width: 150px;
+    /* Ajustamos el tamaño para que todos los inputs sean consistentes */
 }
 
 /* Estilos básicos */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-  }
-  
+}
+
 .container {
     max-width: 1200px;
     margin: 10px auto;
-  }
-  
+}
+
 
 #image-container {
     display: flex;
@@ -40,7 +41,7 @@ body {
 }
 
 #related-images img {
-    width: 100px; 
+    width: 100px;
     height: auto;
     padding: 10px;
     cursor: pointer;
@@ -51,7 +52,7 @@ body {
 #related-images img:hover {
     transform: scale(1.1);
 }
-  
+
 /* Detalles del producto */
 .product-details {
     background-color: #fff;
@@ -59,24 +60,24 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-  
+
 .product-details h1 {
     font-size: 26px;
     margin-bottom: 10px;
 }
-  
+
 .product-price {
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 5px;
 }
-  
+
 .product-category {
     font-size: 16px;
     color: #555;
     margin-bottom: 15px;
 }
-  
+
 .product-description {
     font-size: 14px;
     color: #333;
@@ -88,23 +89,46 @@ body {
     color: inherit;
 }
 
+/* Asegurarse de que el cursor cambie a pointer en el contenedor de la tarjeta de producto */
 .product-card {
     background-color: #fff;
-    border-radius: 8px; 
-    box-shadow: 0 2px 4px #0000001a;
+    /* Color de fondo de la tarjeta */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra de la tarjeta */
     transition: box-shadow 0.3s ease;
-}
-
-.product-card:hover {
-    box-shadow: 0 4px 8px #00000033;
-    background-color: #fbf0e2b4;
+    /* Transición suave para el efecto de hover */
+    position: relative;
+    /* Para ajustar el posicionamiento del enlace dentro de la tarjeta */
+    overflow: hidden;
+    /* Para que no se salga el contenido */
     cursor: pointer;
+    /* Cambia el cursor a pointer cuando se pasa sobre la tarjeta */
+    z-index: 1;
+    /* Asegúrate de que la tarjeta esté encima de otros elementos */
+
 }
 
+/* Para asegurarse de que el enlace ocupe toda la tarjeta */
 .product-card-link {
-    text-decoration: none;
-    color: inherit;
+    display: block;
+    /* Hace que el enlace ocupe todo el espacio de la tarjeta */
+    height: 100%;
+    /* Asegura que el enlace ocupe toda la altura */
+    width: 100%;
+    /* Asegura que el enlace ocupe toda la anchura */
 }
+
+/* Efecto de hover en la tarjeta de producto */
+.product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra más intensa al hacer hover */
+    background-color: #fbf0e2b4;
+    /* Color de fondo de la tarjeta */
+}
+
+
 
 .sold-count {
     font-size: 12px;
@@ -113,11 +137,6 @@ body {
 
 @media (max-width: 768px) {
     #related-images {
-      grid-template-columns: 1fr;
-    }
-
-    .inputs-y-selectores {
-        width: 120px; /* Reducción del tamaño de los inputs y selectores */
+        grid-template-columns: 1fr;
     }
 }
-  

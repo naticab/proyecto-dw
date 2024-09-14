@@ -11,7 +11,7 @@ function getCatID() {
 function createProductCard(product) {
     return `
         <div class="product-card">
-            <a href="product-info.html" onclick="saveProductId(${product.id})" class="products-link product-card-link">
+            <a href="product-info.html" onclick="saveProductId(${product.id})" class="products-link">
             <div class="product-info">
                 <div class="product-title">
                     <span>${product.name}</span>
@@ -22,6 +22,7 @@ function createProductCard(product) {
             <img src="${product.image}" alt="${product.name}">
             <div class="product-description">
                 ${product.description}
+            
             </div></a>
         </div>
     `;
@@ -37,11 +38,9 @@ function renderProducts(productsToRender) {
         container.innerHTML += productCard;
     });
 }
-
-// Función para guardar el ID del producto seleccionado
 function saveProductId(productId) {
     localStorage.setItem('selectedProductId', productId);
-}
+    }
 
 // Función para cargar productos desde el JSON
 async function loadProducts() {
@@ -54,6 +53,14 @@ async function loadProducts() {
         products = data.products; // Accede a la propiedad 'products'
         renderProducts(products); // Renderizar productos iniciales
         setCategoryDescription(data.catName);
+        products = data.products; // Guardamos los productos en la variable global
+
+        const container = document.getElementById('products-container');
+        container.innerHTML = "";
+        products.forEach(product => {
+            const productCard = createProductCard(product);
+            container.innerHTML += productCard;
+        });
     } catch (error) {
         console.error('Error al cargar los productos:', error);
     }
@@ -97,33 +104,51 @@ function clearFilters() {
     document.getElementById('sortOrder').value = ''; 
     renderProducts(products); 
 }
+// Event listeners para los controles de filtro y ordenación
+document.getElementById('applyFilters').addEventListener('click', applyFilters);
+document.getElementById('sortOrder').addEventListener('change', () => applySorting(products));
+document.getElementById('clearRangeFilter').addEventListener('click', clearFilters);
 
+// Cargar productos cuando la página esté lista
 // Función para establecer la descripción de la categoría
 function setCategoryDescription(catName) {
     const descriptionText = `Verás aquí todos los productos de la categoría <strong>${catName}</strong>`;
     document.getElementById('category-description').innerHTML = descriptionText;
 }
 
-// Función para filtrar productos en tiempo real
-function filterProducts() {
-    const searchInput = document.getElementById("buscador");
-    const searchText = searchInput.value.toLowerCase();
+// Filtrar productos en tiempo real, seleccionamos el input del buscador por su id
+const searchInput = document.getElementById("buscador");
 
+// Escucha el evento input del buscador
+searchInput.addEventListener('input', () => {
+    // Cada vez que el uruarui ingresa texto en el input, se ejecuta esta función
+    console.log("Texto ingresado:", searchInput.value); // Mostramos el texto ingresado en la consola para verificar si funciona
+    const searchText = searchInput.value.toLowerCase();  // Convertimos el texto a minúsculas para comparar sin importar mayúsculas/minúsculas
+
+    // Filtrar los productos por nombre o descripción
     const filteredProducts = products.filter(product =>
         product.name.toLowerCase().includes(searchText) || 
         product.description.toLowerCase().includes(searchText)
     );
 
+    // Renderizar los productos que pasaron el filtro
     renderProducts(filteredProducts);
+});
+
+// Función para renderizar (mostrar) los productos en el HTML
+function renderProducts(filteredProducts) {
+    // Seleccionamos el contenedor de productos
+    const container = document.getElementById('products-container');
+    container.innerHTML = "";  // Limpiamos el contenedor antes de mostrar los productos filtrados
+
+    // Recorremos la lista de productos filtrados y generamos su tarjeta HTML
+    filteredProducts.forEach(product => {
+        const productCard = createProductCard(product); // Creamos la tarjeta de cada producto filtrado
+        container.innerHTML += productCard; // Agregamos la tarjeta al contenedor
+    });
 }
 
-// Event listeners para los controles de filtro y ordenación
-document.getElementById('applyFilters').addEventListener('click', applyFilters);
-document.getElementById('sortOrder').addEventListener('change', () => applySorting(products));
-document.getElementById('clearRangeFilter').addEventListener('click', clearFilters);
-
-// Escucha el evento input del buscador
-document.getElementById("buscador").addEventListener('input', filterProducts);
-
-// Cargar productos cuando la página esté lista
+// Cargar los productos cuando el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', loadProducts);
+
+
