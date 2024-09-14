@@ -60,36 +60,49 @@
     </div>
   </div>
 
+  <!-- Controles de filtro y ordenación -->
+  <div class="container-fluid my-4">
+    <!-- Filtro por precio (Primera línea) -->
+    <div class="row justify-content-end">
+      <div class="col-auto text-end">
+        <h2>Filtrar por precio</h2>
 
 
-    <!-- Controles de filtro y ordenación -->
-  <div class="d-flex align-items-end justify-content-end">
-    <!-- Botón de ordenar por -->
-    <select id="sortOrder" class="form-select inputs-y-selectores me-2">
-      <option value="">Precio</option> <!-- Solo muestra "Precio" -->
-      <option value="priceAsc">Ascendente</option>
-      <option value="priceDesc">Descendente</option>
-      <option value="relevanceDesc">Relevancia: Descendente</option>
-    </select>
-    
-    <div class="d-flex gap-2 me-2">
-      <div>
-        <label for="minPrice" class="form-label">Precio mínimo:</label>
-        <input type="number" class="form-control inputs-y-selectores" id="minPrice" placeholder="0">
-      </div>
-      <div>
-        <label for="maxPrice" class="form-label">Precio máximo:</label>
-        <input type="number" class="form-control inputs-y-selectores" id="maxPrice" placeholder="1000">
+
+
+        <div class="d-flex align-items-center justify-content-end gap-2">
+          <label for="minPrice" class="form-label">Precio mínimo:</label>
+          <div class="col"><input type="number" class="form-control inputs-y-selectores" id="minPrice" placeholder="0">
+          </div>
+          <label for="maxPrice" class="form-label ms-2">Precio máximo:</label>
+          <div class="col">
+            <input type="number" class="form-control inputs-y-selectores" id="maxPrice" placeholder="1000">
+          </div>
+          <button type="button" class="btn btn-primary btn-block" id="applyFilters">Filtrar</button>
+          <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+        </div>
       </div>
     </div>
-  
-    <!-- Botones de filtrar y limpiar -->
-    <div class="d-flex align-items-end gap-2">
-      <button type="button" class="btn btn-primary" id="applyFilters">Filtrar</button>
-      <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+
+
+
+
+    <!-- Ordenar por (Segunda línea) -->
+    <div class="row justify-content-end mt-3">
+      <div class="col-auto text-end">
+        <h2>Ordenar por</h2>
+        <div class="d-flex align-items-center justify-content-end">
+          <select id="sortOrder" class="form-select inputs-y-selectores">
+            <option value="priceAsc">Precio: Ascendente</option>
+            <option value="priceDesc">Precio: Descendente</option>
+            <option value="relevanceDesc">Relevancia: Descendente</option>
+          </select>
+        </div>
+      </div>
     </div>
   </div>
-  
+
+
 
   <div class="container" id="products-container">
     <!-- Los productos se insertarán aquí dinámicamente -->

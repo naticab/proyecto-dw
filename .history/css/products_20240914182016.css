@@ -3,20 +3,39 @@
 }
 
 .inputs-y-selectores {
-    width: 150px; /* Ajustamos el tamaño para que todos los inputs sean consistentes */
+    width: 100px;
+    /* Ajustamos el tamaño para que todos los inputs sean consistentes */
+    margin-left: 10px;
+    /* Espacio entre los inputs */
+}
+
+label {
+    margin-bottom: 0;
+    /* Evita espacios innecesarios debajo de los labels */
+}
+
+button {
+    margin-left: 10px;
+    /* Espacio entre los inputs y el botón */
+}
+
+/* Estilos adicionales opcionales para el ajuste */
+.gap-2 {
+    gap: 10px;
+    /* Espaciado controlado entre los elementos */
 }
 
 /* Estilos básicos */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-  }
-  
+}
+
 .container {
     max-width: 1200px;
     margin: 10px auto;
-  }
-  
+}
+
 
 #image-container {
     display: flex;
@@ -38,7 +57,7 @@ body {
 }
 
 #related-images img {
-    width: 100px; 
+    width: 100px;
     height: auto;
     padding: 10px;
     cursor: pointer;
@@ -49,7 +68,7 @@ body {
 #related-images img:hover {
     transform: scale(1.1);
 }
-  
+
 /* Detalles del producto */
 .product-details {
     background-color: #fff;
@@ -57,30 +76,30 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-  
+
 .product-details h1 {
     font-size: 26px;
     margin-bottom: 10px;
 }
-  
+
 .product-price {
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 5px;
 }
-  
+
 .product-category {
     font-size: 16px;
     color: #555;
     margin-bottom: 15px;
 }
-  
+
 .product-description {
     font-size: 14px;
     color: #333;
     margin-bottom: 20px;
 }
-  
+
 .sold-count {
     font-size: 12px;
     color: #777;
@@ -88,7 +107,10 @@ body {
 
 @media (max-width: 768px) {
     #related-images {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
+    }
+
+    .inputs-y-selectores {
+        width: 80px;
     }
 }
-  
