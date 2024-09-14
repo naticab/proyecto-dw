@@ -79,33 +79,36 @@
 
 <div class="container">
     <div class="row">
-        <!-- Imagen principal -->
-        <div class="col-md-8">
-            <img src="" id="mainImage" alt="Imagen principal del producto">
-        </div>
+      <div id="image-container" class="d-flex">
+          <!-- Imágenes relacionadas -->
+         <div class="product-container"></div>
+            <div id="related-images">
+          <!-- Las imágenes relacionadas se cargarán aquí -->
+            </div> 
+      
+          <!-- Imagen principal -->
+            <div class="col-md-8">
+              <img src="" id="mainImage" alt="Imagen principal del producto">
+            </div>
         
-        <!-- Detalles del producto -->
-        <div class="col-md-4">
-            <div class="product-details">
-                <h1 id="name">Nombre del Producto</h1>
-                <p id="price" class="product-price">$1500</p>
-                <p id="category" class="product-category">Categoría: Autos</p>
-                <p id="description" class="product-description">Descripción del producto...</p>
-                <p id="soldCount" class="sold-count">14 vendidos</p>
+
+          <!-- Detalles del producto -->
+            <div class="col-md-4">
+              <div class="product-details">
+                  <h1 id="name">Nombre del Producto</h1>
+                  <p id="price" class="product-price">$1500</p>
+                  <p id="category" class="product-category">Categoría: Autos</p>
+                  <p id="description" class="product-description">Descripción del producto...</p>
+                  <p id="soldCount" class="sold-count">14 vendidos</p>
             </div>
         </div>
     </div>
-
-    <!-- Imágenes relacionadas -->
-    <div class="product-container"></div>
-    <div id="related-images">
-        <!-- Las imágenes relacionadas se cargarán aquí -->
-    </div>
-
       <div id="related-products">
         <h3>Productos Relacionados...</h3>
       </div>
+    </div>
 </div>
+
 </main>
 
   <footer class="text-muted">
