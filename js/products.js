@@ -2,36 +2,14 @@
 let products = [];
 
 // URL del endpoint que devuelve el JSON de productos
-<<<<<<< HEAD
-const productsUrl = 'https://japceibal.github.io/emercado-api/cats_products/101.json';
-
-let products = []; // Para almacenar los productos cargados
-=======
 function getCatID() {
     const catID = localStorage.getItem("catID");
     return catID ? catID : '101'; // Si no hay catID en localStorage, usar '101' por defecto
 }
->>>>>>> 76c2f8b7bbfe26fc1fe3c82284c441573a834897
 
 // Función para crear las tarjetas de producto
 function createProductCard(product) {
     return `
-<<<<<<< HEAD
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="${product.image}" class="img-fluid rounded-start" alt="${product.name}">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">${product.name}</h5>
-                        <p class="card-text">${product.description}</p>
-                        <p class="card-text"><small class="text-muted">Precio: ${product.currency} ${product.cost}</small></p>
-                        <p class="card-text"><small class="text-muted">${product.soldCount} vendidos</small></p>
-                    </div>
-                </div>
-            </div>
-=======
         <div class="product-card">
             <a href="product-info.html" onclick="saveProductId(${product.id})" class="products-link">
             <div class="product-info">
@@ -46,12 +24,10 @@ function createProductCard(product) {
                 ${product.description}
             
             </div></a>
->>>>>>> 76c2f8b7bbfe26fc1fe3c82284c441573a834897
         </div>
     `;
 }
 
-<<<<<<< HEAD
 // Función para renderizar los productos
 function renderProducts(productsToRender) {
     const container = document.getElementById('products-container');
@@ -62,11 +38,9 @@ function renderProducts(productsToRender) {
         container.innerHTML += productCard;
     });
 }
-=======
 function saveProductId(productId) {
     localStorage.setItem('selectedProductId', productId);
     }
->>>>>>> 76c2f8b7bbfe26fc1fe3c82284c441573a834897
 
 // Función para cargar productos desde el JSON
 async function loadProducts() {
@@ -76,10 +50,8 @@ async function loadProducts() {
     try {
         const response = await fetch(productsUrl);
         const data = await response.json();
-<<<<<<< HEAD
         products = data.products; // Accede a la propiedad 'products'
         renderProducts(products); // Renderizar productos iniciales
-=======
         setCategoryDescription(data.catName);
         products = data.products; // Guardamos los productos en la variable global
 
@@ -89,13 +61,11 @@ async function loadProducts() {
             const productCard = createProductCard(product);
             container.innerHTML += productCard;
         });
->>>>>>> 76c2f8b7bbfe26fc1fe3c82284c441573a834897
     } catch (error) {
         console.error('Error al cargar los productos:', error);
     }
 }
 
-<<<<<<< HEAD
 // Función para aplicar filtros
 function applyFilters() {
     const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
@@ -130,7 +100,6 @@ document.getElementById('applyFilters').addEventListener('click', applyFilters);
 document.getElementById('sortOrder').addEventListener('change', () => applySorting(products));
 
 // Cargar productos cuando la página esté lista
-=======
 // Función para establecer la descripción de la categoría
 function setCategoryDescription(catName) {
     const descriptionText = `Verás aquí todos los productos de la categoría <strong>${catName}</strong>`;
@@ -170,7 +139,6 @@ function renderProducts(filteredProducts) {
 }
 
 // Cargar los productos cuando el DOM esté completamente cargado
->>>>>>> 76c2f8b7bbfe26fc1fe3c82284c441573a834897
 document.addEventListener('DOMContentLoaded', loadProducts);
 
 
