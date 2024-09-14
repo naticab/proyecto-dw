@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const productId = localStorage.getItem('selectedProductId');
     if (productId) {
-        console.log(productId);
         const response = await fetch(PRODUCT_INFO_URL + `/${productId}${EXT_TYPE}`);
         const product = await response.json();
         console.log(productId);
@@ -11,15 +10,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('price').textContent = `${product.currency} ${product.cost}`;
         document.getElementById('category').textContent = product.category;
         document.getElementById('soldCount').textContent = `${product.soldCount} vendidos`;
-        document.getElementById('images').src = product.image;
+        document.getElementById('mainImage').src = product.image;
+        document.getElementById('related-products').src = `${product.relatedProducts}`;
 
-        let htmlToAppend="<div class=`row`>";
+          // Verifica que el array de imágenes exista y tenga al menos una imagen
+          if (product.images.length > 0) {
+            // Asigna la primera imagen del array como la imagen principal
+            document.getElementById('mainImage').src = product.images[0];
+        }
+
+        let htmlToAppend="<div class='row'>";
         for (let img of product.images){
-            htmlToAppend += `<div class="col-4 mb-3"><img src="${img}" class="img-fluid"></div>`;
+            htmlToAppend += `<div class=""><img src="${img}"></div>`;
         }
         htmlToAppend += `</div>`;
-        document.getElementById('images').innerHTML = htmlToAppend;
-    }
+        document.getElementById('related-images').innerHTML = htmlToAppend;
+        }
 });
 
 // Función para hacer las tarjetas de producto

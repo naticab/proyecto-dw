@@ -28,6 +28,16 @@ function createProductCard(product) {
     `;
 }
 
+// Función para renderizar los productos
+function renderProducts(productsToRender) {
+    const container = document.getElementById('products-container');
+    container.innerHTML = ''; // Limpiar el contenedor
+
+    productsToRender.forEach(product => {
+        const productCard = createProductCard(product);
+        container.innerHTML += productCard;
+    });
+}
 function saveProductId(productId) {
     localStorage.setItem('selectedProductId', productId);
     }
@@ -40,6 +50,8 @@ async function loadProducts() {
     try {
         const response = await fetch(productsUrl);
         const data = await response.json();
+        products = data.products; // Accede a la propiedad 'products'
+        renderProducts(products); // Renderizar productos iniciales
         setCategoryDescription(data.catName);
         products = data.products; // Guardamos los productos en la variable global
 
@@ -54,6 +66,40 @@ async function loadProducts() {
     }
 }
 
+// Función para aplicar filtros
+function applyFilters() {
+    const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
+    const maxPrice = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+
+    const filteredProducts = products.filter(product => 
+        product.cost >= minPrice && product.cost <= maxPrice
+    );
+
+    applySorting(filteredProducts); // Aplicar la ordenación en los productos filtrados
+}
+
+// Función para aplicar ordenación
+function applySorting(productsToSort = products) {
+    const sortOrder = document.getElementById('sortOrder').value;
+    
+    let sortedProducts = [...productsToSort];
+
+    if (sortOrder === 'priceAsc') {
+        sortedProducts.sort((a, b) => a.cost - b.cost);
+    } else if (sortOrder === 'priceDesc') {
+        sortedProducts.sort((a, b) => b.cost - a.cost);
+    } else if (sortOrder === 'relevanceDesc') {
+        sortedProducts.sort((a, b) => b.soldCount - a.soldCount);
+    }
+
+    renderProducts(sortedProducts);
+}
+
+// Event listeners para los controles de filtro y ordenación
+document.getElementById('applyFilters').addEventListener('click', applyFilters);
+document.getElementById('sortOrder').addEventListener('change', () => applySorting(products));
+
+// Cargar productos cuando la página esté lista
 // Función para establecer la descripción de la categoría
 function setCategoryDescription(catName) {
     const descriptionText = `Verás aquí todos los productos de la categoría <strong>${catName}</strong>`;
