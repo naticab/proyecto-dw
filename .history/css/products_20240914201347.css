@@ -1,5 +1,5 @@
 #buscador {
-    width: 45%;
+    width: 40%;
 }
 
 .inputs-y-selectores {
@@ -87,24 +87,12 @@ body {
     text-decoration: none;
     color: inherit;
 }
-
-.product-card {
-    background-color: #fff;
-    border-radius: 8px; 
-    box-shadow: 0 2px 4px #0000001a;
-    transition: box-shadow 0.3s ease;
-}
-
-.product-card:hover {
-    box-shadow: 0 4px 8px #00000033;
-    background-color: #fbf0e2b4;
-    cursor: pointer;
-}
-
+  
 .product-card-link {
     text-decoration: none;
     color: inherit;
 }
+
 
 .sold-count {
     font-size: 12px;
@@ -114,10 +102,6 @@ body {
 @media (max-width: 768px) {
     #related-images {
       grid-template-columns: 1fr;
-    }
-
-    .inputs-y-selectores {
-        width: 120px; /* Reducción del tamaño de los inputs y selectores */
     }
 }
   

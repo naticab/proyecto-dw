@@ -117,7 +117,31 @@ body {
     }
 
     .inputs-y-selectores {
-        width: 120px; /* Reducción del tamaño de los inputs y selectores */
+        width: 130px; /* Reducción del tamaño de los inputs y selectores */
     }
 }
   
+
+@media (max-width: 768px) {
+
+
+    .d-flex {
+        flex-direction: column; /* Cambia la dirección de los elementos flexibles a columna */
+        align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+    }
+
+    .d-flex .me-2,
+    .d-flex .me-2 .form-label {
+        margin-bottom: 10px; /* Añade un margen inferior para separar los elementos */
+    }
+
+    .d-flex .gap-2 {
+        margin-bottom: 10px; /* Añade un margen inferior para separar los botones */
+    }
+
+    /* Asegúrate de que los botones de filtro y limpieza estén en una nueva línea */
+    .d-flex.align-items-end.gap-3 {
+        flex-direction: column; /* Coloca los botones en una columna */
+        align-items: flex-start; /* Alinea los botones al inicio del contenedor */
+    }
+}

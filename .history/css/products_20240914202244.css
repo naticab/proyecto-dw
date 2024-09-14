@@ -1,5 +1,5 @@
 #buscador {
-    width: 45%;
+    width: 40%;
 }
 
 .inputs-y-selectores {
@@ -89,16 +89,16 @@ body {
 }
 
 .product-card {
-    background-color: #fff;
-    border-radius: 8px; 
-    box-shadow: 0 2px 4px #0000001a;
-    transition: box-shadow 0.3s ease;
+    background-color: #fff; /* Color de fondo de la tarjeta */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
+    transition: box-shadow 0.3s ease; /* Transición suave para el efecto de hover */
 }
 
 .product-card:hover {
-    box-shadow: 0 4px 8px #00000033;
-    background-color: #fbf0e2b4;
-    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+    background-color: #fbf0e2b4; /* Color de fondo de la tarjeta */
+
 }
 
 .product-card-link {
@@ -114,10 +114,6 @@ body {
 @media (max-width: 768px) {
     #related-images {
       grid-template-columns: 1fr;
-    }
-
-    .inputs-y-selectores {
-        width: 120px; /* Reducción del tamaño de los inputs y selectores */
     }
 }
   

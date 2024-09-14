@@ -11,8 +11,10 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/styles-cards.css" rel="stylesheet">
+  <link href="css\styles-cards.css" rel="stylesheet">
   <link href="css/products.css" rel="stylesheet">
   <link href="css/header-and-footer.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -34,11 +36,14 @@
             <li class="nav-item">
               <a class="nav-link" href="sell.html">Vender</a>
             </li>
+            <li class="nav-item">
+            </li>
             <li class="nav-item d-flex align-items-center"></li>
             <div class="d-none" id="user-container">
-              <span id="user-name" class="navbar-text nav-link"></span>
+              <span id="user-name" class="navbar-text nav-link" href="my-profile.html"></span>
             </div>
             <a id="loginLink"></a>
+            </li>
           </ul>
         </div>
       </div>
@@ -49,43 +54,44 @@
   <div class="text-center p-4">
     <h1 class="titulop">Productos</h1>
     <p id="category-description" class="lead"></p>
-    <div class="d-flex justify-content-center">
+    <!--Aquí se inserta el texto descriptivo de cada categoría de productos-->
+    <div class="d-flex justify-content-center"> <!-- Aplico las clases de Bootstrap para centrar -->
       <input class="form-control" id="buscador" type="search" placeholder="Buscar artículos">
     </div>
   </div>
 
+
+
   <!-- Controles de filtro y ordenación -->
-  <div class="container">
-    <div class="d-flex align-items-end justify-content-end gap-3 mb-3">
-      <!-- Botón de ordenar por -->
-      <select id="sortOrder" class="form-select inputs-y-selectores me-2">
-        <option value="">Precio</option>
-        <option value="priceAsc">Precio: Ascendente</option>
-        <option value="priceDesc">Precio: Descendente</option>
-        <option value="relevanceDesc">Relevancia: Descendente</option>
-        <option value="relevanceAsc">Relevancia: Ascendente</option>
-      </select>
+  <div class="d-flex align-items-end justify-content-end">
+    <!-- Botón de ordenar por -->
+    <select id="sortOrder" class="form-select inputs-y-selectores me-2">
+      <option value="">Precio</option>
+      <option value="priceAsc">Precio: Ascendente</option>
+      <option value="priceDesc">Precio: Descendente</option>
+      <option value="relevanceDesc">Relevancia: Descendente</option>
+      <option value="relevanceDesc">Relevancia: Ascendente</option>
+    </select>
 
-      <div class="d-flex gap-2 me-2">
-        <div>
-          <label for="minPrice" class="form-label">Precio mínimo:</label>
-          <input type="number" class="form-control inputs-y-selectores" id="minPrice" placeholder="0">
-        </div>
-        <div>
-          <label for="maxPrice" class="form-label">Precio máximo:</label>
-          <input type="number" class="form-control inputs-y-selectores" id="maxPrice" placeholder="1000">
-        </div>
+    <div class="d-flex gap-2 me-2">
+      <div>
+        <label for="minPrice" class="form-label">Precio mínimo:</label>
+        <input type="number" class="form-control inputs-y-selectores" id="minPrice" placeholder="0">
       </div>
+      <div>
+        <label for="maxPrice" class="form-label">Precio máximo:</label>
+        <input type="number" class="form-control inputs-y-selectores" id="maxPrice" placeholder="1000">
+      </div>
+    </div>
 
-      <!-- Botones de filtrar y limpiar -->
-      <div class="d-flex align-items-end gap-2">
-        <button type="button" class="btn btn-primary" id="applyFilters">Filtrar</button>
-        <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
-      </div>
+    <!-- Botones de filtrar y limpiar -->
+    <div class="d-flex align-items-end gap-2">
+      <button type="button" class="btn btn-primary" id="applyFilters">Filtrar</button>
+      <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
     </div>
   </div>
 
-  <!-- Contenedor de productos -->
+
   <div class="container" id="products-container">
     <!-- Los productos se insertarán aquí dinámicamente -->
   </div>
@@ -95,7 +101,8 @@
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
     </div>
   </footer>
   <div id="spinner-wrapper">
@@ -107,6 +114,7 @@
     </div>
   </div>
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
   <script src="js/products.js"></script>
   <script src="js/checklogin.js"></script>
 </body>

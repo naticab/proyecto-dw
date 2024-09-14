@@ -1,5 +1,5 @@
 #buscador {
-    width: 45%;
+    width: 40%;
 }
 
 .inputs-y-selectores {
@@ -114,10 +114,6 @@ body {
 @media (max-width: 768px) {
     #related-images {
       grid-template-columns: 1fr;
-    }
-
-    .inputs-y-selectores {
-        width: 120px; /* Reducción del tamaño de los inputs y selectores */
     }
 }
   
