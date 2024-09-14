@@ -10,8 +10,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <link href="css\styles-cards.css" rel="stylesheet">
-  
+  <link href="css/styles-cards.css" rel="stylesheet">
 </head>
 
 <body>
@@ -39,6 +38,32 @@
   
   <!-- prueba catálogo -->
   <h1 class="titulop">Productos - Autos</h1>
+
+  <!-- Controles de filtro y ordenación -->
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <h2>Filtrar por precio</h2>
+        <div class="mb-3">
+          <label for="minPrice" class="form-label">Precio mínimo:</label>
+          <input type="number" class="form-control" id="minPrice" placeholder="0">
+        </div>
+        <div class="mb-3">
+          <label for="maxPrice" class="form-label">Precio máximo:</label>
+          <input type="number" class="form-control" id="maxPrice" placeholder="1000">
+        </div>
+        <button type="button" class="btn btn-primary" id="applyFilters">Aplicar Filtros</button>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h2>Ordenar por</h2>
+        <select id="sortOrder" class="form-select">
+          <option value="priceAsc">Precio: Ascendente</option>
+          <option value="priceDesc">Precio: Descendente</option>
+          <option value="relevanceDesc">Relevancia: Descendente</option>
+        </select>
+      </div>
+    </div>
+  </div>
 
   <div class="container" id="products-container">
       <!-- Los productos se insertarán aquí dinámicamente -->
