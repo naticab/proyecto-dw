@@ -81,13 +81,15 @@ function applyFilters() {
 // Función para aplicar ordenación
 function applySorting(productsToSort = products) {
     const sortOrder = document.getElementById('sortOrder').value;
-    
+
     let sortedProducts = [...productsToSort];
 
     if (sortOrder === 'priceAsc') {
         sortedProducts.sort((a, b) => a.cost - b.cost);
     } else if (sortOrder === 'priceDesc') {
         sortedProducts.sort((a, b) => b.cost - a.cost);
+    } else if (sortOrder === 'relevanceAsc') {
+        sortedProducts.sort((a, b) => a.soldCount - b.soldCount);
     } else if (sortOrder === 'relevanceDesc') {
         sortedProducts.sort((a, b) => b.soldCount - a.soldCount);
     }
@@ -95,9 +97,17 @@ function applySorting(productsToSort = products) {
     renderProducts(sortedProducts);
 }
 
+// Función para limpiar filtros y mostrar todos los productos
+function clearFilters() {
+    document.getElementById('minPrice').value = '';
+    document.getElementById('maxPrice').value = '';
+    document.getElementById('sortOrder').value = ''; 
+    renderProducts(products); 
+}
 // Event listeners para los controles de filtro y ordenación
 document.getElementById('applyFilters').addEventListener('click', applyFilters);
 document.getElementById('sortOrder').addEventListener('change', () => applySorting(products));
+document.getElementById('clearRangeFilter').addEventListener('click', clearFilters);
 
 // Cargar productos cuando la página esté lista
 // Función para establecer la descripción de la categoría
