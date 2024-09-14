@@ -3,14 +3,15 @@
 }
 
 .inputs-y-selectores {
-    width: 150px; /* Ajustamos el tamaño para que todos los inputs sean consistentes */
+    width: 150px; /* Ajusta este valor al tamaño deseado */
+    margin-left: 10px; /* Espacio entre los inputs */
+
 }
 
-/* Estilos básicos */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-  }
+label {
+    font-weight: bold; /* Si deseas resaltar más los títulos */
+}
+
   
 .container {
     max-width: 1200px;

@@ -3,8 +3,13 @@
 }
 
 .inputs-y-selectores {
-    width: 150px; /* Ajustamos el tamaño para que todos los inputs sean consistentes */
+    width: 150px; /* Ajusta este valor al tamaño deseado */
 }
+
+label {
+    font-weight: bold; /* Si deseas resaltar más los títulos */
+}
+
 
 /* Estilos básicos */
 body {

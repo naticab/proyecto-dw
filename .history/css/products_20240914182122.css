@@ -3,7 +3,8 @@
 }
 
 .inputs-y-selectores {
-    width: 150px; /* Ajustamos el tamaño para que todos los inputs sean consistentes */
+    width: 15%; /* Ajustamos el tamaño para que todos los inputs sean consistentes */
+    margin-left: 10px; /* Espacio entre los inputs */
 }
 
 /* Estilos básicos */

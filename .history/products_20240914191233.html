@@ -62,17 +62,25 @@
 
 
 
-    <!-- Controles de filtro y ordenación -->
-  <div class="d-flex align-items-end justify-content-end">
-    <!-- Botón de ordenar por -->
-    <select id="sortOrder" class="form-select inputs-y-selectores me-2">
-      <option value="">Precio</option> <!-- Solo muestra "Precio" -->
-      <option value="priceAsc">Ascendente</option>
-      <option value="priceDesc">Descendente</option>
-      <option value="relevanceDesc">Relevancia: Descendente</option>
-    </select>
-    
-    <div class="d-flex gap-2 me-2">
+  
+  <div class="d-flex flex-column align-items-end">
+    <!-- Contenedor para los botones de ordenar y filtrar -->
+    <div class="d-flex align-items-center gap-2 mb-3">
+      <!-- Botón de ordenar por -->
+      <select id="sortOrder" class="form-select inputs-y-selectores">
+        <option value="">Precio</option> <!-- Solo muestra "Precio" -->
+        <option value="priceAsc">Ascendente</option>
+        <option value="priceDesc">Descendente</option>
+        <option value="relevanceDesc">Relevancia: Descendente</option>
+      </select>
+      
+      <!-- Botones de filtrar y limpiar -->
+      <button type="button" class="btn btn-primary" id="applyFilters">Filtrar</button>
+      <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+    </div>
+  
+    <!-- Contenedor para los inputs de precio -->
+    <div class="d-flex gap-3 mb-3">
       <div>
         <label for="minPrice" class="form-label">Precio mínimo:</label>
         <input type="number" class="form-control inputs-y-selectores" id="minPrice" placeholder="0">
@@ -82,14 +90,15 @@
         <input type="number" class="form-control inputs-y-selectores" id="maxPrice" placeholder="1000">
       </div>
     </div>
-  
-    <!-- Botones de filtrar y limpiar -->
-    <div class="d-flex align-items-end gap-2">
-      <button type="button" class="btn btn-primary" id="applyFilters">Filtrar</button>
-      <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
-    </div>
   </div>
   
+  
+  
+  
+  
+  
+
+
 
   <div class="container" id="products-container">
     <!-- Los productos se insertarán aquí dinámicamente -->

@@ -62,34 +62,45 @@
 
 
 
-    <!-- Controles de filtro y ordenación -->
-  <div class="d-flex align-items-end justify-content-end">
-    <!-- Botón de ordenar por -->
-    <select id="sortOrder" class="form-select inputs-y-selectores me-2">
-      <option value="">Precio</option> <!-- Solo muestra "Precio" -->
-      <option value="priceAsc">Ascendente</option>
-      <option value="priceDesc">Descendente</option>
-      <option value="relevanceDesc">Relevancia: Descendente</option>
-    </select>
-    
-    <div class="d-flex gap-2 me-2">
-      <div>
-        <label for="minPrice" class="form-label">Precio mínimo:</label>
-        <input type="number" class="form-control inputs-y-selectores" id="minPrice" placeholder="0">
-      </div>
-      <div>
-        <label for="maxPrice" class="form-label">Precio máximo:</label>
-        <input type="number" class="form-control inputs-y-selectores" id="maxPrice" placeholder="1000">
-      </div>
-    </div>
   
-    <!-- Botones de filtrar y limpiar -->
-    <div class="d-flex align-items-end gap-2">
-      <button type="button" class="btn btn-primary" id="applyFilters">Filtrar</button>
-      <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
-    </div>
+    <div class="row justify-content-center align-items-start">
+      
+      <!-- Columna 1: Filtrar por Precio -->
+      <div class="col-6 text-start">
+        <h2>Filtrar por precio</h2>
+        <div class="d-flex flex-column">
+          <div class="mb-2">
+            <label for="minPrice" class="form-label">Precio mínimo:</label>
+            <input type="number" class="form-control inputs-y-selectores" id="minPrice" placeholder="0">
+          </div>
+          <div class="mb-2">
+            <label for="maxPrice" class="form-label">Precio máximo:</label>
+            <input type="number" class="form-control inputs-y-selectores" id="maxPrice" placeholder="1000">
+          </div>
+          <div class="d-flex">
+            <button type="button" class="btn btn-primary" id="applyFilters">Filtrar</button>
+            <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Columna 2: Ordenar por -->
+      <div class="col-6 text-start">
+        <h2>Ordenar por</h2>
+        <div class="d-flex align-items-start">
+          <select id="sortOrder" class="form-select inputs-y-selectores">
+            <option value="">Precio</option> <!-- Solo muestra "Precio" -->
+            <option value="priceAsc">Ascendente</option>
+            <option value="priceDesc">Descendente</option>
+            <option value="relevanceDesc">Relevancia: Descendente</option>
+          </select>
+        </div>
+      </div>
   </div>
   
+  
+
+
 
   <div class="container" id="products-container">
     <!-- Los productos se insertarán aquí dinámicamente -->
