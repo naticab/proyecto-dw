@@ -1,0 +1,148 @@
+#buscador {
+    width: 50%;
+}
+
+.inputs-y-selectores {
+    width: 150px; /* Ajustamos el tamaño para que todos los inputs sean consistentes */
+}
+
+header {
+    padding: 0;
+  }
+  
+  header .container {
+    padding: 0;
+  }
+  
+
+/* Estilos básicos */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+.container {
+    margin: 10px auto;
+  }
+  
+
+
+
+#mainImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+#related-images {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#related-images img {
+    width: 100px; 
+    height: auto;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+#related-images img:hover {
+    transform: scale(1.1);
+}
+  
+/* Detalles del producto */
+.product-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
+.product-details h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+  
+.product-price {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+  
+.product-category {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+  
+.product-description {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#products-container a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px #0000001a;
+    transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 8px #00000033;
+    background-color: #fbf0e2b4;
+    cursor: pointer;
+}
+
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.sold-count {
+    font-size: 12px;
+    color: #777;
+}
+
+@media (max-width: 768px) {
+    #related-images {
+      grid-template-columns: 1fr;
+    }
+
+    .inputs-y-selectores {
+        width: 120px; /* Reducción del tamaño de los inputs y selectores */
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .d-flex {
+      flex-direction: column;
+      justify-content: center !important;
+      align-items: center !important;
+      
+    }
+  
+    .form-select {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+
+    .inputs-y-selectores {
+        align-items: center;
+    }
+  }
+  
+
