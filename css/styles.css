@@ -5,8 +5,8 @@
   font-family: 'Verdana', serif !important;
 }
 
-h2 {
-  font-size: 2.5rem;
+#login-heading {
+  font-size: 2rem;
 }
 
 .jumbotron .display-4 {
