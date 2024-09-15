@@ -38,6 +38,14 @@ a.nav-link:hover {
     transition: color 0.3s, text-shadow 0.3s;
 }
 
+.navbar-toggler {
+    border-color: #fff;
+}
+
+.navbar-toggler .fas {
+    color: #fff;
+}
+
 .navbar-collapse {
     justify-content: flex-end;
 }
@@ -46,18 +54,23 @@ a.nav-link:hover {
     cursor: pointer;
 }
 
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 @media (max-width: 995px) {
 
     .navbar-collapse {
         display: none;
         position: absolute;
         top: 100%;
-        left: -40px;
-        width: 240%;
+        left: -30px;
+        width: 100%;
         z-index: 999;
         flex-direction: column-reverse;
         align-items: center;
-justify-content: center;    }
+    }
 
     .navbar-collapse.show {
         display: flex;
@@ -70,24 +83,14 @@ justify-content: center;    }
         border-radius: 0 0 100px 100px;
         font-weight: bold;
         text-align: center;
-        display: flex;
-        justify-content: center; /* Centra horizontalmente todos los li */
-        align-items: center; /* Centra verticalmente los li */
-        width: 100%;
     }
 
-    .navbar-toggler-icon {
-        background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%281, 1, 1, 1%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
-        filter: brightness(0) invert(1); /* Cambia el icono a blanco */
-    }
-    
-    
     .navbar-nav:hover {
         cursor: pointer;
     }
 
     a.nav-link:hover {
-        color: #9b9a9b;
+        color: #f6c7de;
         transition: color 0.3s, text-shadow 0.3s;
         transform: scale(1.05);
     }
@@ -101,41 +104,9 @@ justify-content: center;    }
 footer {
     background: #121219;
     color: #fff;
+    bottom: 0;
     min-height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 1rem; /* Ajusta el padding si es necesario */
-}
-
-.container {
-    width: 100%;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-}
-
-.footer-text {
-    margin: 0;
-    text-align: center;
-}
-
-.footer-link-end {
-    margin: 0;
-    text-align: right;
-}
-
-.footer-link {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-link:hover {
-    color: #9b9a9b;
-    transition: color 0.3s, text-shadow 0.3s;
-    transform: scale(1.05);
 }

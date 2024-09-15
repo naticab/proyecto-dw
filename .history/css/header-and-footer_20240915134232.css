@@ -52,7 +52,7 @@ a.nav-link:hover {
         display: none;
         position: absolute;
         top: 100%;
-        left: -40px;
+        left: -35px;
         width: 240%;
         z-index: 999;
         flex-direction: column-reverse;
@@ -101,41 +101,9 @@ justify-content: center;    }
 footer {
     background: #121219;
     color: #fff;
+    bottom: 0;
     min-height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 1rem; /* Ajusta el padding si es necesario */
-}
-
-.container {
-    width: 100%;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-}
-
-.footer-text {
-    margin: 0;
-    text-align: center;
-}
-
-.footer-link-end {
-    margin: 0;
-    text-align: right;
-}
-
-.footer-link {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-link:hover {
-    color: #9b9a9b;
-    transition: color 0.3s, text-shadow 0.3s;
-    transform: scale(1.05);
 }

@@ -52,17 +52,18 @@ a.nav-link:hover {
         display: none;
         position: absolute;
         top: 100%;
-        left: -40px;
-        width: 240%;
+        left: -35px;
+        width: 200%; /* Mantienes 200% si te funciona bien */
         z-index: 999;
         flex-direction: column-reverse;
-        align-items: center;
-justify-content: center;    }
-
+        align-items: center; /* Mantén el centrado vertical si lo deseas */
+        justify-content: center; /* Alinea el contenido horizontalmente */
+    }
+    
     .navbar-collapse.show {
         display: flex;
     }
-
+    
     .navbar-nav {
         background: #121219;
         color: #fff;
@@ -70,11 +71,17 @@ justify-content: center;    }
         border-radius: 0 0 100px 100px;
         font-weight: bold;
         text-align: center;
-        display: flex;
-        justify-content: center; /* Centra horizontalmente todos los li */
-        align-items: center; /* Centra verticalmente los li */
-        width: 100%;
+        width: 100%; /* Asegura que el ancho cubra todo el contenedor */
+        justify-content: center; /* Alinea los elementos horizontalmente */
     }
+    
+    .navbar-nav .nav-item {
+        margin: 10px 0;
+        display: block; /* Asegura que los items se comporten como bloques */
+        width: 100%; /* Haz que los items ocupen todo el ancho del contenedor */
+        text-align: center; /* Centra el texto dentro de cada item */
+    }
+    
 
     .navbar-toggler-icon {
         background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%281, 1, 1, 1%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
@@ -92,50 +99,16 @@ justify-content: center;    }
         transform: scale(1.05);
     }
 
-    .navbar-nav .nav-item {
-        margin: 10px 0;
-    }
+
 }
 
 
 footer {
     background: #121219;
     color: #fff;
+    bottom: 0;
     min-height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 1rem; /* Ajusta el padding si es necesario */
-}
-
-.container {
-    width: 100%;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-}
-
-.footer-text {
-    margin: 0;
-    text-align: center;
-}
-
-.footer-link-end {
-    margin: 0;
-    text-align: right;
-}
-
-.footer-link {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-link:hover {
-    color: #9b9a9b;
-    transition: color 0.3s, text-shadow 0.3s;
-    transform: scale(1.05);
 }
