@@ -1,0 +1,109 @@
+header {
+    background: #121219;
+    color: #fff;
+    position: relative;
+}
+
+h1 {
+    font-family: "Love Ya Like A Sister", cursive;
+
+}
+
+a.nav-link {
+    color: #f1f1f1;
+}
+
+a.nav-link:hover {
+    color: #9b9a9b;
+    transition: color 0.3s, text-shadow 0.3s;
+    transform: scale(1.05);
+}
+
+/* Espaciado entre los elementos del menú */
+.navbar-nav .nav-item {
+    margin-right: 40px;
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0; /* Quitar margen derecho al último elemento */
+}
+
+#user-name.nav-link {
+    color: #f1f1f1;
+}
+
+#user-name.nav-link:hover {
+    color: #9b9a9b;
+    transform: scale(1.05);
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.navbar-toggler:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 995px) {
+
+    .navbar-collapse {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: -40px;
+        width: 240%;
+        z-index: 999;
+        flex-direction: column-reverse;
+        align-items: center;
+justify-content: center;    }
+
+    .navbar-collapse.show {
+        display: flex;
+    }
+
+    .navbar-nav {
+        background: #121219;
+        color: #fff;
+        padding: 1.5rem;
+        border-radius: 0 0 100px 100px;
+        font-weight: bold;
+        text-align: center;
+        display: flex;
+        justify-content: center; /* Centra horizontalmente todos los li */
+        align-items: center; /* Centra verticalmente los li */
+        width: 100%;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%281, 1, 1, 1%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+        filter: brightness(0) invert(1); /* Cambia el icono a blanco */
+    }
+    
+    
+    .navbar-nav:hover {
+        cursor: pointer;
+    }
+
+    a.nav-link:hover {
+        color: #9b9a9b;
+        transition: color 0.3s, text-shadow 0.3s;
+        transform: scale(1.05);
+    }
+
+    .navbar-nav .nav-item {
+        margin: 10px 0;
+    }
+}
+
+
+footer {
+    background: #121219;
+    color: #fff;
+    bottom: 0;
+    min-height: 4rem;
+
+    justify-content: center;
+    align-items: center;
+}

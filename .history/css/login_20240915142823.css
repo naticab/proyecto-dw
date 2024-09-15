@@ -1,0 +1,105 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.login-container {
+    width: 30em;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #aaa;
+}
+
+button {
+    width: 50%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #252628;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3f3f3f;
+}
+
+
+header {
+    background: #121219;
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0; /* Añade padding arriba y abajo del header */
+    box-sizing: border-box; /* Asegúrate de que el padding no afecte el ancho total */
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1200px; /* Ajusta el max-width si necesitas limitar el ancho */
+    text-align: center;
+}
+
+h1 {
+    font-family: "Love Ya Like A Sister", cursive;
+    margin: 0;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .login-container {
+        width: 25em;
+    }
+}
+
+@media (max-width: 576px) {
+
+    body {
+        background-color: #AAA8A4;
+    }
+
+    .login-container {
+        width: 20em;
+        padding: 15px;
+    }
+
+    button {
+        width: 50%;
+    }
+
+    input {
+        margin: 5px 0;
+    }
+
+    footer {
+        visibility: hidden;
+    }
+}
