@@ -1,0 +1,122 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    flex: 1; /* Permite que el main ocupe todo el espacio restante */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 1rem; /* Añade padding si es necesario */
+}
+
+
+.login-container {
+    width: 30em;
+    text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 50%;
+    background-color: #252628;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3f3f3f;
+}
+
+
+.password-container {
+    position: relative;
+}
+
+.password-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #aaa;
+}
+
+
+header {
+    background: #121219;
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0; /* Añade padding arriba y abajo del header */
+    box-sizing: border-box; /* Asegúrate de que el padding no afecte el ancho total */
+    margin: 0; /* Elimina cualquier margen */
+}
+
+.header-container {
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Love Ya Like A Sister", cursive;
+    margin: 0;
+}
+
+
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        width: 25em;
+    }
+}
+
+@media (max-width: 576px) {
+
+    body {
+        background-color: #AAA8A4;
+    }
+
+    .login-container {
+        width: 20em;
+        padding: 15px;
+    }
+
+    button {
+        width: 50%;
+    }
+
+    input {
+        margin: 5px 0;
+    }
+
+    footer {
+        visibility: hidden;
+    }
+}
