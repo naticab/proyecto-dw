@@ -109,6 +109,38 @@ body {
     color: #777;
 }
 
+#comments-section {
+    
+}
+
+.fa-star {
+    color: lightgray;
+    stroke: #333;
+}
+
+.fa-star.checked {
+    color: gold;
+    stroke: #333;
+    stroke-width: 10%;
+}
+
+.comment-card {
+    padding: 10px;
+    margin: 10px 0;
+    border-bottom: 1px solid lightgray;
+}
+
+.comment-user, .comment-date {
+    font-size: 15px;
+    color: #777;
+}
+
+.comment-description {
+    align-items: center;
+    display: flex;
+    align-self: center;
+}
+
 @media (max-width: 768px) {
     #related-images {
       grid-template-columns: 1fr;
