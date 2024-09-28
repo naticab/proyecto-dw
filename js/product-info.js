@@ -26,6 +26,35 @@ document.addEventListener('DOMContentLoaded', async () => {
         htmlToAppend += `</div>`;
         document.getElementById('related-images').innerHTML = htmlToAppend;
         }
+        
+        const reviewsResponse = await fetch(PRODUCT_INFO_COMMENTS_URL + `/${productId}${EXT_TYPE}`);
+        const comments = await reviewsResponse.json();
+
+        let commentsToAppend = "";
+        comments.forEach(comment => {
+            commentsToAppend += `
+                <div class="comment-card">
+                    <span class="comment-user">${comment.user} | </span>
+                    <span class="comment-date">${comment.dateTime}</span>
+                    <div class="comment-">${generateStars(comment.score)}</div>
+                    <div class="comment-description">${comment.description}</div>
+                </div>
+            `;
+        });
+        document.getElementById('comments-section').innerHTML = commentsToAppend;
+
+
+        function generateStars(score) {
+            let stars = ''
+            for (let i=1; i<=5; i++) {
+                if (i <= score) {
+                    stars += `<span class="fa fa-star checked"></span>`;
+                } else {
+                    stars += `<span class="fa fa-star"></span>`;
+                }
+            }
+            return stars;
+        }
 });
 
 // Función para hacer las tarjetas de producto
