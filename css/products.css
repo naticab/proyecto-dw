@@ -50,7 +50,8 @@ body {
     transform: scale(1.1);
 }
   
-/* Detalles del producto */
+/* Diseño del producto dentro de products */
+
 .product-details {
     background-color: #fff;
     padding: 20px;
@@ -75,7 +76,7 @@ body {
     margin-bottom: 15px;
 }
   
-.product-description {
+.product-description{
     font-size: 14px;
     color: #333;
     margin-bottom: 20px;
@@ -104,14 +105,58 @@ body {
     color: inherit;
 }
 
+
+/* Diseño del producto dentro de product-info (tarjetas de productos relacionados) */
+#title-related-products{
+    padding-top: 20px;
+}
+#related-products{
+    display:flex;
+    gap: 15px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    margin-top: 0;
+}
+
+.related-products:hover {
+    box-shadow:#00000033;
+    background-color: #fbf0e2b4;
+    cursor: pointer;
+}
+.related-products{
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 300px;
+    text-align: center;
+    background-color: #fff; 
+    box-shadow: 0px 0px 5px #00000033;
+    transition: box-shadow 0.3s ease;
+}
+.related-products img{
+    height: 50%;
+    width: 100%;
+    height: auto; 
+    object-fit: cover; 
+    margin-bottom: 10px;
+}
+.product-info {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Diseño para comentarios */
+
+#title-comments-section{
+    padding-top: 40px;
+}
 .sold-count {
     font-size: 12px;
     color: #777;
 }
 
-#comments-section {
+/* #comments-section {
     
-}
+} */
 
 .fa-star {
     color: lightgray;
@@ -173,5 +218,4 @@ body {
         align-items: center;
     }
   }
-  
 

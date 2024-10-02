@@ -1,9 +1,16 @@
 document.addEventListener('DOMContentLoaded', async () => {
+
     const productId = localStorage.getItem('selectedProductId');
     if (productId) {
         const response = await fetch(PRODUCT_INFO_URL + `/${productId}${EXT_TYPE}`);
         const product = await response.json();
-        console.log(productId);
+        console.log(productId);  
+
+    
+        try {
+            // Llamada a la API para obtener el producto
+            const response = await fetch(`https://japceibal.github.io/emercado-api/products/${productId}.json`);
+            const product = await response.json();
         // lleva el producto al HTML
         document.getElementById('name').textContent = product.name;
         document.getElementById('description').textContent = product.description;
@@ -24,8 +31,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             htmlToAppend += `<div class=""><img src="${img}"></div>`;
         }
         htmlToAppend += `</div>`;
+
         document.getElementById('related-images').innerHTML = htmlToAppend;
-        }
+         showRelatedProducts(product.relatedProducts);}
+         catch(error){
+            console.error('Error fetching product data', error);
+         }
         
         const reviewsResponse = await fetch(PRODUCT_INFO_COMMENTS_URL + `/${productId}${EXT_TYPE}`);
         const comments = await reviewsResponse.json();
@@ -55,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             return stars;
         }
-});
+}});
 
 // Función para hacer las tarjetas de producto
 function createProductCard(product) {
@@ -74,4 +85,22 @@ function createProductCard(product) {
             </div>
         </div>
     `;
+}
+
+function showRelatedProducts(relatedProducts) {
+    let relatedProductsContainer = document.getElementById('related-products');
+    relatedProductsContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar productos
+
+    // Iterar sobre los productos relacionados
+    for (let relatedProduct of relatedProducts) {
+        let productCard = `
+            <div class="related-products">
+                <img src="${relatedProduct.image}" alt="${relatedProduct.name}">
+                <div class="product-info">
+                    <span class="product-name">${relatedProduct.name}</span>
+                </div>
+            </div>
+        `;
+        relatedProductsContainer.innerHTML += productCard;
+    }
 }
