@@ -89,18 +89,27 @@ function createProductCard(product) {
 
 function showRelatedProducts(relatedProducts) {
     let relatedProductsContainer = document.getElementById('related-products');
-    relatedProductsContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar productos
+    relatedProductsContainer.innerHTML = '';
 
-    // Iterar sobre los productos relacionados
     for (let relatedProduct of relatedProducts) {
-        let productCard = `
-            <div class="related-products">
-                <img src="${relatedProduct.image}" alt="${relatedProduct.name}">
-                <div class="product-info">
-                    <span class="product-name">${relatedProduct.name}</span>
-                </div>
+        console.log('Related Product ID:', relatedProduct.id);
+        
+        let productCard = document.createElement('div');
+        productCard.classList.add('related-products');
+
+        productCard.innerHTML = `
+            <img src="${relatedProduct.image}" alt="${relatedProduct.name}">
+            <div class="product-info">
+                <span class="product-name">${relatedProduct.name}</span>
             </div>
         `;
-        relatedProductsContainer.innerHTML += productCard;
+
+        //Evento click
+        productCard.addEventListener('click', function() {
+            localStorage.setItem('selectedProductId', relatedProduct.id);
+            window.location.href = 'product-info.html';  
+        });
+
+        relatedProductsContainer.appendChild(productCard);
     }
 }
