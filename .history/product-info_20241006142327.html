@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/products.css" rel="stylesheet">
+  <link href="css/header-and-footer.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="py-3">
+    <div class="container d-flex justify-content-around align-items-center">
+      <h1 class="m-0">Cositas Montevideo</h1>
+      <nav class="navbar navbar-expand-lg">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav w-100 justify-content-between">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sell.html">Vender</a>
+            </li>
+            <li class="nav-item d-flex align-items-center"></li>
+            <div class="d-none" id="user-container">
+              <a id="user-name" class="navbar-text nav-link" href="my-profile.html"></a>
+            </div>
+            <a id="loginLink" class="nav-link"></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="row">
+        <div id="image-container" class="d-flex">
+          <!-- Imágenes relacionadas -->
+          <div class="product-container"></div>
+          <div id="related-images">
+            <!-- Las imágenes relacionadas se cargarán aquí -->
+          </div>
+
+          <!-- Imagen principal -->
+          <div class="col-md-8">
+            <img src="" id="mainImage" alt="Imagen principal del producto">
+          </div>
+
+
+          <!-- Detalles del producto -->
+          <div class="col-md-4">
+            <div class="product-details">
+              <h3 id="name">Nombre</h3>
+              <p id="price" class="product-price">precio</p>
+              <p id="category" class="product-category">Categoría</p>
+              <p id="description" class="product-description">Descripción</p>
+              <p id="soldCount" class="sold-count">Vendidos</p>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div id="title-related-products">
+        <p>Productos Similares...</p>
+      </div>
+      <div id="related-products">
+      </div>
+
+
+      <!-- Sección de Comentarios con Calificación -->
+      <div class="container mt-4">
+        <div class="row">
+          <!-- Columna izquierda - Rating Histogram -->
+          <div class="col-md-6">
+            <div id="rating-histogram" class="p-3 bg-light">
+              <h5>Rating promedio</h5>
+              <div id="average-rating">0.0</div>
+              <p id="rating-count">(0 calificaciones)</p>
+              <!-- Histograma -->
+              <div class="progress">
+                <div class="progress-bar bg-warning" id="rating-bar" role="progressbar" style="width: 0%"
+                  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna derecha - Formulario de Comentarios -->
+          <div class="col-md-6">
+            <div class="p-3 bg-light">
+              <h5>Deja tu comentario</h5>
+
+              <!-- Nombre -->
+              <div class="form-group">
+                <label for="userName">Nombre:</label>
+                <input type="text" class="form-control" id="userName" value="" readonly>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="anonymousCheck">
+                  <label class="form-check-label" for="anonymousCheck">
+                    Comentar como Anónimo
+                  </label>
+                </div>
+              </div>
+
+              <!-- Calificación -->
+              <div class="form-group">
+                <label>Calificación:</label>
+                <div id="rating-stars">
+                  <i class="fa fa-star" data-value="1"></i>
+                  <i class="fa fa-star" data-value="2"></i>
+                  <i class="fa fa-star" data-value="3"></i>
+                  <i class="fa fa-star" data-value="4"></i>
+                  <i class="fa fa-star" data-value="5"></i>
+                </div>
+              </div>
+
+              <!-- Comentario -->
+              <div class="form-group">
+                <label for="comment">Comentario:</label>
+                <textarea class="form-control" id="comment" rows="3"></textarea>
+              </div>
+
+              <!-- Botón Enviar -->
+              <button type="button" class="btn btn-primary" id="submitComment">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de Comentarios Publicados -->
+      <div id="title-comments-section">
+        <p>Todos los comentarios</p>
+      </div>
+      <div id="comments-section"></div>
+
+
+    </div>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center py-2">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">Este sitio forma parte de <a class="footer-link" href="https://jovenesaprogramar.edu.uy/"
+            target="_blank">Jóvenes a Programar</a></p>
+        <p class="footer-link-end">
+          <a class="footer-link" href="#">Volver arriba</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/product-info.js"></script>
+  <script src="js/checklogin.js"></script>
+  <script src="js/header-and-footer.js"></script>
+</body>
+
+</html>
