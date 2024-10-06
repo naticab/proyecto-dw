@@ -1,5 +1,6 @@
 // Definimos la variable de manera global para que sea accesible en toda la página
 let products = [];
+let filteredProducts = [];
 
 // URL del endpoint que devuelve el JSON de productos
 function getCatID() {
@@ -52,27 +53,16 @@ async function loadProducts() {
         const response = await fetch(productsUrl);
         const data = await response.json();
         products = data.products; // Accede a la propiedad 'products'
-        renderProducts(products); // Renderizar productos iniciales
+        filteredProducts = products;
+        renderProducts(filteredProducts); // Renderizar productos iniciales
         setCategoryDescription(data.catName);
     } catch (error) {
         console.error('Error al cargar los productos:', error);
     }
 }
 
-// Función para aplicar filtros
-function applyFilters() {
-    const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
-    const maxPrice = parseFloat(document.getElementById('maxPrice').value) || Infinity;
-
-    const filteredProducts = products.filter(product => 
-        product.cost >= minPrice && product.cost <= maxPrice
-    );
-
-    applySorting(filteredProducts); // Aplicar la ordenación en los productos filtrados
-}
-
 // Función para aplicar ordenación
-function applySorting(productsToSort = products) {
+function applySorting(productsToSort = filteredProducts) {
     const sortOrder = document.getElementById('sortOrder').value;
 
     let sortedProducts = [...productsToSort];
@@ -95,7 +85,9 @@ function clearFilters() {
     document.getElementById('minPrice').value = '';
     document.getElementById('maxPrice').value = '';
     document.getElementById('sortOrder').value = ''; 
-    renderProducts(products); 
+    document.getElementById('buscador').value = '';
+    filteredProducts = products; // se reinicializa filteredProducts
+    renderProducts(filteredProducts); 
 }
 
 // Función para establecer la descripción de la categoría
@@ -104,26 +96,36 @@ function setCategoryDescription(catName) {
     document.getElementById('category-description').innerHTML = descriptionText;
 }
 
-// Función para filtrar productos en tiempo real
-function filterProducts() {
+// Función para aplicar filtros
+function applyFilters() {
+
+    const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
+    const maxPrice = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+
+    filteredProducts = products.filter(product => 
+        product.cost >= minPrice && product.cost <= maxPrice
+    );
+
     const searchInput = document.getElementById("buscador");
     const searchText = searchInput.value.toLowerCase();
 
-    const filteredProducts = products.filter(product =>
-        product.name.toLowerCase().includes(searchText) || 
-        product.description.toLowerCase().includes(searchText)
-    );
+    if (searchText) {
+        filteredProducts = filteredProducts.filter(product =>
+            product.name.toLowerCase().includes(searchText) || 
+            product.description.toLowerCase().includes(searchText)
+        );
+    }
 
-    renderProducts(filteredProducts);
+    applySorting(filteredProducts); // Aplicar la ordenación en los productos filtrados
 }
 
 // Event listeners para los controles de filtro y ordenación
 document.getElementById('applyFilters').addEventListener('click', applyFilters);
-document.getElementById('sortOrder').addEventListener('change', () => applySorting(products));
+document.getElementById('sortOrder').addEventListener('change', () => applySorting(filteredProducts));
 document.getElementById('clearRangeFilter').addEventListener('click', clearFilters);
 
 // Escucha el evento input del buscador
-document.getElementById("buscador").addEventListener('input', filterProducts);
+document.getElementById("buscador").addEventListener('input', applyFilters);
 
 // Cargar productos cuando la página esté lista
 document.addEventListener('DOMContentLoaded', loadProducts);

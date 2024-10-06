@@ -5,6 +5,10 @@
   font-family: 'Verdana', serif !important;
 }
 
+#login-heading {
+  font-size: 2rem;
+}
+
 .jumbotron .display-4 {
   font-weight: bold;
 }
