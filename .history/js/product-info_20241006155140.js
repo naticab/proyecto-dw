@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             `;
 
             // Sumar las puntuaciones de los comentarios existentes
-            totalRatings += comment.score;
+            totalRatings += comment.score; // Asegúrate de que esto coincida con el nombre de la propiedad del JSON
             ratingCount += 1; // Contamos cada comentario
         });
         document.getElementById('comments-section').innerHTML = commentsToAppend;
@@ -166,7 +166,9 @@ const newComment = {
 
 // Precargar el nombre del usuario en el campo de nombre
 const storedUserName = localStorage.getItem('username');
-    if (storedUserName) {
+    
+// Verificar si el usuario está logueado y asignar el nombre
+if (storedUserName) {
     document.getElementById('userName').value = storedUserName;
 }
 
@@ -180,16 +182,16 @@ document.getElementById('submitComment').addEventListener('click', () => {
         const comment = {
             user: userName,
             dateTime: new Date().toISOString(),
-            rating: parseInt(rating),
-            text: commentText
+            score: parseInt(rating),
+            description: commentText
         };
         commentsArray.unshift(comment); // Agregar nuevo comentario al principio
         addNewCommentToDOM(comment);    // Añadir comentario al DOM usando appendChild
 
         // Recalcular el promedio de rating
-        totalRatings += comment.rating;
-        ratingCount += 1;
-        updateRatingHistogram();
+        totalRatings += comment.score;  // Añadir el nuevo rating
+        ratingCount += 1;                // Contar el nuevo rating
+        updateRatingHistogram();         // Actualizar el histograma
 
         // Limpiar el formulario
         stars.forEach(star => star.classList.remove('checked'));
@@ -201,6 +203,7 @@ document.getElementById('submitComment').addEventListener('click', () => {
 
 // Función para añadir un comentario al DOM sin borrar los existentes
 function addNewCommentToDOM(comment) {
+    // Creamos el nuevo comentario como un elemento HTML
     const commentDiv = document.createElement('div');
     commentDiv.classList.add('comment-card');
 
@@ -216,7 +219,7 @@ function addNewCommentToDOM(comment) {
     commentsSection.insertBefore(commentDiv, commentsSection.firstChild);
 }
 
-// Función para mostrar comentarios
+// Función para mostrar comentarios (carga inicial si ya hay comentarios en el array)
 function displayComments() {
     commentsArray.forEach(comment => {
         addNewCommentToDOM(comment); // Usamos appendChild para cada comentario
@@ -225,25 +228,12 @@ function displayComments() {
 
 // Función para actualizar el histograma de rating
 function updateRatingHistogram() {
-    const average = ratingCount > 0 ? (totalRatings / ratingCount) : 0;
-
-    document.getElementById('average-rating').textContent = average.toFixed(1);
-    document.getElementById('rating-count').textContent = `(${ratingCount} calificaciones)`;
-    document.getElementById('rating-stars').innerHTML = renderStars(average);
-}
-
-function renderStars(value) {
-    let starsHtml = '';
-    for (let i = 0; i < 5; i++) {
-        if (i < Math.floor(value)) {
-            starsHtml += '<i class="fa fa-star checked princial-starts"></i>'; // Estrella llena
-        } else if (i < value) {
-            starsHtml += '<i class="fas fa-star-half-alt princial-starts"></i>'; // Estrella media
-        } else {
-            starsHtml += '<i class="fa fa-star princial-starts"></i>'; // Estrella vacía
-        }
-    }
-    return starsHtml;
+    const averageRating = (totalRatings / ratingCount).toFixed(1);
+    document.getElementById('average-rating').innerText = averageRating;
+    document.getElementById('rating-count').innerText = `(${ratingCount} calificaciones)`;
+    
+    // Mostrar estrellas para el rating promedio
+    document.getElementById('rating-stars').innerHTML = generateStars(averageRating);
 }
 
 // Llamar a displayComments si ya hay comentarios al cargar la página

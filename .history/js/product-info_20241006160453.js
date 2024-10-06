@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             `;
 
             // Sumar las puntuaciones de los comentarios existentes
-            totalRatings += comment.score;
+            totalRatings += comment.score; // Asegúrate de que esto coincida con el nombre de la propiedad del JSON
             ratingCount += 1; // Contamos cada comentario
         });
         document.getElementById('comments-section').innerHTML = commentsToAppend;
@@ -130,121 +130,70 @@ let commentsArray = [];
 
 // Estrellas interactivas
 const stars = document.querySelectorAll('#rating-stars .fa-star');
+
+// Agregar evento de clic a las estrellas
 stars.forEach(star => {
-    star.addEventListener('click', function () {
-        rating = this.getAttribute('data-value');
-        stars.forEach((s, index) => {
-            if (index < rating) {
-                s.classList.add('checked');
-            } else {
-                s.classList.remove('checked');
-            }
-        });
+    star.addEventListener('click', (event) => {
+        rating = event.target.getAttribute('data-value'); // Obtener el valor de la estrella seleccionada
+        updateStarDisplay();
     });
 });
 
-// Función para generar estrellas
-function generateStars(score) {
-    let stars = '';
-    for (let i = 1; i <= 5; i++) {
-        if (i <= score) {
-            stars += `<span class="fa fa-star checked"></span>`;
-        } else {
-            stars += `<span class="fa fa-star"></span>`;
+// Función para actualizar la visualización de estrellas
+function updateStarDisplay() {
+    stars.forEach(star => {
+        star.classList.remove('checked');
+        if (star.getAttribute('data-value') <= rating) {
+            star.classList.add('checked'); // Marcar las estrellas seleccionadas
         }
-    }
-    return stars;
+    });
 }
 
-const newComment = {
-    user: "Usuario Nuevo",
-    dateTime: new Date().toISOString(),
-    score: 4,
-    description: "¡Comentario nuevo!"
-};
-
-
-// Precargar el nombre del usuario en el campo de nombre
-const storedUserName = localStorage.getItem('username');
-    if (storedUserName) {
-    document.getElementById('userName').value = storedUserName;
-}
-
-// Evento para el botón de Enviar comentario
+// Manejo del formulario de comentarios
 document.getElementById('submitComment').addEventListener('click', () => {
-    const userName = document.getElementById('anonymousCheck').checked ? "Anónimo" : document.getElementById('userName').value;
+    const userName = document.getElementById('userName').value;
+    const isAnonymous = document.getElementById('anonymousCheck').checked;
     const commentText = document.getElementById('comment').value;
 
-    if (rating > 0 && commentText) {
-        // Crear comentario
+    if (rating > 0 && commentText.trim() !== "") {
         const comment = {
-            user: userName,
+            user: isAnonymous ? "Anónimo" : userName,
             dateTime: new Date().toISOString(),
-            rating: parseInt(rating),
-            text: commentText
+            score: parseInt(rating), // Asegúrate de que esto sea el score
+            description: commentText
         };
-        commentsArray.unshift(comment); // Agregar nuevo comentario al principio
-        addNewCommentToDOM(comment);    // Añadir comentario al DOM usando appendChild
 
-        // Recalcular el promedio de rating
-        totalRatings += comment.rating;
+        // Agregar el comentario a la sección de comentarios
+        commentsArray.push(comment);
+        const commentsSection = document.getElementById('comments-section');
+        commentsSection.innerHTML += `
+            <div class="comment-card">
+                <span class="comment-user"><strong>${comment.user}</strong> | </span>
+                <span class="comment-date">${new Date(comment.dateTime).toLocaleString()}</span>
+                <div class="comment-stars">${generateStars(comment.score)}</div>
+                <div class="comment-description">${comment.description}</div>
+            </div>
+        `;
+
+        // Actualizar totales de ratings
+        totalRatings += comment.score;
         ratingCount += 1;
+
+        // Calcular y mostrar rating promedio
         updateRatingHistogram();
 
         // Limpiar el formulario
-        stars.forEach(star => star.classList.remove('checked'));
-        document.getElementById('comment').value = '';
+        document.getElementById('comment').value = ""; // Limpiar el cuadro de comentario
+        rating = 0; // Resetear la calificación
+        updateStarDisplay(); // Actualizar la visualización de estrellas
     } else {
-        alert("Por favor, selecciona al menos una estrella y escribe un comentario.");
+        alert("Por favor, completa todos los campos.");
     }
 });
 
-// Función para añadir un comentario al DOM sin borrar los existentes
-function addNewCommentToDOM(comment) {
-    const commentDiv = document.createElement('div');
-    commentDiv.classList.add('comment-card');
-
-    commentDiv.innerHTML = `
-        <span class="comment-user"><strong>${comment.user}</strong> | </span>
-        <span class="comment-date">${new Date(comment.dateTime).toLocaleString()}</span>
-        <div class="comment-stars">${generateStars(comment.rating)}</div>
-        <div class="comment-description">${comment.text}</div>
-    `;
-
-    // Añadimos el nuevo comentario al principio de la sección de comentarios
-    const commentsSection = document.getElementById('comments-section');
-    commentsSection.insertBefore(commentDiv, commentsSection.firstChild);
-}
-
-// Función para mostrar comentarios
-function displayComments() {
-    commentsArray.forEach(comment => {
-        addNewCommentToDOM(comment); // Usamos appendChild para cada comentario
-    });
-}
-
 // Función para actualizar el histograma de rating
 function updateRatingHistogram() {
-    const average = ratingCount > 0 ? (totalRatings / ratingCount) : 0;
-
-    document.getElementById('average-rating').textContent = average.toFixed(1);
+    const averageRating = (totalRatings / ratingCount).toFixed(1) || 0;
+    document.getElementById('average-rating').textContent = averageRating;
     document.getElementById('rating-count').textContent = `(${ratingCount} calificaciones)`;
-    document.getElementById('rating-stars').innerHTML = renderStars(average);
 }
-
-function renderStars(value) {
-    let starsHtml = '';
-    for (let i = 0; i < 5; i++) {
-        if (i < Math.floor(value)) {
-            starsHtml += '<i class="fa fa-star checked princial-starts"></i>'; // Estrella llena
-        } else if (i < value) {
-            starsHtml += '<i class="fas fa-star-half-alt princial-starts"></i>'; // Estrella media
-        } else {
-            starsHtml += '<i class="fa fa-star princial-starts"></i>'; // Estrella vacía
-        }
-    }
-    return starsHtml;
-}
-
-// Llamar a displayComments si ya hay comentarios al cargar la página
-displayComments();

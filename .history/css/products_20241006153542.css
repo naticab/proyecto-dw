@@ -152,49 +152,20 @@ body {
 
 /* Diseño para agregar comentarios y modificar el rating */
 
-#average-rating {
-    font-size: 2.2rem;
-    padding-right: 1rem;
-}
-
 #rating-stars .fa-star {
-    color: #a0a0a0;
+    color: lightgray;
     cursor: pointer;
 }
 
 #rating-stars .fa-star.checked {
-    color: #ffd700;
+    color: gold;
 }
 
-#rating-stars .fa-star-half-alt {
-    color: #ffd700;
-}
-
-.rating-and-comments {
-    background-color: #e0e0e0e7;
+#rating-and-comments {
+    background-color: #100000;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px #0000008f;
-}
-
-#rating-histogram {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-#rating-count {
-    margin-top: 10px;
-}
-
-
-.princial-starts {
-    font-size: 2rem;
-}
-
-#comment {
-    flex-grow: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Diseño para comentarios */
@@ -213,12 +184,12 @@ body {
 } */
 
 .fa-star {
-    color: #d3d3d3;
+    color: lightgray;
     stroke: #333;
 }
 
 .fa-star.checked {
-    color: #ffd700;
+    color: gold;
     stroke: #333;
     stroke-width: 10%;
 }
@@ -259,6 +230,7 @@ body {
 
     .inputs-y-selectores {
         width: 120px;
+        /* Reducción del tamaño de los inputs y selectores */
     }
 }
 

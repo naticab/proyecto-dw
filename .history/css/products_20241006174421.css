@@ -174,18 +174,19 @@ body {
     background-color: #e0e0e0e7;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px #0000008f;
+    box-shadow: 0 2px 4px #0000001a;
 }
 
-#rating-histogram {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+.rating-and-comments .form-group {
+    width: 100%; /* Asegúrate de que los grupos de formulario ocupen el ancho completo */
 }
 
-#rating-count {
-    margin-top: 10px;
+.rating-and-comments .text-center {
+    text-align: center; /* Centra el texto en cada columna */
+}
+
+.rating-and-comments .d-flex {
+    justify-content: center; /* Centra los elementos dentro del flex */
 }
 
 
@@ -259,6 +260,7 @@ body {
 
     .inputs-y-selectores {
         width: 120px;
+        /* Reducción del tamaño de los inputs y selectores */
     }
 }
 

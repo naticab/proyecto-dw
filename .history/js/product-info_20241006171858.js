@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             `;
 
             // Sumar las puntuaciones de los comentarios existentes
-            totalRatings += comment.score;
+            totalRatings += comment.score; // Asegúrate de que esto coincida con el nombre de la propiedad del JSON
             ratingCount += 1; // Contamos cada comentario
         });
         document.getElementById('comments-section').innerHTML = commentsToAppend;
@@ -166,7 +166,9 @@ const newComment = {
 
 // Precargar el nombre del usuario en el campo de nombre
 const storedUserName = localStorage.getItem('username');
-    if (storedUserName) {
+    
+// Verificar si el usuario está logueado y asignar el nombre
+if (storedUserName) {
     document.getElementById('userName').value = storedUserName;
 }
 
@@ -201,6 +203,7 @@ document.getElementById('submitComment').addEventListener('click', () => {
 
 // Función para añadir un comentario al DOM sin borrar los existentes
 function addNewCommentToDOM(comment) {
+    // Creamos el nuevo comentario como un elemento HTML
     const commentDiv = document.createElement('div');
     commentDiv.classList.add('comment-card');
 
@@ -216,7 +219,7 @@ function addNewCommentToDOM(comment) {
     commentsSection.insertBefore(commentDiv, commentsSection.firstChild);
 }
 
-// Función para mostrar comentarios
+// Función para mostrar comentarios (carga inicial si ya hay comentarios en el array)
 function displayComments() {
     commentsArray.forEach(comment => {
         addNewCommentToDOM(comment); // Usamos appendChild para cada comentario
@@ -245,6 +248,9 @@ function renderStars(value) {
     }
     return starsHtml;
 }
+// ** FIN DEL CÓDIGO ADICIONAL **
+
+
 
 // Llamar a displayComments si ya hay comentarios al cargar la página
 displayComments();

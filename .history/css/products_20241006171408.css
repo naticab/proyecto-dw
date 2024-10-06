@@ -152,11 +152,6 @@ body {
 
 /* Diseño para agregar comentarios y modificar el rating */
 
-#average-rating {
-    font-size: 2.2rem;
-    padding-right: 1rem;
-}
-
 #rating-stars .fa-star {
     color: #a0a0a0;
     cursor: pointer;
@@ -167,30 +162,28 @@ body {
 }
 
 #rating-stars .fa-star-half-alt {
-    color: #ffd700;
+    position: relative;
 }
+
+#rating-stars .fa-star-half-alt::after {
+    content: '\f005'; /* Código de Font Awesome para la estrella */
+    font-family: 'Font Awesome 5 Free'; /* Asegúrate de usar la fuente correcta */
+    font-weight: 900; /* Necesario para la estrella llena */
+    color: #ffd700; /* Color amarillo para la parte llena */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Toma solo la mitad del ancho */
+    height: 100%; /* Toma todo el alto */
+    clip-path: inset(0 50% 0 0); /* Solo muestra la mitad izquierda */
+}
+
 
 .rating-and-comments {
     background-color: #e0e0e0e7;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px #0000008f;
-}
-
-#rating-histogram {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-#rating-count {
-    margin-top: 10px;
-}
-
-
-.princial-starts {
-    font-size: 2rem;
+    box-shadow: 0 2px 4px #0000001a;
 }
 
 #comment {
@@ -259,6 +252,7 @@ body {
 
     .inputs-y-selectores {
         width: 120px;
+        /* Reducción del tamaño de los inputs y selectores */
     }
 }
 

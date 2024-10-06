@@ -174,20 +174,11 @@ body {
     background-color: #e0e0e0e7;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px #0000008f;
-}
-
-#rating-histogram {
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 2px 4px #0000001a;
+    justify-content: center;
     align-items: center;
     text-align: center;
 }
-
-#rating-count {
-    margin-top: 10px;
-}
-
 
 .princial-starts {
     font-size: 2rem;
@@ -259,6 +250,7 @@ body {
 
     .inputs-y-selectores {
         width: 120px;
+        /* Reducción del tamaño de los inputs y selectores */
     }
 }
 

@@ -63,6 +63,7 @@
             <img src="" id="mainImage" alt="Imagen principal del producto">
           </div>
 
+
           <!-- Detalles del producto -->
           <div class="col-md-4">
             <div class="product-details">
@@ -75,73 +76,79 @@
           </div>
         </div>
 
+
       </div>
       <div id="title-related-products">
-        <h5>Productos Similares...</h5>
+        <p>Productos Similares...</p>
       </div>
       <div id="related-products">
       </div>
 
 
       <!-- Sección de Comentarios con Calificación -->
-      <div class="container mt-4">
-        <div class="row justify-content-center">
+      <div class="container mt-4 rating-and-comments">
+        <div class="row justify-content-center"> <!-- Asegura que la fila esté centrada -->
           <!-- Rating Histogram -->
-          <div class="col-md-4 d-flex justify-content-center align-items-center rating-and-comments">
-            <div id="rating-histogram" class="p-3 text-center">
-                <div class="d-flex align-items-center justify-content-center">
-                    <div id="average-rating">0.0</div>
-                    <div id="rating-stars" class="mt-2 ms-2">
-                    </div>
+          <div class="col-md-5">
+            <div id="rating-histogram" class="p-3 d-flex flex-column align-items-center"> <!-- Usar d-flex y flex-column -->
+              <div class="d-flex align-items-center"> <!-- Alinea el rating y las estrellas -->
+                <div id="average-rating">0.0</div>
+                <div id="rating-stars" class="mt-2 ml-2">
+                  <!-- Las estrellas se generarán aquí mediante JavaScript -->
                 </div>
-                <p id="rating-count">(0 calificaciones)</p>
+              </div>
+              <p id="rating-count">(0 calificaciones)</p>
             </div>
-        </div>
-      
-          <!-- Formulario de Comentarios -->
-          <div class="col-md-8">
-            <div class="p-3 rating-and-comments">
+          </div>
+          
+
+          <!--Formulario de Comentarios -->
+          <div class="col-md-7">
+            <div class="p-3">
               <h4>Cuéntanos qué piensas</h4>
-      
-              <!-- Nombre de Usuario -->
-              <div class="form-group d-flex">
-                <input type="text" id="userName" value="" readonly class="no-border me-2">
-                <div class="form-check ms-1">
-                  <input class="form-check-input" type="checkbox" id="anonymousCheck">
-                  <label class="form-check-label" for="anonymousCheck"> Anónimo </label>
+
+                <!-- Nombre de Usuario -->
+                <div class="form-group d-flex align-items-center">
+                  <input type="text" id="userName" value="" readonly class="no-border me-2">
+                  <div class="form-check ms-1">
+                    <input class="form-check-input" type="checkbox" id="anonymousCheck">
+                    <label class="form-check-label" for="anonymousCheck">
+                      Anónimo
+                    </label>
+                  </div>
                 </div>
-              </div>
-      
-              <!-- Calificación -->
-              <div class="form-group d-flex">
-                <label class="me-2">Calificación:</label>
-                <div id="rating-stars">
-                  <i class="fa fa-star" data-value="1"></i>
-                  <i class="fa fa-star" data-value="2"></i>
-                  <i class="fa fa-star" data-value="3"></i>
-                  <i class="fa fa-star" data-value="4"></i>
-                  <i class="fa fa-star" data-value="5"></i>
+
+                <!-- Calificación -->
+                <div class="form-group d-flex align-items-center">
+                  <label class="me-2">Calificación:</label>
+                  <div id="rating-stars">
+                    <i class="fa fa-star" data-value="1"></i>
+                    <i class="fa fa-star" data-value="2"></i>
+                    <i class="fa fa-star" data-value="3"></i>
+                    <i class="fa fa-star" data-value="4"></i>
+                    <i class="fa fa-star" data-value="5"></i>
+                  </div>
                 </div>
-              </div>
-      
-              <!-- Comentario y Botón -->
-              <div class="form-group d-flex align-items-start">
-                <label for="comment" class="me-2">Comentario:</label>
-                <textarea class="form-control" id="comment" rows="3"></textarea>
-              </div>
-              <div class="d-flex justify-content-end">
-                <button type="button" class="btn btn-primary" id="submitComment">Enviar</button>
-              </div>
+
+                <!-- Comentario y Botón -->
+                <div class="form-group d-flex align-items-start">
+                  <label for="comment" class="me-2">Comentario:</label>
+                  <textarea class="form-control" id="comment" rows="3"></textarea>
+                </div>
+                <div class="d-flex justify-content-end">
+                  <button type="button" class="btn btn-primary" id="submitComment">Enviar</button>
+                </div>
             </div>
           </div>
         </div>
       </div>
-      
+
       <!-- Sección de Comentarios Publicados -->
       <div id="title-comments-section">
         <p>Todos los comentarios</p>
       </div>
       <div id="comments-section"></div>
+
 
     </div>
     <div id="spinner-wrapper">
@@ -165,6 +172,7 @@
       </div>
     </div>
   </footer>
+
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>

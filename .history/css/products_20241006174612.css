@@ -174,18 +174,17 @@ body {
     background-color: #e0e0e0e7;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px #0000008f;
+    box-shadow: 0 2px 4px #0000001a;
 }
 
 #rating-histogram {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    display: flex; /* Asegura que los elementos dentro de rating-histogram sean flexibles */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center; /* Centra horizontalmente los elementos */
 }
 
 #rating-count {
-    margin-top: 10px;
+    margin-top: 10px; /* Espacio entre el rating y el count */
 }
 
 
@@ -259,6 +258,7 @@ body {
 
     .inputs-y-selectores {
         width: 120px;
+        /* Reducción del tamaño de los inputs y selectores */
     }
 }
 

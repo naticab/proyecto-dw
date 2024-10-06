@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    // Detalles del producto
+
     const productId = localStorage.getItem('selectedProductId');
     if (productId) {
         const response = await fetch(PRODUCT_INFO_URL + `/${productId}${EXT_TYPE}`);
         const product = await response.json();
+        console.log(productId);
+
 
         try {
             // Llamada a la API para obtener el producto
@@ -16,9 +18,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('category').textContent = product.category;
             document.getElementById('soldCount').textContent = `${product.soldCount} vendidos`;
             document.getElementById('mainImage').src = product.image;
+            document.getElementById('related-products').src = `${product.relatedProducts}`;
 
             // Verifica que el array de imágenes exista y tenga al menos una imagen
-            if (product.images && product.images.length > 0) {
+            if (product.images.length > 0) {
                 // Asigna la primera imagen del array como la imagen principal
                 document.getElementById('mainImage').src = product.images[0];
             }
@@ -31,39 +34,30 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             document.getElementById('related-images').innerHTML = htmlToAppend;
             showRelatedProducts(product.relatedProducts);
-        } catch (error) {
+        }
+        catch (error) {
             console.error('Error fetching product data', error);
         }
 
         const reviewsResponse = await fetch(PRODUCT_INFO_COMMENTS_URL + `/${productId}${EXT_TYPE}`);
         const comments = await reviewsResponse.json();
 
-        // Inicializar contadores
-        totalRatings = 0;
-        ratingCount = 0;
-
         let commentsToAppend = "";
         comments.forEach(comment => {
             commentsToAppend += `
                 <div class="comment-card">
-                    <span class="comment-user"><strong>${comment.user}</strong> | </span>
-                    <span class="comment-date">${new Date(comment.dateTime).toLocaleString()}</span>
-                    <div class="comment-stars">${generateStars(comment.score)}</div>
+                    <span class="comment-user">${comment.user} | </span>
+                    <span class="comment-date">${comment.dateTime}</span>
+                    <div class="comment-">${generateStars(comment.score)}</div>
                     <div class="comment-description">${comment.description}</div>
                 </div>
             `;
-
-            // Sumar las puntuaciones de los comentarios existentes
-            totalRatings += comment.score;
-            ratingCount += 1; // Contamos cada comentario
         });
         document.getElementById('comments-section').innerHTML = commentsToAppend;
 
-        // Actualiza el histograma con los comentarios ya existentes
-        updateRatingHistogram();
 
         function generateStars(score) {
-            let stars = '';
+            let stars = ''
             for (let i = 1; i <= 5; i++) {
                 if (i <= score) {
                     stars += `<span class="fa fa-star checked"></span>`;
@@ -112,7 +106,7 @@ function showRelatedProducts(relatedProducts) {
             </div>
         `;
 
-        // Evento click
+        //Evento click
         productCard.addEventListener('click', function () {
             localStorage.setItem('selectedProductId', relatedProduct.id);
             window.location.href = 'product-info.html';
@@ -143,33 +137,6 @@ stars.forEach(star => {
     });
 });
 
-// Función para generar estrellas
-function generateStars(score) {
-    let stars = '';
-    for (let i = 1; i <= 5; i++) {
-        if (i <= score) {
-            stars += `<span class="fa fa-star checked"></span>`;
-        } else {
-            stars += `<span class="fa fa-star"></span>`;
-        }
-    }
-    return stars;
-}
-
-const newComment = {
-    user: "Usuario Nuevo",
-    dateTime: new Date().toISOString(),
-    score: 4,
-    description: "¡Comentario nuevo!"
-};
-
-
-// Precargar el nombre del usuario en el campo de nombre
-const storedUserName = localStorage.getItem('username');
-    if (storedUserName) {
-    document.getElementById('userName').value = storedUserName;
-}
-
 // Evento para el botón de Enviar comentario
 document.getElementById('submitComment').addEventListener('click', () => {
     const userName = document.getElementById('anonymousCheck').checked ? "Anónimo" : document.getElementById('userName').value;
@@ -179,7 +146,6 @@ document.getElementById('submitComment').addEventListener('click', () => {
         // Crear comentario
         const comment = {
             user: userName,
-            dateTime: new Date().toISOString(),
             rating: parseInt(rating),
             text: commentText
         };
@@ -201,22 +167,26 @@ document.getElementById('submitComment').addEventListener('click', () => {
 
 // Función para añadir un comentario al DOM sin borrar los existentes
 function addNewCommentToDOM(comment) {
+    // Creamos el nuevo comentario como un elemento HTML
     const commentDiv = document.createElement('div');
     commentDiv.classList.add('comment-card');
 
+ 
+
     commentDiv.innerHTML = `
-        <span class="comment-user"><strong>${comment.user}</strong> | </span>
-        <span class="comment-date">${new Date(comment.dateTime).toLocaleString()}</span>
-        <div class="comment-stars">${generateStars(comment.rating)}</div>
-        <div class="comment-description">${comment.text}</div>
-    `;
+    <span class="comment-user">${comment.user} | </span>
+    <span class="comment-date">${comment.dateTime}</span>
+    <div class="comment-stars">${generateStars(comment.rating)}</div>
+    <div class="comment-description">${comment.text}</div>
+`;
+
 
     // Añadimos el nuevo comentario al principio de la sección de comentarios
     const commentsSection = document.getElementById('comments-section');
     commentsSection.insertBefore(commentDiv, commentsSection.firstChild);
 }
 
-// Función para mostrar comentarios
+// Función para mostrar comentarios (carga inicial si ya hay comentarios en el array)
 function displayComments() {
     commentsArray.forEach(comment => {
         addNewCommentToDOM(comment); // Usamos appendChild para cada comentario
@@ -225,25 +195,11 @@ function displayComments() {
 
 // Función para actualizar el histograma de rating
 function updateRatingHistogram() {
-    const average = ratingCount > 0 ? (totalRatings / ratingCount) : 0;
-
-    document.getElementById('average-rating').textContent = average.toFixed(1);
-    document.getElementById('rating-count').textContent = `(${ratingCount} calificaciones)`;
-    document.getElementById('rating-stars').innerHTML = renderStars(average);
-}
-
-function renderStars(value) {
-    let starsHtml = '';
-    for (let i = 0; i < 5; i++) {
-        if (i < Math.floor(value)) {
-            starsHtml += '<i class="fa fa-star checked princial-starts"></i>'; // Estrella llena
-        } else if (i < value) {
-            starsHtml += '<i class="fas fa-star-half-alt princial-starts"></i>'; // Estrella media
-        } else {
-            starsHtml += '<i class="fa fa-star princial-starts"></i>'; // Estrella vacía
-        }
-    }
-    return starsHtml;
+    const averageRating = (totalRatings / ratingCount).toFixed(1);
+    document.getElementById('average-rating').innerText = averageRating;
+    document.getElementById('rating-count').innerText = `(${ratingCount} calificaciones)`;
+    const ratingPercentage = (averageRating / 5) * 100;
+    document.getElementById('rating-bar').style.width = `${ratingPercentage}%`;
 }
 
 // Llamar a displayComments si ya hay comentarios al cargar la página

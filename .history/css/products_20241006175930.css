@@ -174,7 +174,7 @@ body {
     background-color: #e0e0e0e7;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px #0000008f;
+    box-shadow: 0 2px 4px #000000a4;
 }
 
 #rating-histogram {
@@ -259,6 +259,7 @@ body {
 
     .inputs-y-selectores {
         width: 120px;
+        /* Reducción del tamaño de los inputs y selectores */
     }
 }
 

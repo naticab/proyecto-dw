@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', async () => {
+
     // Detalles del producto
     const productId = localStorage.getItem('selectedProductId');
     if (productId) {
         const response = await fetch(PRODUCT_INFO_URL + `/${productId}${EXT_TYPE}`);
         const product = await response.json();
+        console.log(productId);  
 
         try {
             // Llamada a la API para obtener el producto
@@ -38,10 +40,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const reviewsResponse = await fetch(PRODUCT_INFO_COMMENTS_URL + `/${productId}${EXT_TYPE}`);
         const comments = await reviewsResponse.json();
 
-        // Inicializar contadores
-        totalRatings = 0;
-        ratingCount = 0;
-
         let commentsToAppend = "";
         comments.forEach(comment => {
             commentsToAppend += `
@@ -52,15 +50,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <div class="comment-description">${comment.description}</div>
                 </div>
             `;
-
-            // Sumar las puntuaciones de los comentarios existentes
-            totalRatings += comment.score;
-            ratingCount += 1; // Contamos cada comentario
         });
         document.getElementById('comments-section').innerHTML = commentsToAppend;
-
-        // Actualiza el histograma con los comentarios ya existentes
-        updateRatingHistogram();
 
         function generateStars(score) {
             let stars = '';
@@ -101,7 +92,7 @@ function showRelatedProducts(relatedProducts) {
 
     for (let relatedProduct of relatedProducts) {
         console.log('Related Product ID:', relatedProduct.id);
-
+        
         let productCard = document.createElement('div');
         productCard.classList.add('related-products');
 
@@ -113,9 +104,9 @@ function showRelatedProducts(relatedProducts) {
         `;
 
         // Evento click
-        productCard.addEventListener('click', function () {
+        productCard.addEventListener('click', function() {
             localStorage.setItem('selectedProductId', relatedProduct.id);
-            window.location.href = 'product-info.html';
+            window.location.href = 'product-info.html';  
         });
 
         relatedProductsContainer.appendChild(productCard);
@@ -131,16 +122,16 @@ let commentsArray = [];
 // Estrellas interactivas
 const stars = document.querySelectorAll('#rating-stars .fa-star');
 stars.forEach(star => {
-    star.addEventListener('click', function () {
-        rating = this.getAttribute('data-value');
-        stars.forEach((s, index) => {
-            if (index < rating) {
-                s.classList.add('checked');
-            } else {
-                s.classList.remove('checked');
-            }
-        });
+  star.addEventListener('click', function () {
+    rating = this.getAttribute('data-value');
+    stars.forEach((s, index) => {
+      if (index < rating) {
+        s.classList.add('checked');
+      } else {
+        s.classList.remove('checked');
+      }
     });
+  });
 });
 
 // Función para generar estrellas
@@ -163,44 +154,38 @@ const newComment = {
     description: "¡Comentario nuevo!"
 };
 
-
-// Precargar el nombre del usuario en el campo de nombre
-const storedUserName = localStorage.getItem('username');
-    if (storedUserName) {
-    document.getElementById('userName').value = storedUserName;
-}
-
 // Evento para el botón de Enviar comentario
 document.getElementById('submitComment').addEventListener('click', () => {
-    const userName = document.getElementById('anonymousCheck').checked ? "Anónimo" : document.getElementById('userName').value;
-    const commentText = document.getElementById('comment').value;
+  const userName = document.getElementById('anonymousCheck').checked ? "Anónimo" : document.getElementById('userName').value;
+  const commentText = document.getElementById('comment').value;
 
-    if (rating > 0 && commentText) {
-        // Crear comentario
-        const comment = {
-            user: userName,
-            dateTime: new Date().toISOString(),
-            rating: parseInt(rating),
-            text: commentText
-        };
-        commentsArray.unshift(comment); // Agregar nuevo comentario al principio
-        addNewCommentToDOM(comment);    // Añadir comentario al DOM usando appendChild
+  if (rating > 0 && commentText) {
+    // Crear comentario
+    const comment = {
+      user: userName,
+      dateTime: new Date().toISOString(),
+      rating: parseInt(rating),
+      text: commentText
+    };
+    commentsArray.unshift(comment); // Agregar nuevo comentario al principio
+    addNewCommentToDOM(comment);    // Añadir comentario al DOM usando appendChild
 
-        // Recalcular el promedio de rating
-        totalRatings += comment.rating;
-        ratingCount += 1;
-        updateRatingHistogram();
+    // Recalcular el promedio de rating
+    totalRatings += comment.rating;
+    ratingCount += 1;
+    updateRatingHistogram();
 
-        // Limpiar el formulario
-        stars.forEach(star => star.classList.remove('checked'));
-        document.getElementById('comment').value = '';
-    } else {
-        alert("Por favor, selecciona al menos una estrella y escribe un comentario.");
-    }
+    // Limpiar el formulario
+    stars.forEach(star => star.classList.remove('checked'));
+    document.getElementById('comment').value = '';
+  } else {
+    alert("Por favor, selecciona al menos una estrella y escribe un comentario.");
+  }
 });
 
 // Función para añadir un comentario al DOM sin borrar los existentes
 function addNewCommentToDOM(comment) {
+    // Creamos el nuevo comentario como un elemento HTML
     const commentDiv = document.createElement('div');
     commentDiv.classList.add('comment-card');
 
@@ -216,7 +201,7 @@ function addNewCommentToDOM(comment) {
     commentsSection.insertBefore(commentDiv, commentsSection.firstChild);
 }
 
-// Función para mostrar comentarios
+// Función para mostrar comentarios (carga inicial si ya hay comentarios en el array)
 function displayComments() {
     commentsArray.forEach(comment => {
         addNewCommentToDOM(comment); // Usamos appendChild para cada comentario
@@ -225,25 +210,11 @@ function displayComments() {
 
 // Función para actualizar el histograma de rating
 function updateRatingHistogram() {
-    const average = ratingCount > 0 ? (totalRatings / ratingCount) : 0;
-
-    document.getElementById('average-rating').textContent = average.toFixed(1);
-    document.getElementById('rating-count').textContent = `(${ratingCount} calificaciones)`;
-    document.getElementById('rating-stars').innerHTML = renderStars(average);
-}
-
-function renderStars(value) {
-    let starsHtml = '';
-    for (let i = 0; i < 5; i++) {
-        if (i < Math.floor(value)) {
-            starsHtml += '<i class="fa fa-star checked princial-starts"></i>'; // Estrella llena
-        } else if (i < value) {
-            starsHtml += '<i class="fas fa-star-half-alt princial-starts"></i>'; // Estrella media
-        } else {
-            starsHtml += '<i class="fa fa-star princial-starts"></i>'; // Estrella vacía
-        }
-    }
-    return starsHtml;
+    const averageRating = (totalRatings / ratingCount).toFixed(1);
+    document.getElementById('average-rating').innerText = averageRating;
+    document.getElementById('rating-count').innerText = `(${ratingCount} calificaciones)`;
+    const ratingPercentage = (averageRating / 5) * 100;
+    document.getElementById('rating-bar').style.width = `${ratingPercentage}%`;
 }
 
 // Llamar a displayComments si ya hay comentarios al cargar la página
