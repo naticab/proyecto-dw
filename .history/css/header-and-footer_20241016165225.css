@@ -54,7 +54,7 @@ a.nav-link:hover {
 
 
 body.light-mode {
-    background-color: #F4F4F4; /* Color de fondo para modo claro */
+    background-color: #a8a8a8; /* Color de fondo para modo claro */
 }
 
 body.dark-mode {
@@ -64,6 +64,7 @@ body.dark-mode {
 #mode-toggle i {
     transition: color 0.3s; /* Transición suave para el cambio de icono */
 }
+
 
 
 

@@ -1,9 +1,9 @@
 document.addEventListener('click', function(event) {
-    var navbar = document.querySelector('.navbar-collapse');
-    var toggler = document.querySelector('.navbar-toggler');
+    var navbar = document.querySelector('.login-header .navbar-collapse'); // Selecciona solo el navbar del header de inicio de sesión
+    var toggler = document.querySelector('.login-header .navbar-toggler'); // Selecciona solo el toggler del header de inicio de sesión
     
     // Si el menú está abierto y se hace clic fuera de él, lo cierra
-    if (navbar.classList.contains('show') && !navbar.contains(event.target) && !toggler.contains(event.target)) {
+    if (navbar && navbar.classList.contains('show') && !navbar.contains(event.target) && !toggler.contains(event.target)) {
         var bsCollapse = new bootstrap.Collapse(navbar, {
             toggle: false
         });
@@ -12,16 +12,18 @@ document.addEventListener('click', function(event) {
 });
 
 // Cerrar el menú automáticamente al hacer clic en cualquier enlace
-var navLinks = document.querySelectorAll('.nav-link');
+var navLinks = document.querySelectorAll('.login-header .nav-link'); // Selecciona solo los enlaces del header de inicio de sesión
 navLinks.forEach(function(link) {
     link.addEventListener('click', function() {
-        var navbar = document.querySelector('.navbar-collapse');
+        var navbar = document.querySelector('.login-header .navbar-collapse');
         var bsCollapse = new bootstrap.Collapse(navbar, {
             toggle: false
         });
         bsCollapse.hide();
     });
 });
+
+
 
 
 // Seleccionar el botón y el icono

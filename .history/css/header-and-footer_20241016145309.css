@@ -49,22 +49,17 @@ a.nav-link:hover {
     cursor: pointer;
 }
 
-
 /* Modo Claroscuro */
 
-
-body.light-mode {
-    background-color: #F4F4F4; /* Color de fondo para modo claro */
-}
-
-body.dark-mode {
-    background-color: #505050cf; /* Color de fondo para modo oscuro */
+#mode-toggle {
+    border: none;
+    background-color: transparent;
 }
 
 #mode-toggle i {
-    transition: color 0.3s; /* Transición suave para el cambio de icono */
+    font-size: 1.5rem;
+    color: #333; /* Ajusta este color según el diseño */
 }
-
 
 
 @media (max-width: 995px) {

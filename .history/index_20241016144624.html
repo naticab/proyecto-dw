@@ -5,9 +5,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>eMercado - Todo lo que busques está aquí</title>
-  
+
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/header-and-footer.css" rel="stylesheet">
@@ -18,11 +17,11 @@
   <header class="py-3">
     <div class="container d-flex justify-content-around align-items-center">
       <h1 class="m-0">Cositas Montevideo</h1>
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg">        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav w-100 justify-content-between">
             <li class="nav-item">
@@ -34,30 +33,21 @@
             <li class="nav-item">
               <a class="nav-link" href="sell.html">Vender</a>
             </li>
-            <li class="nav-item d-flex align-items-center">
-              <div class="d-none" id="user-container">
-                <!--Menú desplegable Usuario-->
-                <div class="dropdown">
-                  <a class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    data-bs-display="static" aria-expanded="false"></a>
+            <li class="nav-item d-flex align-items-center"></li>
+            <div class="d-none" id="user-container">
+              <!--Menú desplegable Usuario-->
+              <div class="dropdown">
+                <a class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false"></a>
                   <a id="user-name"></a>
-                  <ul class="dropdown-menu dropdown-menu-dark" id="dropdown">
-                    <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
-                    <li><a class="dropdown-item" href="cart.html">Carrito de Compras</a></li>
-                    <li>
-                      <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="login.html" id="log-out">Cerrar sesión</a></li>
-                  </ul>
-                </div>
+                <ul class="dropdown-menu dropdown-menu-dark" id="dropdown">
+                  <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
+                  <li><a class="dropdown-item" href="cart.html">Carrito de Compras</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="login.html" id="log-out">Cerrar sesión</a></li>
+                </ul>
               </div>
-              <a id="loginLink" class="nav-link"></a>
-            </li>
-            <li class="nav-item d-flex align-items-center">
-              <button id="mode-toggle" class="btn btn-outline-secondary">
-                <i id="theme-icon" class="fas fa-moon"></i>
-              </button>
-            </li>
+            </div>
+            <a id="loginLink" class="nav-link"></a>
           </ul>
         </div>
       </nav>
@@ -110,15 +100,14 @@
 
   <footer class="text-center py-2">
     <div class="container">
-      <div class="footer-content">
-        <p class="footer-text">Este sitio forma parte de <a class="footer-link" href="https://jovenesaprogramar.edu.uy/"
-            target="_blank">Jóvenes a Programar</a></p>
-        <p class="footer-link-end">
-          <a class="footer-link" href="#">Volver arriba</a>
-        </p>
-      </div>
+        <div class="footer-content">
+            <p class="footer-text">Este sitio forma parte de <a class="footer-link" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jóvenes a Programar</a></p>
+            <p class="footer-link-end">
+                <a class="footer-link" href="#">Volver arriba</a>
+            </p>
+        </div>
     </div>
-  </footer>
+</footer>
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/index.js"></script>
