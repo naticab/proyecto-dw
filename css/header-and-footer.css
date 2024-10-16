@@ -1,9 +1,12 @@
-header {
+header{
     background: #121219;
     color: #fff;
     position: relative;
 }
-
+#dropdown{
+    background: #121219;
+    color: #fff;
+}
 h1 {
     font-family: "Love Ya Like A Sister", cursive;
 
