@@ -61,13 +61,45 @@
     </div>
   </header>
 
-  <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
-    </div>
-  </main>
+  <div class="container">
+    <main class="profile-container">
+        <div class="profile-image">
+            <img src="img/usuario.png" alt="avatar">
+        </div>
+        <form method="post" class="row g-3 mt-4" id="myForm">
+            <div class="col-md-6">
+                <label for="nombre1" class="form-label">Primer nombre</label>
+                <input type="text" class="form-control" id="nombre1" name="nombre" required>
+                <div class="invalid-feedback">Debe ingresar un nombre.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="nombre2" class="form-label">Segundo nombre</label>
+                <input type="text" class="form-control" id="nombre2" name="nombre2">
+            </div>
+            <div class="col-md-6">
+                <label for="apellido1" class="form-label">Primer apellido</label>
+                <input type="text" class="form-control" id="apellido1" name="apellido" required>
+                <div class="invalid-feedback">Debe ingresar un apellido.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="apellido2" class="form-label">Segundo apellido</label>
+                <input type="text" class="form-control" id="apellido2" name="apellido2">
+            </div>
+            <div class="col-md-6">
+                <label for="telefono" class="form-label">Teléfono de contacto</label>
+                <input type="tel" class="form-control" id="telefono" name="telefono">
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+                <div class="invalid-feedback">Debe ingresar un email.</div>
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            </div>
+        </form>
+    </main>
+</div>
 
   <footer class="text-center py-2">
     <div class="container">
