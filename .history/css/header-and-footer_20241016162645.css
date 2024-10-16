@@ -50,6 +50,7 @@ a.nav-link:hover {
 }
 
 
+
 /* Modo Claroscuro */
 
 
@@ -64,6 +65,7 @@ body.dark-mode {
 #mode-toggle i {
     transition: color 0.3s; /* Transición suave para el cambio de icono */
 }
+
 
 
 

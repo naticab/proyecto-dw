@@ -50,6 +50,27 @@ a.nav-link:hover {
 }
 
 
+/* Header para el Login */
+
+.login-header {
+    background: #1a1a1a; /* Cambia el fondo del header de inicio de sesión */
+    color: #fff; /* Color del texto */
+}
+
+.login-header h1 {
+    font-family: "Love Ya Like A Sister", cursive; /* Estilo específico para el h1 en el header de inicio de sesión */
+}
+
+/* Otros estilos específicos para el header de inicio de sesión */
+.login-header .navbar-nav .nav-item {
+    margin-right: 20px; /* Ajustar el espaciado en este header específico */
+}
+
+.login-header #dropdown {
+    background: #1a1a1a; /* Cambia el fondo del dropdown en este header */
+}
+
+
 /* Modo Claroscuro */
 
 
@@ -64,6 +85,7 @@ body.dark-mode {
 #mode-toggle i {
     transition: color 0.3s; /* Transición suave para el cambio de icono */
 }
+
 
 
 

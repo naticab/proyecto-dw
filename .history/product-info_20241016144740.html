@@ -37,28 +37,20 @@
               <a class="nav-link" href="sell.html">Vender</a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <div class="d-none" id="user-container">
-                <!--Menú desplegable Usuario-->
-                <div class="dropdown">
-                  <a class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    data-bs-display="static" aria-expanded="false"></a>
+            <div class="d-none" id="user-container">
+              <!--Menú desplegable Usuario-->
+              <div class="dropdown">
+                <a class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false"></a>
                   <a id="user-name"></a>
-                  <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
-                    <li><a class="dropdown-item" href="cart.html">Carrito de Compras</a></li>
-                    <li>
-                      <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="login.html" id="log-out">Cerrar sesión</a></li>
-                  </ul>
-                </div>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
+                  <li><a class="dropdown-item" href="cart.html">Carrito de Compras</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="login.html" id="log-out">Cerrar sesión</a></li>
+                </ul>
               </div>
-              <a id="loginLink" class="nav-link"></a>
-            </li>
-            <li class="nav-item d-flex align-items-center">
-              <button id="mode-toggle" class="btn btn-outline-secondary">
-                <i id="theme-icon" class="fas fa-moon"></i>
-              </button>
+            </div>
+            <a id="loginLink" class="nav-link"></a>
             </li>
           </ul>
         </div>
@@ -107,20 +99,20 @@
           <!-- Rating Histogram -->
           <div class="col-md-4 d-flex justify-content-center align-items-center rating-and-comments">
             <div id="rating-histogram" class="p-3 text-center">
-              <div class="d-flex align-items-center justify-content-center">
-                <div id="average-rating">0.0</div>
-                <div id="rating-stars" class="mt-2 ms-2">
+                <div class="d-flex align-items-center justify-content-center">
+                    <div id="average-rating">0.0</div>
+                    <div id="rating-stars" class="mt-2 ms-2">
+                    </div>
                 </div>
-              </div>
-              <p id="rating-count">(0 calificaciones)</p>
+                <p id="rating-count">(0 calificaciones)</p>
             </div>
-          </div>
-
+        </div>
+      
           <!-- Formulario de Comentarios -->
           <div class="col-md-8">
             <div class="p-3 rating-and-comments">
               <h4>Cuéntanos qué piensas</h4>
-
+      
               <!-- Nombre de Usuario -->
               <div class="form-group d-flex">
                 <input type="text" id="userName" value="" readonly class="no-border me-2">
@@ -129,7 +121,7 @@
                   <label class="form-check-label" for="anonymousCheck"> Anónimo </label>
                 </div>
               </div>
-
+      
               <!-- Calificación -->
               <div class="form-group d-flex">
                 <label class="me-2">Calificación:</label>
@@ -141,7 +133,7 @@
                   <i class="fa fa-star" data-value="5"></i>
                 </div>
               </div>
-
+      
               <!-- Comentario y Botón -->
               <div class="form-group d-flex align-items-start">
                 <label for="comment" class="me-2">Comentario:</label>
@@ -154,7 +146,7 @@
           </div>
         </div>
       </div>
-
+      
       <!-- Sección de Comentarios Publicados -->
       <div id="title-comments-section">
         <p>Todos los comentarios</p>

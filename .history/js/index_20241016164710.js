@@ -22,3 +22,18 @@ document.getElementById('log-out').addEventListener('click', function () {
     console.log("Sesión cerrada correctamente.");
     
 });
+
+document.getElementById("mode-toggle").addEventListener("click", function() {
+    const currentMode = localStorage.getItem("mode");
+    if (currentMode === "dark") {
+        localStorage.setItem("mode", "light");
+        document.body.classList.remove("dark-mode");
+        document.getElementById("theme-icon").classList.remove("fa-sun");
+        document.getElementById("theme-icon").classList.add("fa-moon");
+    } else {
+        localStorage.setItem("mode", "dark");
+        document.body.classList.add("dark-mode");
+        document.getElementById("theme-icon").classList.remove("fa-moon");
+        document.getElementById("theme-icon").classList.add("fa-sun");
+    }
+});

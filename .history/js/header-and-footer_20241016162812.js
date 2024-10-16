@@ -24,6 +24,7 @@ navLinks.forEach(function(link) {
 });
 
 
+
 // Seleccionar el botón y el icono
 const modeToggle = document.getElementById("mode-toggle");
 const themeIcon = document.getElementById("theme-icon");
