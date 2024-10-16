@@ -194,6 +194,9 @@ document.getElementById('submitComment').addEventListener('click', () => {
         // Limpiar el formulario
         stars.forEach(star => star.classList.remove('checked'));
         document.getElementById('comment').value = '';
+
+        // Reiniciar el rating
+        rating = 0;
     } else {
         alert("Por favor, selecciona al menos una estrella y escribe un comentario.");
     }
