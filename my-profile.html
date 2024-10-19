@@ -64,7 +64,9 @@
   <div class="container">
     <main class="profile-container">
         <div class="profile-image">
-            <img src="img/usuario.png" alt="avatar">
+            <img src="img/usuario.png" id="profilePic" alt="avatar">
+            <input type="file" name="foto" id="foto" accept="image/*" style="display: none;" />
+        <label for="foto" class="btn btn-outline-secondary">Cambiar foto</label>
         </div>
         <form method="post" class="row g-3 mt-4" id="myForm">
             <div class="col-md-6">
@@ -95,7 +97,7 @@
                 <div class="invalid-feedback">Debe ingresar un email.</div>
             </div>
             <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                <button id="regBtn" type="submit" class="btn btn-primary">Guardar cambios</button>
             </div>
         </form>
     </main>
