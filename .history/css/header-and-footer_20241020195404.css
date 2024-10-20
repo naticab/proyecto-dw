@@ -51,6 +51,7 @@ a.nav-link:hover {
 
 /* Modo Claroscuro */
 
+
 /* Modo Claro */
 body.light-mode {
     background-color: #edf2f374;
@@ -93,7 +94,7 @@ body.dark-mode .color-letters {
 }
 
 
-/* Palanca para activar el claroscuro */
+/* Botón claroscuro */
 
 #mode-toggle {
     border: none;
@@ -162,6 +163,7 @@ body.dark-mode .color-letters {
         /* Cambia el icono a blanco */
     }
 
+
     .navbar-nav:hover {
         cursor: pointer;
     }
@@ -186,6 +188,7 @@ footer {
     justify-content: center;
     align-items: center;
     padding: 0 1rem;
+    /* Ajusta el padding si es necesario */
 }
 
 .container {
@@ -220,9 +223,7 @@ footer {
     transform: scale(1.05);
 }
 
-
 /* Menú desplegable del usuario */
-
 @media (max-width: 995px) {
     .navbar-nav .dropdown-menu {
         width: auto;
