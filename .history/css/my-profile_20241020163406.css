@@ -21,7 +21,7 @@
       }
 
       footer {
-        position: fixed;
+        position: absolute;
         bottom: 0;
         width: 100%;
         text-align: center;
@@ -51,6 +51,7 @@
       padding: 50px 20px 20px 20px;
       height: 100%;
     }
+    
 
     .profile-image img {
       border-radius: 50%;
@@ -92,4 +93,3 @@
       display: block;
       margin-top: 10px;
     }
-

@@ -16,12 +16,12 @@
 
       html,
       body {
-        height: 100%;
+        /*height: 100%;*/
         margin: 0;
       }
 
       footer {
-        position: fixed;
+        position: absolute;
         bottom: 0;
         width: 100%;
         text-align: center;
@@ -31,26 +31,41 @@
 
     body {
       background-color: #eeeeee;
-      height: 100vh;
+      /*height: 100vh;*/
       background: linear-gradient(to bottom, #cccccc 300px, #eeeeee 300px);
     }
 
-    main {
-      min-height: 100vh; /* El contenido ocupará al menos el 100% de la altura de la ventana */
-      padding-bottom: 60px; /* Da espacio suficiente para que el contenido no se superponga con el footer */
-      box-sizing: border-box;
+
+    html, body {
+      height: 100%;
+      margin: 0;
     }
     
+    main {
+      min-height: calc(100vh - 60px); /* Ajusta 60px según la altura de tu footer */
+      padding-bottom: 20px; /* Espacio extra para que el contenido no esté pegado al footer */
+    }
+    
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #121219;
+      text-align: center;
+      padding: 10px 0;
+      color: #fff;
+    }
+    
+
     .profile-container {
+      padding-top: 50px;
+      min-height: 80vh;
+      /* Asegura que el contenido tenga suficiente espacio */
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 50px;
-      margin: 0 auto;
-      max-width: 800px; /* Puedes ajustar esto según el diseño que quieras */
-      padding: 50px 20px 20px 20px;
-      height: 100%;
     }
+
 
     .profile-image img {
       border-radius: 50%;
@@ -92,4 +107,3 @@
       display: block;
       margin-top: 10px;
     }
-
