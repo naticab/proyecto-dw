@@ -3,10 +3,7 @@ header{
     color: #fff;
     position: relative;
 }
-#dropdown{
-    background: #121219;
-    color: #fff;
-}
+
 h1 {
     font-family: "Love Ya Like A Sister", cursive;
 
@@ -159,4 +156,37 @@ footer {
     color: #9b9a9b;
     transition: color 0.3s, text-shadow 0.3s;
     transform: scale(1.05);
+}
+
+ /* Menú desplegable del usuario */
+@media (max-width: 995px) {
+    .navbar-nav .dropdown-menu {
+        width: auto; 
+        min-width: 150px; 
+        max-width: 200px; 
+        left: 0; 
+        right: auto;
+        top: 100%;
+        position: relative;
+        z-index: 1000;
+    }
+
+    .dropdown-menu > li {
+        padding: 0.05rem; 
+        
+    }
+
+    .dropdown-item {
+        width: 100%;
+        white-space: normal;
+    }
+}
+
+.navbar-nav .dropdown-menu {
+    background: #121219;
+}
+.navbar-nav .dropdown-menu:hover {
+    cursor:pointer;
+    color: #9b9a9b;
+    transition: color 0.3s, text-shadow 0.3s;
 }
