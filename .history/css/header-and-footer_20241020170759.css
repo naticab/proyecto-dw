@@ -1,0 +1,221 @@
+header {
+    background: #121219;
+    color: #fff;
+    position: relative;
+}
+
+h1 {
+    font-family: "Love Ya Like A Sister", cursive;
+
+}
+
+a.nav-link {
+    color: #f1f1f1;
+}
+
+a.nav-link:hover {
+    color: #9b9a9b;
+    transition: color 0.3s, text-shadow 0.3s;
+    transform: scale(1.05);
+}
+
+/* Espaciado entre los elementos del menú */
+.navbar-nav .nav-item {
+    margin-right: 40px;
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0;
+    /* Quitar margen derecho al último elemento */
+}
+
+#user-name.nav-link {
+    color: #f1f1f1;
+}
+
+#user-name.nav-link:hover {
+    color: #9b9a9b;
+    transform: scale(1.05);
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.navbar-toggler:hover {
+    cursor: pointer;
+}
+
+
+/* Modo Claroscuro */
+
+
+body.light-mode {
+    background-color: #FBFBFE;
+}
+
+body.dark-mode {
+    background-color: #192229;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#mode-toggle i {
+    transition: color 0.3s;
+    /*transición del ícono*/
+    cursor: pointer;
+}
+
+#mode-toggle:hover .fa-sun {
+    color: gold; /* Color dorado para el icono del sol */
+}
+
+
+
+@media (max-width: 995px) {
+
+    .navbar-collapse {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: -51px;
+        width: 280%;
+        z-index: 999;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar-collapse.show {
+        display: flex;
+    }
+
+    .navbar-nav {
+        background: #121219;
+        color: #fff;
+        padding: 1.5rem;
+        border-radius: 0 0 100px 100px;
+        font-weight: bold;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        /* Centra horizontalmente todos los li */
+        align-items: center;
+        /* Centra verticalmente los li */
+        width: 100%;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%281, 1, 1, 1%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+        filter: brightness(0) invert(1);
+        /* Cambia el icono a blanco */
+    }
+
+
+    .navbar-nav:hover {
+        cursor: pointer;
+    }
+
+    a.nav-link:hover {
+        color: #9b9a9b;
+        transition: color 0.3s, text-shadow 0.3s;
+        transform: scale(1.05);
+    }
+
+    .navbar-nav .nav-item {
+        margin: 10px 0;
+    }
+}
+
+
+footer {
+    background: #121219;
+    color: #fff;
+    min-height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    /* Ajusta el padding si es necesario */
+}
+
+.container {
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.footer-text {
+    margin: 0;
+    text-align: center;
+}
+
+.footer-link-end {
+    margin: 0;
+    text-align: right;
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: #9b9a9b;
+    transition: color 0.3s, text-shadow 0.3s;
+    transform: scale(1.05);
+}
+
+/* Menú desplegable del usuario */
+@media (max-width: 995px) {
+    .navbar-nav .dropdown-menu {
+        width: auto;
+        min-width: 150px;
+        max-width: 200px;
+        left: 0;
+        right: auto;
+        top: 100%;
+        position: relative;
+        z-index: 1000;
+    }
+
+    .dropdown-menu>li {
+        padding: 0.05rem;
+
+    }
+
+    .dropdown-item {
+        width: 100%;
+        white-space: normal;
+    }
+}
+
+.navbar-nav .dropdown-menu {
+    background: #121219;
+}
+
+.navbar-nav .dropdown-menu:hover {
+    cursor: pointer;
+    color: #9b9a9b;
+    transition: color 0.3s, text-shadow 0.3s;
+}
