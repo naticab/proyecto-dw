@@ -324,9 +324,3 @@ footer {
         white-space: normal;
     }
 }
-
-main {
-    min-height: 100vh; /* El contenido ocupará al menos el 100% de la altura de la ventana */
-    padding-bottom: 30px; /* Da espacio suficiente para que el contenido no se superponga con el footer */
-    box-sizing: border-box;
-  }

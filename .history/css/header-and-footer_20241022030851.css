@@ -59,9 +59,12 @@ a.nav-link:hover {
 }
 
 .user-avatar:hover {
-    transform: scale(1.10);
+    transform: scale(1.05);
     transition: 0.3s;
 }
+
+
+
 
 .navbar-nav .dropdown-menu {
     background: linear-gradient(to right, #10ABA2, #2E77CE);
@@ -324,9 +327,3 @@ footer {
         white-space: normal;
     }
 }
-
-main {
-    min-height: 100vh; /* El contenido ocupará al menos el 100% de la altura de la ventana */
-    padding-bottom: 30px; /* Da espacio suficiente para que el contenido no se superponga con el footer */
-    box-sizing: border-box;
-  }
