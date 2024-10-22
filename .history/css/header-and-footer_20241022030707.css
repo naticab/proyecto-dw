@@ -58,11 +58,6 @@ a.nav-link:hover {
     height: 50px;
 }
 
-.user-avatar:hover {
-    transform: scale(1.10);
-    transition: 0.3s;
-}
-
 .navbar-nav .dropdown-menu {
     background: linear-gradient(to right, #10ABA2, #2E77CE);
     border: none;
@@ -79,8 +74,8 @@ a.nav-link:hover {
 }
 
 .navbar-nav .nav-link {
-    display: flex;
-    align-items: center;
+    display: flex; 
+    align-items: center; 
     height: 100%;
     padding: 0.5rem 0;
 }
@@ -179,6 +174,7 @@ body.dark-mode .color-letters {
 #cart-button i:hover {
     color: #9B9A9B;
     transform: scale(1.05);
+
 }
 
 
@@ -324,9 +320,3 @@ footer {
         white-space: normal;
     }
 }
-
-main {
-    min-height: 100vh; /* El contenido ocupará al menos el 100% de la altura de la ventana */
-    padding-bottom: 30px; /* Da espacio suficiente para que el contenido no se superponga con el footer */
-    box-sizing: border-box;
-  }
