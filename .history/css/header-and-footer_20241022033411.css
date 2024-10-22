@@ -15,8 +15,8 @@ a#inicio {
 }
 
 a#inicio:hover {
-    color: white;
     transition: color 0.3s, text-shadow 0.3s;
+    transform: scale(1.05);
 }
 
 .subtitulos-header {
