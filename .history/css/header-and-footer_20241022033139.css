@@ -9,16 +9,6 @@ h1 {
     font-size: 2.8rem;
 }
 
-a#inicio {
-    color: #f1f1f1;
-    text-decoration: none;
-}
-
-a#inicio:hover {
-    color: white;
-    transition: color 0.3s, text-shadow 0.3s;
-}
-
 .subtitulos-header {
     font-size: 1.2rem;
 }
