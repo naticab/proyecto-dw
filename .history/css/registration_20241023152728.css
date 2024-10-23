@@ -13,7 +13,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 80px; /* Añadir espacio inferior para evitar que el footer se solape */
+    margin-bottom: 200px; /* Añadir espacio inferior para evitar que el footer se solape */
 }
 
 
@@ -150,10 +150,6 @@ h1 {
     max-width: 800px;
     padding: 50px 20px 20px 20px;
     height: 100%;
-}
-
-.profile-container div {
-    color: black;
 }
 
 .profile-image img {

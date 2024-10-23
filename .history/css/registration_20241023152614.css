@@ -8,12 +8,14 @@ body {
 }
 
 
+
+
 main {
     flex-grow: 1; /* Permite que el main crezca y ocupe todo el espacio disponible */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 80px; /* Añadir espacio inferior para evitar que el footer se solape */
+    padding-bottom: 50px; /* Añadir espacio inferior para evitar que el footer se solape */
 }
 
 
@@ -150,10 +152,6 @@ h1 {
     max-width: 800px;
     padding: 50px 20px 20px 20px;
     height: 100%;
-}
-
-.profile-container div {
-    color: black;
 }
 
 .profile-image img {
