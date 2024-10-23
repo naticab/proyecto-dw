@@ -14,17 +14,13 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
   const password = document.getElementById('password').value;
 
   if (username !== '' && password !== '') {
-      alert('¡Bienvenido! Muchas gracias por registrarte con nosotros');
-
       localStorage.setItem('isAuthenticated', 'true');
       localStorage.setItem('username', username);
 
-      window.location.href = 'index.html';
   } else {
-      alert('Por favor, ingresa un usuario y contraseña válidos.');
+      alert('Usuario o contraseña incorrectos.');
   }
 });
-
 
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -152,10 +152,6 @@ h1 {
     height: 100%;
 }
 
-.profile-container div {
-    color: black;
-}
-
 .profile-image img {
     border-radius: 50%;
     width: 150px;

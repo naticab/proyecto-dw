@@ -8,12 +8,14 @@ body {
 }
 
 
+
+
 main {
     flex-grow: 1; /* Permite que el main crezca y ocupe todo el espacio disponible */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 80px; /* Añadir espacio inferior para evitar que el footer se solape */
+    padding-bottom: 50px; /* Añadir espacio inferior para evitar que el footer se solape */
 }
 
 
@@ -149,11 +151,6 @@ h1 {
     margin: 0 auto;
     max-width: 800px;
     padding: 50px 20px 20px 20px;
-    height: 100%;
-}
-
-.profile-container div {
-    color: black;
 }
 
 .profile-image img {
@@ -197,3 +194,21 @@ input {
     margin-top: 10px;
 }
 
+
+
+
+
+
+
+
+
+
+
+footer {
+    background-color: #121219;
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    position: relative; /* Cambiar a relative si está afectando la posición */
+    text-align: center;
+}
