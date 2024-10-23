@@ -1,9 +1,10 @@
-/* body {
+body {
     display: flex;
     flex-direction: column;
+    height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
     margin: 0;
     padding: 0;
-} */
+}
 
 main {
     display: flex;
@@ -72,6 +73,7 @@ h1 {
     font-family: "Love Ya Like A Sister", cursive;
     margin: 0;
 }
+
 
 
 @media (max-width: 768px) {

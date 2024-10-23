@@ -74,6 +74,11 @@ h1 {
 }
 
 
+main {
+  max-height: calc(50vh - 100px);
+}
+
+
 @media (max-width: 768px) {
     .login-container {
         width: 25em;
