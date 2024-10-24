@@ -440,7 +440,7 @@ footer {
 }
 
 main {
-    min-height: 100vh;
+    min-height: calc(60vh - 60px);
     /* El contenido ocupará al menos el 100% de la altura de la ventana */
     padding-bottom: 30px;
     /* Da espacio suficiente para que el contenido no se superponga con el footer */

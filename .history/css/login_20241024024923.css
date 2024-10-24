@@ -9,11 +9,6 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(80vh - 80px);
-    /* El contenido ocupará al menos el 100% de la altura de la ventana */
-    padding-bottom: 30px;
-    /* Da espacio suficiente para que el contenido no se superponga con el footer */
-    box-sizing: border-box;
 }
 
 
@@ -57,6 +52,8 @@ button:hover {
 
 
 header {
+    background: #121219;
+    color: #fff;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -76,17 +73,17 @@ h1 {
     margin: 0;
 }
 
-.e-commerce-logo {
-    width: 33rem;
-    height: 33rem;
-    margin-bottom: 0;
-    margin-top: 1rem;
-    background: url('../img/login_dark.png');
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
 
+.e-commerce-logo {
+        padding: 5em inherit;
+        margin-bottom: 0;
+        margin-top: 1rem;
+        background: url('../img/cover_back_5.png');
+        background-size: contain; /* Cambiado de 'cover' a 'contain' para que se ajuste sin recortes */
+        background-position: center;
+        background-repeat: no-repeat;
+        font-weight: bold;
+    }
 
 
 @media (max-width: 768px) {
