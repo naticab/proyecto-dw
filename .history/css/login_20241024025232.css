@@ -9,11 +9,6 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(80vh - 80px);
-    /* El contenido ocupará al menos el 100% de la altura de la ventana */
-    padding-bottom: 30px;
-    /* Da espacio suficiente para que el contenido no se superponga con el footer */
-    box-sizing: border-box;
 }
 
 
@@ -57,6 +52,8 @@ button:hover {
 
 
 header {
+    background: #121219;
+    color: #fff;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -77,8 +74,8 @@ h1 {
 }
 
 .e-commerce-logo {
-    width: 33rem;
-    height: 33rem;
+    width: 50rem;
+    height: 50rem;
     margin-bottom: 0;
     margin-top: 1rem;
     background: url('../img/login_dark.png');

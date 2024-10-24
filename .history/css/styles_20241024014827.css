@@ -41,6 +41,10 @@ nav a {
 }
 
 
+
+
+
+
 .dropzone {
   border: 2px dashed #0087F7;
   border-radius: 5px;
@@ -144,3 +148,4 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+

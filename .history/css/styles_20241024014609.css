@@ -41,6 +41,15 @@ nav a {
 }
 
 
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+
+
 .dropzone {
   border: 2px dashed #0087F7;
   border-radius: 5px;
@@ -144,3 +153,4 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+

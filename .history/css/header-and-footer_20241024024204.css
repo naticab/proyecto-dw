@@ -125,48 +125,9 @@ body.light-mode .related-products:hover {
     background-position: center;
     background-repeat: no-repeat;
     font-weight: bold;
-}
+  }
 
-@media (max-width: 1090px) {
-    .jumbotron {
-        height: 50vh;
-        padding: 5em inherit;
-        margin-bottom: 0;
-        background: url('../img/cover_back_2.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        font-weight: bold;
-    }
-}
-
-@media (max-width: 996px) {
-    .jumbotron {
-        height: 50vh;
-        padding: 5em inherit;
-        margin-bottom: 0;
-        margin-top: 1rem;
-        background: url('../img/cover_back_4.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        font-weight: bold;
-    }
-}
-
-@media (max-width: 870px) {
-    .jumbotron {
-        padding: 5em inherit;
-        margin-bottom: 0;
-        margin-top: 1rem;
-        background: url('../img/cover_back_5.png');
-        background-size: contain;
-        /* Cambiado de 'cover' a 'contain' para que se ajuste sin recortes */
-        background-position: center;
-        background-repeat: no-repeat;
-        font-weight: bold;
-    }
-}
+ 
 
 
 
@@ -192,7 +153,7 @@ body.dark-mode .color-letters {
     color: white;
 }
 
-.jumbotron-dark {
+.jumbotron {
     height: 50vh;
     padding: 5em inherit;
     margin-bottom: 0;
@@ -201,10 +162,10 @@ body.dark-mode .color-letters {
     background-position: center;
     background-repeat: no-repeat;
     font-weight: bold;
-}
+  }
 
-@media (max-width: 1090px) {
-    .jumbotron-dark {
+  @media (max-width: 1090px) {
+    .jumbotron {
         height: 50vh;
         padding: 5em inherit;
         margin-bottom: 0;
@@ -214,10 +175,10 @@ body.dark-mode .color-letters {
         background-repeat: no-repeat;
         font-weight: bold;
     }
-}
+  }
 
-@media (max-width: 996px) {
-    .jumbotron-dark {
+  @media (max-width: 996px) {
+    .jumbotron {
         height: 50vh;
         padding: 5em inherit;
         margin-bottom: 0;
@@ -228,15 +189,14 @@ body.dark-mode .color-letters {
         background-repeat: no-repeat;
         font-weight: bold;
     }
-}
+  }
 
-@media (max-width: 870px) {
-    .jumbotron-dark {
+  @media (max-width: 870px) {
+    .jumbotron {
         padding: 5em inherit;
         margin-bottom: 0;
         background: url('../img/cover_back_dark_5.png');
-        background-size: contain;
-        /* Cambiado de 'cover' a 'contain' para que se ajuste sin recortes */
+        background-size: contain; /* Cambiado de 'cover' a 'contain' para que se ajuste sin recortes */
         background-position: center;
         background-repeat: no-repeat;
         font-weight: bold;
