@@ -1,25 +1,22 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    // Detalles del producto
+document.addEventListener("DOMContentLoaded", async function() {
+    //Detalles del producto
     const productId = localStorage.getItem('selectedProductId');
     if (productId) {
-        const response = await fetch(PRODUCT_INFO_URL + `/${productId}${EXT_TYPE}`);
-        const product = await response.json();
-
         try {
             // Llamada a la API para obtener el producto
             const response = await fetch(`https://japceibal.github.io/emercado-api/products/${productId}.json`);
             const product = await response.json();
-            // lleva el producto al HTML
+
+            // Lleva el producto al HTML
             document.getElementById('name').textContent = product.name;
             document.getElementById('description').textContent = product.description;
             document.getElementById('price').textContent = `${product.currency} ${product.cost}`;
             document.getElementById('category').textContent = product.category;
             document.getElementById('soldCount').textContent = `${product.soldCount} vendidos`;
-            document.getElementById('mainImage').src = product.image;
+            document.getElementById('mainImage').src = product.images[0];
 
             // Verifica que el array de imágenes exista y tenga al menos una imagen
             if (product.images && product.images.length > 0) {
-                // Asigna la primera imagen del array como la imagen principal
                 document.getElementById('mainImage').src = product.images[0];
             }
 
@@ -28,50 +25,68 @@ document.addEventListener('DOMContentLoaded', async () => {
                 htmlToAppend += `<div class=""><img src="${img}"></div>`;
             }
             htmlToAppend += `</div>`;
-
             document.getElementById('related-images').innerHTML = htmlToAppend;
+
+            // Mostrar productos relacionados
             showRelatedProducts(product.relatedProducts);
-        } catch (error) {
-            console.error('Error fetching product data', error);
-        }
 
-        const reviewsResponse = await fetch(PRODUCT_INFO_COMMENTS_URL + `/${productId}${EXT_TYPE}`);
-        const comments = await reviewsResponse.json();
+            // Comentarios y calificación
+            const reviewsResponse = await fetch(PRODUCT_INFO_COMMENTS_URL + `/${productId}${EXT_TYPE}`);
+            const comments = await reviewsResponse.json();
+            //Inicializar contadores
+            totalRatings = 0;
+            ratingCount = 0;
 
-        // Inicializar contadores
-        totalRatings = 0;
-        ratingCount = 0;
+            let commentsToAppend = "";
+            comments.forEach(comment => {
+                commentsToAppend += `
+                    <div class="comment-card">
+                        <span class="comment-user"><strong>${comment.user}</strong> | </span>
+                        <span class="comment-date">${new Date(comment.dateTime).toLocaleString()}</span>
+                        <div class="comment-stars">${generateStars(comment.score)}</div>
+                        <div class="comment-description">${comment.description}</div>
+                    </div>
+                `;
+                // Sumar las puntuaciones de los comentarios existentes
+                totalRatings += comment.score;
+                ratingCount += 1; // Contamos cada comentario
+            });
+            document.getElementById('comments-section').innerHTML = commentsToAppend;
+            // Actualiza el histograma con los comentarios ya existentes
+            updateRatingHistogram();
 
-        let commentsToAppend = "";
-        comments.forEach(comment => {
-            commentsToAppend += `
-                <div class="comment-card">
-                    <span class="comment-user"><strong>${comment.user}</strong> | </span>
-                    <span class="comment-date">${new Date(comment.dateTime).toLocaleString()}</span>
-                    <div class="comment-stars">${generateStars(comment.score)}</div>
-                    <div class="comment-description">${comment.description}</div>
-                </div>
-            `;
-
-            // Sumar las puntuaciones de los comentarios existentes
-            totalRatings += comment.score;
-            ratingCount += 1; // Contamos cada comentario
-        });
-        document.getElementById('comments-section').innerHTML = commentsToAppend;
-
-        // Actualiza el histograma con los comentarios ya existentes
-        updateRatingHistogram();
-
-        function generateStars(score) {
-            let stars = '';
-            for (let i = 1; i <= 5; i++) {
-                if (i <= score) {
-                    stars += `<span class="fa fa-star checked"></span>`;
-                } else {
-                    stars += `<span class="fa fa-star"></span>`;
+            function generateStars(score) {
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= score) {
+                        stars += `<span class="fa fa-star checked"></span>`;
+                    } else {
+                        stars += `<span class="fa fa-star"></span>`;
+                    }
                 }
+                return stars;
             }
-            return stars;
+
+            // Modificación en la sección del botón de comprar
+            const buyButton = document.getElementById("buyButton");
+            if (buyButton) {
+                buyButton.addEventListener("click", () => {
+                    const productoComprado = {
+                        id: product.id,
+                        nombre: product.name,
+                        precio: product.cost,
+                        imagen: product.images[0]
+                    };
+
+                    localStorage.setItem("productoComprado", JSON.stringify(productoComprado));
+                    console.log("Producto guardado en localStorage:", productoComprado);
+                });
+            } else {
+                console.error("'buyButton' no encontrado.");
+            }
+
+        } catch (error) {
+            console.error('Error al obtener los datos del producto', error);
         }
     }
 });
