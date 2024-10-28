@@ -4,3 +4,12 @@ main {
     background-position: center;
     background-repeat: repeat;
   }
+
+#buyButton{
+  border: transparent;
+}
+#buyButton:hover{
+  background: linear-gradient(to right, #10ABA2, #2E77CE);
+  border: transparent;
+}
+
