@@ -10,18 +10,16 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/header-and-footer.css" rel="stylesheet">
-  <link href="css/cart.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css\cart.css">
 </head>
 
 
 <body>
 
   <header class="py-3">
-    <div class="container d-flex justify-content-between align-items-center hamburger">
-      <a id="inicio" href="index.html">
-        <h1 class="m-0">Cositas Montevideo</h1>
-      </a>
+    <div class="container d-flex justify-content-around align-items-center">
+      <h1 class="m-0">Cositas Montevideo</h1>
       <nav class="navbar navbar-expand-lg">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,40 +27,34 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav w-100 justify-content-between">
-            <li class="nav-item subtitulos-header">
+            <li class="nav-item">
               <a class="nav-link" href="index.html">Inicio</a>
             </li>
-            <li class="nav-item subtitulos-header">
+            <li class="nav-item">
               <a class="nav-link" href="categories.html">Categorías</a>
             </li>
-            <li class="nav-item subtitulos-header">
+            <li class="nav-item">
               <a class="nav-link" href="sell.html">Vender</a>
             </li>
-            <!-- Menú desplegable Usuario dentro del menú hamburguesa -->
             <li class="nav-item d-flex align-items-center">
+            <div class="d-none" id="user-container">
+              <!--Menú desplegable Usuario-->
               <div class="dropdown">
-                <a class="btn dropdown-toggle" id="user-image" type="button" data-bs-toggle="dropdown"
-                  data-bs-display="static" aria-expanded="false">
-                  <img src="img/usuario.png" id="profilePic" alt="avatar" class="user-avatar">
-                </a>
+                <a class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false"></a>
+                  <a id="user-name"></a>
                 <ul class="dropdown-menu dropdown-menu-dark">
                   <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
                   <li><a class="dropdown-item" href="cart.html">Carrito de Compras</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
+                  <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="login.html" id="log-out">Cerrar sesión</a></li>
                 </ul>
               </div>
+            </div>
+            <a id="loginLink" class="nav-link"></a>
             </li>
             <li class="nav-item d-flex align-items-center">
               <button id="mode-toggle" class="btn btn-outline-secondary">
                 <i id="theme-icon" class="fas fa-moon"></i>
-              </button>
-            </li>
-            <li class="nav-item d-flex align-items-center">
-              <button id="cart-button" class="btn btn-outline-secondary">
-                <i class="fas fa-shopping-cart"></i>
               </button>
             </li>
           </ul>
@@ -72,7 +64,41 @@
   </header>
 
   <main>
+    <div class="container">
+      
+      <section class="shopping-cart">
+        <h2>/ Tu carrito de compras /</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Moneda</th>
+              <th>Cantidad</th>
+              <th>Total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="cart-items">
+            
+            <!-- Js -->
+          </tbody>
+        </table>
 
+      </section>
+
+      <aside class="checkout-summary">
+        <h2>/ Importe total /</h2>
+        <p>Subtotal: <span id="subtotal">0.00 UYU</span></p>
+        <p>Envío: <span>0.00</span></p>
+        <a href="#" class="discount">Ingresar cupón de descuento</a>
+        <h3>Total: <span id="total">0.00 UYU</span></h3>
+        <button id="finalize-purchase">Finalizar compra</button>
+        <button class="btn-back">Volver a categorías</button>
+        <button id="empty-cart" class="btn-empty">Vaciar carrito</button>
+      </aside>
+
+    </div>
   </main>
 
   <footer class="text-center py-2">
@@ -99,7 +125,6 @@
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/checklogin.js"></script>
-  <script src="js/my-profile.js"></script>
   <script src="js/header-and-footer.js"></script>
 </body>
 

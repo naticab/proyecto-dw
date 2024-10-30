@@ -1,3 +1,4 @@
+let cartList = [];
 document.addEventListener("DOMContentLoaded", async function() {
     //Detalles del producto
     const productId = localStorage.getItem('selectedProductId');
@@ -75,10 +76,23 @@ document.addEventListener("DOMContentLoaded", async function() {
                         id: product.id,
                         nombre: product.name,
                         precio: product.cost,
-                        imagen: product.images[0]
-                    };
+                        imagen: product.images[0],
+                        cantidad: 1
+                    };  
+                        if (localStorage.getItem(productoComprado)) {
 
-                    localStorage.setItem("productoComprado", JSON.stringify(productoComprado));
+                            cartList = JSON.parse(localStorage.getItem(productoComprado));
+
+                        } else {
+                            cartList = [];
+                        }
+                        
+                         let indice = (cartList.findIndex(prod => prod.id == productoComprado.id))
+                        if (indice > -1) {
+                            cartList[indice].cantidad++;
+                        }
+                        cartList.push(productoComprado);
+                    localStorage.setItem("productoComprado", JSON.stringify(cartList));
                     console.log("Producto guardado en localStorage:", productoComprado);
                 });
             } else {
@@ -90,6 +104,9 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
     }
 });
+
+
+
 
 // Función para hacer las tarjetas de producto
 function createProductCard(product) {
