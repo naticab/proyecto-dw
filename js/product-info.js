@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", async function() {
             // Comentarios y calificación
             const reviewsResponse = await fetch(PRODUCT_INFO_COMMENTS_URL + `/${productId}${EXT_TYPE}`);
             const comments = await reviewsResponse.json();
-            //Inicializar contadores
+
+            // Inicializar contadores
             totalRatings = 0;
             ratingCount = 0;
 
@@ -79,19 +80,22 @@ document.addEventListener("DOMContentLoaded", async function() {
                         imagen: product.images[0],
                         cantidad: 1
                     };  
-                        if (localStorage.getItem(productoComprado)) {
 
-                            cartList = JSON.parse(localStorage.getItem(productoComprado));
+                    // Verificar si el carrito ya tiene productos
+                    const storedCart = localStorage.getItem("productoComprado");
+                    if (storedCart) {
+                        cartList = JSON.parse(storedCart);
+                    }
 
-                        } else {
-                            cartList = [];
-                        }
-                        
-                         let indice = (cartList.findIndex(prod => prod.id == productoComprado.id))
-                        if (indice > -1) {
-                            cartList[indice].cantidad++;
-                        }
+                    // Comprobar si el producto ya está en el carrito y actualizar la cantidad
+                    const indice = cartList.findIndex(prod => prod.id == productoComprado.id);
+                    if (indice > -1) {
+                        cartList[indice].cantidad++;
+                    } else {
                         cartList.push(productoComprado);
+                    }
+
+                    // Guardar el carrito actualizado en localStorage
                     localStorage.setItem("productoComprado", JSON.stringify(cartList));
                     console.log("Producto guardado en localStorage:", productoComprado);
                 });
@@ -104,9 +108,6 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
     }
 });
-
-
-
 
 // Función para hacer las tarjetas de producto
 function createProductCard(product) {
@@ -188,20 +189,6 @@ function generateStars(score) {
     return stars;
 }
 
-const newComment = {
-    user: "Usuario Nuevo",
-    dateTime: new Date().toISOString(),
-    score: 4,
-    description: "¡Comentario nuevo!"
-};
-
-
-// Precargar el nombre del usuario en el campo de nombre
-const storedUserName = localStorage.getItem('username');
-    if (storedUserName) {
-    document.getElementById('userName').value = storedUserName;
-}
-
 // Evento para el botón de Enviar comentario
 document.getElementById('submitComment').addEventListener('click', () => {
     const userName = document.getElementById('anonymousCheck').checked ? "Anónimo" : document.getElementById('userName').value;
@@ -251,13 +238,6 @@ function addNewCommentToDOM(comment) {
     commentsSection.insertBefore(commentDiv, commentsSection.firstChild);
 }
 
-// Función para mostrar comentarios
-function displayComments() {
-    commentsArray.forEach(comment => {
-        addNewCommentToDOM(comment); // Usamos appendChild para cada comentario
-    });
-}
-
 // Función para actualizar el histograma de rating
 function updateRatingHistogram() {
     const average = ratingCount > 0 ? (totalRatings / ratingCount) : 0;
@@ -270,26 +250,7 @@ function updateRatingHistogram() {
 function renderStars(value) {
     let starsHtml = '';
     for (let i = 0; i < 5; i++) {
-        if (i < Math.floor(value)) {
-            starsHtml += '<i class="fa fa-star checked princial-starts"></i>'; // Estrella llena
-        } else if (i < value) {
-            starsHtml += '<i class="fas fa-star-half-alt princial-starts"></i>'; // Estrella media
-        } else {
-            starsHtml += '<i class="fa fa-star princial-starts"></i>'; // Estrella vacía
-        }
+        starsHtml += `<span class="fa fa-star ${i < Math.round(value) ? 'checked' : ''}"></span>`;
     }
     return starsHtml;
 }
-
-// Llamar a displayComments si ya hay comentarios al cargar la página
-displayComments();
-
-//Evento para cerrar sesión
-document.getElementById('log-out').addEventListener('click', function () {
-    localStorage.removeItem('isAuthenticated');
-    localStorage.removeItem('username');
-    sessionStorage.removeItem('user-name');
-    
-    console.log("Sesión cerrada correctamente.");
-    
-});
