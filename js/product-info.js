@@ -69,6 +69,17 @@ document.addEventListener("DOMContentLoaded", async function() {
                 return stars;
             }
 
+            function showToast(message) {
+                const toast = document.getElementById('toast');
+                toast.textContent = message;
+                toast.classList.add('show');
+            
+                // Ocultar el toast después de 3 segundos
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+            
             // Modificación en la sección del botón de comprar
             const buyButton = document.getElementById("buyButton");
             if (buyButton) {
@@ -98,6 +109,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                     // Guardar el carrito actualizado en localStorage
                     localStorage.setItem("productoComprado", JSON.stringify(cartList));
                     console.log("Producto guardado en localStorage:", productoComprado);
+                    showToast(`${product.name} fue agregado al carrito.`);
                 });
             } else {
                 console.error("'buyButton' no encontrado.");
@@ -254,3 +266,4 @@ function renderStars(value) {
     }
     return starsHtml;
 }
+

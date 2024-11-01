@@ -13,3 +13,27 @@ main {
   border: transparent;
 }
 
+.toast {
+  visibility: hidden;
+  min-width: 250px;
+  margin: 0 auto;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 16px;
+  position: fixed;
+  top: 30px; 
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 17px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease, top 0.5s ease; 
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  top: 100px; /* Ajusta en que parte de la pantalla aparece el cartel */
+}
