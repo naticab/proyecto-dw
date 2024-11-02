@@ -11,8 +11,6 @@ main {
     background-position: center;
     background-repeat: repeat;
   }
-
-}
   
 .shopping-cart {
   flex: 2;
@@ -20,12 +18,14 @@ main {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 1rem;
+  color: #000000;
 }
 
 .shopping-cart h2 {
   font-weight: bold;
   font-size: 1.25rem;
   margin-bottom: 1rem;
+  color: #000000;
 }
 
 table {
@@ -59,6 +59,7 @@ table img {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 1rem;
+  color: #000000;
 }
 
 .checkout-summary h2 {
