@@ -29,40 +29,34 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav w-100 justify-content-between">
-            <li class="nav-item subtitulos-header">
+            <li class="nav-item">
               <a class="nav-link" href="index.html">Inicio</a>
             </li>
-            <li class="nav-item subtitulos-header">
+            <li class="nav-item">
               <a class="nav-link" href="categories.html">Categorías</a>
             </li>
-            <li class="nav-item subtitulos-header">
+            <li class="nav-item">
               <a class="nav-link" href="sell.html">Vender</a>
             </li>
-            <!-- Menú desplegable Usuario dentro del menú hamburguesa -->
             <li class="nav-item d-flex align-items-center">
+            <div class="d-none" id="user-container">
+              <!--Menú desplegable Usuario-->
               <div class="dropdown">
-                <a class="btn dropdown-toggle" id="user-image" type="button" data-bs-toggle="dropdown"
-                  data-bs-display="static" aria-expanded="false">
-                  <img src="img/usuario.png" id="profilePic" alt="avatar" class="user-avatar">
-                </a>
+                <a class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false"></a>
+                  <a id="user-name"></a>
                 <ul class="dropdown-menu dropdown-menu-dark">
                   <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
                   <li><a class="dropdown-item" href="cart.html">Carrito de Compras</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
+                  <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="login.html" id="log-out">Cerrar sesión</a></li>
                 </ul>
               </div>
+            </div>
+            <a id="loginLink" class="nav-link"></a>
             </li>
             <li class="nav-item d-flex align-items-center">
               <button id="mode-toggle" class="btn btn-outline-secondary">
                 <i id="theme-icon" class="fas fa-moon"></i>
-              </button>
-            </li>
-            <li class="nav-item d-flex align-items-center">
-              <button id="cart-button" class="btn btn-outline-secondary">
-                <i class="fas fa-shopping-cart"></i>
               </button>
             </li>
           </ul>
@@ -73,7 +67,7 @@
 
   <main>
     <div class="container">
-
+      
       <section class="shopping-cart">
         <h2>/ Tu carrito de compras /</h2>
         <table>
@@ -88,7 +82,7 @@
             </tr>
           </thead>
           <tbody id="cart-items">
-
+            
             <!-- Js -->
           </tbody>
         </table>
