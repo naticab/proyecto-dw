@@ -286,7 +286,7 @@ body.dark-mode .color-letters {
 
 #cart-button i {
     transition: color 0.3s;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: #ffffff;
 }
 
@@ -295,8 +295,21 @@ body.dark-mode .color-letters {
     transform: scale(1.05);
 }
 
-
-
+#cart-count {
+    position: relative;
+    top: 0;
+    right: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    font-weight: bold;
+    background-color: #ff151a;
+    color: #FFF;
+    border-radius: 50%;
+  }
 
 @media (max-width: 995px) {
 
