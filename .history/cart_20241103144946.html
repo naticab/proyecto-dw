@@ -75,12 +75,12 @@
     <div class="container">
 
       <section class="shopping-cart">
-        <h2 class="text-center"> Tu carrito de compras </h2>
-        <table class="table table-striped">
+        <h2>/ Tu carrito de compras /</h2>
+        <table>
           <thead>
             <tr>
-              <th></th>
               <th>Producto</th>
+              <th>Precio</th>
               <th>Moneda</th>
               <th>Cantidad</th>
               <th>Total</th>
@@ -88,6 +88,7 @@
             </tr>
           </thead>
           <tbody id="cart-items">
+
             <!-- Js -->
           </tbody>
         </table>
@@ -95,18 +96,18 @@
       </section>
 
       <aside class="checkout-summary">
-        <h2> Importe total </h2>
+        <h2>/ Importe total /</h2>
         <p>Subtotal: <span id="subtotal">0.00 UYU</span></p>
         <p>Envío: <span>0.00</span></p>
         <a href="#" class="discount">Ingresar cupón de descuento</a>
         <h3>Total: <span id="total">0.00 UYU</span></h3>
-        <button id="finalize-purchase" class="btn btn-success btn-block">Finalizar compra</button>
-        <button class="btn btn-primary btn-block" onclick="window.location.href='categories.html';">Volver a categorías</button>
-        <button id="empty-cart" class="btn btn-danger btn-block">Vaciar carrito</button>
+        <button id="finalize-purchase">Finalizar compra</button>
+        <button class="btn-back" onclick="window.location.href='categories.html';">Volver a categorías</button>
+        <button id="empty-cart" class="btn-empty">Vaciar carrito</button>
       </aside>
 
     </div>
-  </main> 
+  </main>
 
   <footer class="text-center py-2">
     <div class="container">
