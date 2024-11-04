@@ -282,12 +282,15 @@ body.dark-mode .color-letters {
     outline: none;
     box-shadow: none;
     background-color: transparent;
+    margin-top: 1rem;
 }
 
 #cart-button i {
     transition: color 0.3s;
     font-size: 1.5rem;
     color: #ffffff;
+    display: flex;
+    align-items: center;
 }
 
 #cart-button i:hover {
@@ -297,8 +300,8 @@ body.dark-mode .color-letters {
 
 #cart-count {
     position: relative;
-    top: 0;
-    right: 0;
+    top: -10px;
+    right: -15px;
     height: 1.5rem;
     width: 1.5rem;
     display: flex;
