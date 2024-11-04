@@ -156,5 +156,5 @@ a.custom-card:hover {
   background: linear-gradient(to right, #10ABA2, #2E77CE);
   transition: color 0.5s, text-shadow 0.5s;
   color: #fff;
-  transform: scale(1.01);
+  transform: scale(0.5);
 }
