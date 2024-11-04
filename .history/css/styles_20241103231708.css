@@ -154,7 +154,5 @@ a.custom-card:hover {
 .btn-color:hover {
   cursor: pointer;
   background: linear-gradient(to right, #10ABA2, #2E77CE);
-  transition: color 0.5s, text-shadow 0.5s;
-  color: #fff;
-  transform: scale(1.01);
+  transition: color 0.3s, text-shadow 0.3s;
 }
