@@ -18,27 +18,27 @@ document.addEventListener("DOMContentLoaded", function() {
     function renderCart() {
         let subtotal = 0;
         cartItemsContainer.innerHTML = "";
-
+    
         cartItems.forEach((producto, index) => {
             const { nombre, precio, imagen, cantidad } = producto;
             const itemTotal = precio * cantidad;
             subtotal += itemTotal;
-
+    
             const row = document.createElement("tr");
             row.innerHTML = `
                 <td><img src="${imagen}" alt="${nombre}" width="50"></td>
                 <td>${nombre}</td>
                 <td>${precio.toFixed(2)} UYU</td>
                 <td>
-                  <input type="number" min="1" value="${cantidad}" data-index="${index}" class="quantity-input">
+                    <input type="number" min="1" value="${cantidad}" data-index="${index}" class="quantity-input">
                 </td>
                 <td>${itemTotal.toFixed(2)} UYU</td>
-                <td><button class="remove-item" data-index="${index}">Eliminar</button></td>
+                <td><button class="remove-item fa fa-trash" data-index="${index}"></button></td>
             `;
-
+    
             cartItemsContainer.appendChild(row);
         });
-
+    
         subtotalContainer.textContent = `${subtotal.toFixed(2)} UYU`;
         totalContainer.textContent = `${subtotal.toFixed(2)} UYU`;
     }
