@@ -122,3 +122,15 @@ h1 {
         visibility: hidden;
     }
 }
+
+input.error {
+    border: 2px solid red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+    margin-bottom: 1rem;
+} 
