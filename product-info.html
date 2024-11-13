@@ -94,6 +94,15 @@
           <div class="col-md-4">
             <div class="product-details">
               <h3 id="name">Nombre</h3>
+              <!-- Rating Histogram -->
+                <div id="rating-histogram">
+                  <div id="total-rating">
+                    <div id="average-rating">0.0</div>
+                    <div id="rating-stars" class="mt-2 ms-2"></div>
+                  </div> 
+                  <p id="rating-count">(0 calificaciones)</p>
+                </div>
+              
               <p id="price" class="product-price">precio</p>
               <p id="category" class="product-category">Categoría</p>
               <p id="description" class="product-description">Descripción</p>
@@ -112,20 +121,8 @@
 
 
       <!-- Sección de Comentarios con Calificación -->
-      <div class="container mt-4">
+      <div class="container mt-4" id="comments-container">
         <div class="row justify-content-center">
-          <!-- Rating Histogram -->
-          <div class="col-md-4 d-flex justify-content-center align-items-center rating-and-comments">
-            <div id="rating-histogram" class="p-3 text-center">
-              <div class="d-flex align-items-center justify-content-center">
-                <div id="average-rating">0.0</div>
-                <div id="rating-stars" class="mt-2 ms-2">
-                </div>
-              </div>
-              <p id="rating-count">(0 calificaciones)</p>
-            </div>
-          </div>
-
           <!-- Formulario de Comentarios -->
           <div class="col-md-8">
             <div class="p-3 rating-and-comments">
