@@ -13,7 +13,7 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    if (username !== '' && password !== '') {
+    if (username !== '' && password !== '' && password.length > 6) {
         localStorage.setItem('isAuthenticated', 'true');
         localStorage.setItem('username', username);
 
