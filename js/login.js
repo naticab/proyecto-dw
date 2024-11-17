@@ -1,13 +1,3 @@
-// Mostrar y ocultar la contraseña
-document.getElementById('togglePassword').addEventListener('click', function () {
-    const passwordField = document.getElementById('password');
-    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-    passwordField.setAttribute('type', type);
-
-    this.classList.toggle('fa-eye-slash');
-});
-
-// Validación de email en el envío del formulario
 document.getElementById('myForm').addEventListener('submit', function (event) {
     // Evitar que el formulario se envíe al servidor
     event.preventDefault();
@@ -25,13 +15,16 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
     document.getElementById('password').classList.remove('error');
 
     // Validación
-    if (username === '' || password === '') {
+    if (username === '' || password === '' || password.length <= 6) {
         if (username === '') {
             document.getElementById('username-error').textContent = 'Por favor, ingrese un email.';
             document.getElementById('username').classList.add('error');
         }
         if (password === '') {
             document.getElementById('password-error').textContent = 'Por favor, ingrese una contraseña.';
+            document.getElementById('password').classList.add('error');
+        } else if (password.length <= 6) {
+            document.getElementById('password-error').textContent = 'La contraseña debe tener al menos 6 caracteres.';
             document.getElementById('password').classList.add('error');
         }
     } else if (!emailPattern.test(username)) {
@@ -43,4 +36,5 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
         window.location.href = 'index.html';
     }
 });
+
 
