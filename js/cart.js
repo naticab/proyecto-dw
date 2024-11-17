@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
-    
 
     // Evento para vaciar todo el carrito
     document.getElementById("empty-cart").addEventListener("click", () => {
@@ -75,7 +74,20 @@ document.addEventListener("DOMContentLoaded", function() {
         renderCart();
     });
 
-    
+    // Evento para finalizar compra y guardar el subtotal en localStorage
+    document.getElementById("finalize-purchase").addEventListener("click", function() {
+        let subtotal = 0;
+        cartItems.forEach((producto) => {
+            const { precio, cantidad } = producto;
+            subtotal += precio * cantidad;
+        });
+
+        // Guardar el subtotal en localStorage
+        localStorage.setItem('subtotal', subtotal.toFixed(2));
+
+        // Redirigir a la página de checkout
+        window.location.href = 'checkout.html';  
+    });
 
     // Renderizar el carrito al cargar la página
     renderCart();

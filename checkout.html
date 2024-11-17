@@ -12,6 +12,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/products.css" rel="stylesheet">
+  <link href="css/checkout.css" rel="stylesheet">
   <link href="css/header-and-footer.css" rel="stylesheet">
   <link href="css/product-info.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
@@ -78,13 +79,13 @@
     <div class="container">
       <ul class="nav nav-tabs" id="checkoutTabs" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="shipping-tab" data-toggle="tab" href="#shipping" role="tab">Tipo de Envío</a>
+          <a class="nav-link active" id="shipping-tab" data-bs-toggle="tab" href="#shipping" role="tab">Tipo de Envío</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" id="address-tab" data-toggle="tab" href="#address" role="tab">Dirección de Envío</a>
+          <a class="nav-link disabled" id="address-tab" data-bs-toggle="tab" href="#address" role="tab">Dirección de Envío</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" id="payment-tab" data-toggle="tab" href="#payment" role="tab">Forma de Pago</a>
+          <a class="nav-link disabled" id="payment-tab" data-bs-toggle="tab" href="#payment" role="tab">Forma de Pago</a>
         </li>
       </ul>      
 
@@ -145,32 +146,64 @@
           <div class="payment_method" required>
             <div>
               <input type="radio" name="payment" value="debit" id="debit_card">
-              <label for="female">Añadir tarjeta de débito</label>
+              <label for="debit_card">Añadir tarjeta de débito</label>
             </div>
             <div>
-              <input type="radio" name="payment" value="express" id="credit_card">
-              <label for="male">Añadir tarjeta de crédito</label>
+              <input type="radio" name="payment" value="credit" id="credit_card">
+              <label for="credit_card">Añadir tarjeta de crédito</label>
             </div>
             <div>
-              <input type="radio" name="payment" value="standard" id="bank_transfer">
-              <label for="other_gender">Realizar transferencia bancaria</label>
+              <input type="radio" name="payment" value="bank_transfer" id="bank_transfer">
+              <label for="bank_transfer">Realizar transferencia bancaria</label>
             </div>
             <div>
               <input type="radio" name="payment" value="cash" id="pay_in_cash">
-              <label for="other_gender">Pagar en efectivo al recibir</label>
+              <label for="pay_in_cash">Pagar en efectivo al recibir</label>
             </div>
           </div>
+
+        <!-- Campos para tarjeta de débito -->
+        <div id="debit_fields" class="payment_fields" style="display: none;">
+          <label for="debit_number">Número de tarjeta:</label>
+          <input type="text" id="debit_number" placeholder="Introduce el número de tarjeta">
+          <label for="debit_expiry">Fecha de expiración:</label>
+          <input type="text" id="debit_expiry" placeholder="MM/AA">
         </div>
+
+        <!-- Campos para tarjeta de crédito -->
+        <div id="credit_fields" class="payment_fields" style="display: none;">
+          <label for="credit_number">Número de tarjeta:</label>
+          <input type="text" id="credit_number" placeholder="Introduce el número de tarjeta">
+          <label for="credit_expiry">Fecha de expiración:</label>
+          <input type="text" id="credit_expiry" placeholder="MM/AA">
+        </div>
+
+        <!-- Campos para transferencia bancaria -->
+        <div id="bank_fields" class="payment_fields" style="display: none;">
+          <label for="bank_account">Número de cuenta bancaria:</label>
+          <input type="text" id="bank_account" placeholder="Introduce el número de cuenta">
+        </div>
+
+        <!-- Campos para pagar en efectivo -->
+        <div id="cash_fields" class="payment_fields" style="display: none;">
+          <label for="cash_info">Detalles del pago en efectivo:</label>
+          <input type="text" id="cash_info" placeholder="Introduce los detalles del pago">
+        </div>
+
+        <!--<div class="form-group">
+          <button type="button" id="finish-payment" class="btn btn-success">Finalizar Compra</button>
+        </div> -->
       </div>
+      
       <aside class="checkout-summary">
         <h2> Importe total </h2>
         <p>Subtotal: <span id="subtotal">0.00 UYU</span></p>
-        <p>Envío: <span>0.00</span></p>
+        <p>Envío: <span id="envio">0.00</span></p>
         <a href="#" class="discount">Ingresar cupón de descuento</a>
         <h3>Total: <span id="total">0.00 UYU</span></h3>
         <button id="finalize-purchase" class="btn btn-success btn-block">Finalizar compra</button>
         <button class="btn btn-primary btn-block" onclick="window.location.href='categories.html';">Continuar comprando</button>
-        <button id="empty-cart" class="btn btn-danger btn-block">Regresar al  carrito</button>
+        <button id="empty-cart" class="btn btn-danger btn-block" onclick="window.location.href='cart.html';">Regresar al  carrito</button>
       </aside>
     </div>
   </main>
