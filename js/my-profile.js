@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
     apellido.value = localStorage.getItem("apellido");
   }
 
-  if (localStorage.getItem("userEmail")) {
-    email.value = localStorage.getItem("userEmail");
+  if (localStorage.getItem("username")) {
+    email.value = localStorage.getItem("username");
   }
 
   // Validación del formulario y guardar datos en localStorage
