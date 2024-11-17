@@ -83,15 +83,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  // Los campos de teléfono, tarjetas y cuentas bancarias sólo puedan aceptar números
-  const numericFields = document.querySelectorAll("#phoneNumber, #debitNumber, #creditNumber, #bankAccount, #debitExpiry, #creditExpiry");
-
-  numericFields.forEach(field => {
-    field.addEventListener("input", function (e) {
-      this.value = this.value.replace(/[^0-9]/g, "");
-    });
+  // Que el campo teléfono sólo acepte números
+  document.getElementById("phoneNumber").addEventListener("input", function (e) {
+    this.value = this.value.replace(/[^0-9]/g, "");
   });
-
 
 
   // Cambiar a la pestaña de Pago al hacer clic en Finalizar compra
@@ -144,3 +139,53 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+
+
+  // Departamento y Localidad
+  document.addEventListener("DOMContentLoaded", function () {
+    // Definir la lista de departamentos directamente en el código
+    const departments = [
+      { id: 1, name: "Montevideo", towns: [{ id: 1, name: "Ciudad Vieja" }, { id: 2, name: "Centro" }] },
+      { id: 2, name: "Canelones", towns: [{ id: 3, name: "Las Piedras" }, { id: 4, name: "El Pinar" }] }
+    ];
+  
+    const stateSelect = document.getElementById('state');
+    const districtSelect = document.getElementById('district');
+  
+    // Función para cargar los departamentos en el select
+    function loadDepartments() {
+      departments.forEach(department => {
+        const option = document.createElement('option');
+        option.value = department.id;
+        option.textContent = department.name;
+        stateSelect.appendChild(option);
+      });
+    }
+  
+    // Función para cargar las localidades en el select de distritos
+    function loadTowns(departmentId) {
+      districtSelect.innerHTML = '<option value="">Seleccione una localidad</option>';
+      const department = departments.find(d => d.id == departmentId);
+  
+      if (department) {
+        department.towns.forEach(town => {
+          const option = document.createElement('option');
+          option.value = town.id;
+          option.textContent = town.name;
+          districtSelect.appendChild(option);
+        });
+      }
+    }
+  
+    // Llamar a la función para cargar los departamentos cuando el DOM esté listo
+    loadDepartments();
+  
+    // Escuchar el cambio en el select de estado (departamento)
+    stateSelect.addEventListener('change', function () {
+      loadTowns(this.value);
+    });
+  });
+  
+

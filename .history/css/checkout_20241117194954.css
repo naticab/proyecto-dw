@@ -12,14 +12,14 @@ input:valid {
 
 .nav-tabs .nav-item .nav-link {
   color: #6c6c6c;
-  background-color: #179FAC4b;
+  background-color: #4fc7ff4b;
   font-weight: 500;
 }
 
 .nav-tabs .nav-item .nav-link.active {
   color: #fff;
-  background-color: #179FAC;
-  border-color: #179FAC;
+  background-color: #4fc7ff;
+  border-color: #4fc7ff;
 }
 
 .nav-tabs .nav-item .nav-link.disabled {
@@ -28,13 +28,13 @@ input:valid {
   border-color: #868c908f;
 }
 
-.tab-pane {
+.checkout-card {
   background-color: #ffffffbf;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 1.2rem;
   color: #000000;
-  width: 43rem;
+  width: fit-content;
 
 }
 
@@ -78,20 +78,7 @@ input:valid {
   margin-left: 5px;
 }
 
-
-.tab-content {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-
-
 /* Checkout Summary */
-
-#checkoutTabsContent {
-  flex: 1;
-}
 
 .checkout-summary {
   width: fit-content;

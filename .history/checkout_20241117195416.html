@@ -194,29 +194,29 @@
           <!-- Campos para tarjeta de débito -->
           <div id="debitFields" class="payment_fields" style="display: none;">
             <label for="debitNumber">Número de tarjeta:</label>
-            <input type="tel" id="debitNumber" placeholder="Introduce el número de tarjeta" pattern="[0-9]{16}">
+            <input type="text" id="debitNumber" placeholder="Introduce el número de tarjeta">
             <label for="debitExpiry">Fecha de expiración:</label>
-            <input type="tel" id="debitExpiry" placeholder="MM/AA">
+            <input type="text" id="debitExpiry" placeholder="MM/AA">
           </div>
 
           <!-- Campos para tarjeta de crédito -->
           <div id="creditFields" class="payment_fields" style="display: none;">
             <label for="creditNumber">Número de tarjeta:</label>
-            <input type="tel" id="creditNumber" placeholder="Introduce el número de tarjeta" pattern="[0-9]{16}">
+            <input type="text" id="creditNumber" placeholder="Introduce el número de tarjeta">
             <label for="creditExpiry">Fecha de expiración:</label>
-            <input type="tel" id="creditExpiry" placeholder="MM/AA">
+            <input type="text" id="creditExpiry" placeholder="MM/AA">
           </div>
 
           <!-- Campos para transferencia bancaria -->
           <div id="bankFields" class="payment_fields" style="display: none;">
             <label for="bankAccount">Número de cuenta bancaria:</label>
-            <input type="tel" id="bankAccount" placeholder="Introduce el número de cuenta" pattern="[0-9]{8,20}">
+            <input type="text" id="bankAccount" placeholder="Introduce el número de cuenta">
           </div>
 
           <!-- Campos para pagar en efectivo -->
           <div id="cashFields" class="payment_fields" style="display: none;">
             <label for="cashInfo">Detalles del pago en efectivo:</label>
-            <input type="text" id="cashInfo" placeholder="¿Necesitas que el repartidor lleve cambio?">
+            <input type="text" id="cashInfo" placeholder="Introduce los detalles del pago">
           </div>
 
           <!--<div class="form-group">

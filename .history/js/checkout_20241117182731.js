@@ -83,15 +83,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  // Los campos de teléfono, tarjetas y cuentas bancarias sólo puedan aceptar números
-  const numericFields = document.querySelectorAll("#phoneNumber, #debitNumber, #creditNumber, #bankAccount, #debitExpiry, #creditExpiry");
-
-  numericFields.forEach(field => {
-    field.addEventListener("input", function (e) {
-      this.value = this.value.replace(/[^0-9]/g, "");
-    });
+  // Que el campo teléfono sólo acepte números
+  document.getElementById("phoneNumber").addEventListener("input", function (e) {
+    this.value = this.value.replace(/[^0-9]/g, "");
   });
-
 
 
   // Cambiar a la pestaña de Pago al hacer clic en Finalizar compra
@@ -142,5 +137,68 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     });
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const stateSelect = document.getElementById('state');
+  const districtSelect = document.getElementById('district');
+
+  // Cargar los departamentos de la API
+  fetch('https://direcciones.ide.uy/api/v0/geocode/departamentos')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Llenar el select de departamentos
+      data.departamentos.forEach(department => {
+        const option = document.createElement('option');
+        option.value = department.id;
+        option.textContent = department.nombre;
+        stateSelect.appendChild(option);
+      });
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+
+  // Cuando se seleccione un departamento, hacer la solicitud de localidades
+  stateSelect.addEventListener('change', function () {
+    const departmentId = this.value;
+
+    if (departmentId) {
+      // Hacer la llamada a la API para obtener las localidades del departamento seleccionado
+      const statechosen = `https://direcciones.ide.uy/api/v0/geocode/localidades?departamento=${departmentId}`;
+      
+      fetch(statechosen)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Limpiar las opciones actuales de localidades
+          districtSelect.innerHTML = '<option value="">Seleccione una localidad</option>';
+
+          // Llenar el select de localidades con los datos recibidos
+          data.localidades.forEach(localidad => {
+            const option = document.createElement('option');
+            option.value = localidad.id;
+            option.textContent = localidad.nombre;
+            districtSelect.appendChild(option);
+          });
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    } else {
+      // Limpiar las localidades si no se selecciona un departamento
+      districtSelect.innerHTML = '<option value="">Seleccione una localidad</option>';
+    }
   });
 });

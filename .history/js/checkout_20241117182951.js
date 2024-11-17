@@ -83,15 +83,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  // Los campos de teléfono, tarjetas y cuentas bancarias sólo puedan aceptar números
-  const numericFields = document.querySelectorAll("#phoneNumber, #debitNumber, #creditNumber, #bankAccount, #debitExpiry, #creditExpiry");
-
-  numericFields.forEach(field => {
-    field.addEventListener("input", function (e) {
-      this.value = this.value.replace(/[^0-9]/g, "");
-    });
+  // Que el campo teléfono sólo acepte números
+  document.getElementById("phoneNumber").addEventListener("input", function (e) {
+    this.value = this.value.replace(/[^0-9]/g, "");
   });
-
 
 
   // Cambiar a la pestaña de Pago al hacer clic en Finalizar compra
@@ -143,4 +138,22 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+});
+
+
+document.getElementById('departamento').addEventListener('change', function () {
+  const API_CIUDAD = `https://direcciones.ide.uy/api/ve/geocode/localidades?alias=true&departamento=${this.value}`
+
+    fetch(API_CIUDAD).then(response => response.json()).then(cities => {
+      const citySelect = document.getElementById('state');
+      citySelect.innerHTML = '';
+      cities.forEach(city => {
+        const option = document.createElement('option');
+        option.value = city.id;
+        option.textContent = city.nombre.toLowerCase();
+        option.textContent = option.textContent.charAt(0).toUpperCase() + option.textContent.slice(1);
+        citySelect.appendChild(option);
+      });
+
+    });
 });
