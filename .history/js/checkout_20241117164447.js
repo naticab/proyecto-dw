@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Validar la sección Dirección y habilitar la pestaña de Pago
   const addressInputs = document.querySelectorAll("#address input[required]");
-
+  
   // Función para validar todos los campos de dirección
   function validateAddressSection() {
     let valid = true;
@@ -68,26 +68,11 @@ document.addEventListener("DOMContentLoaded", function () {
     return valid;
   }
 
-  const departments = window.departments;
-
-  const stateSelect = document.getElementById('state');
-  const districtSelect = document.getElementById('district');
-
-  function loadDepartments() {
-    departments.forEach(department => {
-      const option = document.createElement('option');
-      option.value = department.id;
-      option.textContent = department.name;
-      stateSelect.appendChild(option);
-    });
-  }
-
-
   // Que el campo teléfono sólo acepte números
   document.getElementById("phoneNumber").addEventListener("input", function (e) {
     this.value = this.value.replace(/[^0-9]/g, "");
   });
-
+  
 
   // Cambiar a la pestaña de Pago al hacer clic en Finalizar compra
   const finalizarCompraButton = document.getElementById("finalize-purchase");
@@ -138,4 +123,44 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+
+  // Código para manejar departamentos y localidades
+  const stateSelect = document.getElementById("state");
+  const districtSelect = document.getElementById("district");
+
+  // URL del JSON (dentro del Gist)
+  const jsonURL = "https://gist.githubusercontent.com/fedebabrauskas/b708c2a1b7a29af94927ad0e8d6d6a27/raw/uruguay_departments_towns.json";
+
+  // Función para cargar el JSON y llenar el select de departamentos
+  fetch(jsonURL)
+    .then(response => response.json())
+    .then(data => {
+      // Llenar el select de departamentos
+      data.forEach(department => {
+        const option = document.createElement("option");
+        option.value = department.id;
+        option.textContent = department.name;
+        stateSelect.appendChild(option);
+      });
+
+      // Manejar el evento "change" del select de departamentos
+      stateSelect.addEventListener("change", (e) => {
+        const selectedDepartmentId = parseInt(e.target.value);
+        // Limpiar localidades previas
+        districtSelect.innerHTML = '<option value="">Seleccione una localidad</option>';
+
+        // Encontrar el departamento seleccionado
+        const selectedDepartment = data.find(dept => dept.id === selectedDepartmentId);
+        if (selectedDepartment) {
+          selectedDepartment.towns.forEach(town => {
+            const option = document.createElement("option");
+            option.value = town.id;
+            option.textContent = town.name;
+            districtSelect.appendChild(option);
+          });
+        }
+      });
+    })
+    .catch(error => console.error("Error al cargar el JSON:", error));
 });
