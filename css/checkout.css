@@ -1,0 +1,134 @@
+input:invalid {
+    border-color: red;
+  }
+  
+  input:valid {
+    border-color: initial;
+  }
+  
+  .nav-tabs {
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .nav-tabs .nav-item .nav-link {
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .nav-tabs .nav-item .nav-link.active {
+    color: #fff;
+    background-color: #4fc7ff;
+    border-color: #4fc7ff;
+  }
+  
+  .tab-content {
+    margin-top: 20px;
+  }
+  
+  .shipping_choice {
+    margin-top: 10px;
+  }
+  
+  .shipping_choice div {
+    margin-bottom: 10px;
+  }
+  
+  .shipping_choice label {
+    margin-left: 5px;
+  }
+  
+  /* Address Form */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .form-control:focus {
+    border-color: #f8c2d3;
+    outline: none;
+  }
+
+  .payment_method div {
+    margin-bottom: 10px;
+  }
+  
+  .payment_method label {
+    margin-left: 5px;
+  }
+  
+  /* Checkout Summary */
+  .checkout-summary {
+    width:fit-content;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .checkout-summary h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+  }
+  
+  .checkout-summary p {
+    margin-bottom: 5px;
+    font-weight:lighter;
+  }
+  
+  .checkout-summary h3 {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  
+  .checkout-summary button {
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .checkout-summary button:hover {
+    opacity: 0.9;
+  }
+  
+  .checkout-summary .btn-success {
+    background-color: #28a745;
+    border: none;
+  }
+  
+  .checkout-summary .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .checkout-summary .btn-danger {
+    background-color: #dc3545;
+    border: none;
+  }
+
+  .payment_fields {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .payment_fields label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  .payment_fields input {
+    width:fit-content;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    transition: border-color 0.3s ease;
+  }
