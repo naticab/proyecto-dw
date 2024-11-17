@@ -83,6 +83,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
+  // Departameento y Localidad
+  function loadTowns(departmentId) {
+    districtSelect.innerHTML = '<option value="">Seleccione una localidad</option>';
+
+    const department = departments.find(d => d.id == departmentId);
+
+    if (department) {
+      department.towns.forEach(town => {
+        const option = document.createElement('option');
+        option.value = town.id;
+        option.textContent = town.name;
+        districtSelect.appendChild(option);
+      });
+    }
+  }
+
+  stateSelect.addEventListener('change', function () {
+    loadTowns(this.value);
+  });
+
+  loadDepartments();
+
+
   // Que el campo teléfono sólo acepte números
   document.getElementById("phoneNumber").addEventListener("input", function (e) {
     this.value = this.value.replace(/[^0-9]/g, "");

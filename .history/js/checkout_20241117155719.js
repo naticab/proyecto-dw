@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Escuchar cambios en las opciones de envío
   const shippingOptions = document.querySelectorAll('input[name="shipping"]');
-  const addressTab = document.getElementById("addressTab");
-  const paymentTab = document.getElementById("paymentTab");
+  const addressTab = document.getElementById("address-tab");
+  const paymentTab = document.getElementById("payment-tab");
 
   shippingOptions.forEach((option) => {
     option.addEventListener("change", function () {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Validar la sección Dirección y habilitar la pestaña de Pago
   const addressInputs = document.querySelectorAll("#address input[required]");
-
+  
   // Función para validar todos los campos de dirección
   function validateAddressSection() {
     let valid = true;
@@ -68,26 +68,11 @@ document.addEventListener("DOMContentLoaded", function () {
     return valid;
   }
 
-  const departments = window.departments;
-
-  const stateSelect = document.getElementById('state');
-  const districtSelect = document.getElementById('district');
-
-  function loadDepartments() {
-    departments.forEach(department => {
-      const option = document.createElement('option');
-      option.value = department.id;
-      option.textContent = department.name;
-      stateSelect.appendChild(option);
-    });
-  }
-
-
   // Que el campo teléfono sólo acepte números
   document.getElementById("phoneNumber").addEventListener("input", function (e) {
     this.value = this.value.replace(/[^0-9]/g, "");
   });
-
+  
 
   // Cambiar a la pestaña de Pago al hacer clic en Finalizar compra
   const finalizarCompraButton = document.getElementById("finalize-purchase");
@@ -102,10 +87,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Funcionalidad para mostrar los campos correspondientes según el método de pago
   const paymentRadios = document.querySelectorAll('input[name="payment"]');
-  const debitFields = document.getElementById("debitFields");
-  const creditFields = document.getElementById("creditFields");
-  const bankFields = document.getElementById("bankFields");
-  const cashFields = document.getElementById("cashFields");
+  const debitFields = document.getElementById("debit_fields");
+  const creditFields = document.getElementById("credit_fields");
+  const bankFields = document.getElementById("bank_fields");
+  const cashFields = document.getElementById("cash_fields");
 
   // Función para ocultar todos los campos de pago
   function hideAllPaymentFields() {

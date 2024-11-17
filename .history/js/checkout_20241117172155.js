@@ -83,6 +83,48 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
+  // Departamento y Localidad
+  const departments = JSON.parse(localStorage.getItem("departments")) || [];
+
+  if (departments.length === 0) {
+    console.error("No se encontraron departamentos");
+    return;
+  }
+
+  const stateSelect = document.getElementById('state');
+  const districtSelect = document.getElementById('district');
+
+  function loadDepartments() {
+    departments.forEach(department => {
+      const option = document.createElement('option');
+      option.value = department.id;
+      option.textContent = department.name;
+      stateSelect.appendChild(option);
+    });
+  }
+
+  function loadTowns(departmentId) {
+    districtSelect.innerHTML = '<option value="">Seleccione una localidad</option>';
+    const department = departments.find(d => d.id == departmentId);
+
+    if (department) {
+      department.towns.forEach(town => {
+        const option = document.createElement('option');
+        option.value = town.id;
+        option.textContent = town.name;
+        districtSelect.appendChild(option);
+      });
+    }
+  }
+
+  stateSelect.addEventListener('change', function () {
+    loadTowns(this.value);
+  });
+
+  loadDepartments();
+
+
+
   // Que el campo teléfono sólo acepte números
   document.getElementById("phoneNumber").addEventListener("input", function (e) {
     this.value = this.value.replace(/[^0-9]/g, "");
