@@ -84,13 +84,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // Los campos de teléfono, tarjetas y cuentas bancarias sólo puedan aceptar números
-  const numericFields = document.querySelectorAll("#phoneNumber, #debitNumber, #creditNumber, #bankAccount, #debitExpiry, #creditExpiry");
+// Seleccionar todos los campos que sólo deben aceptar números
+const numericFields = document.querySelectorAll("#phoneNumber, #debitNumber, #creditNumber, #bankAccount");
 
-  numericFields.forEach(field => {
-    field.addEventListener("input", function (e) {
-      this.value = this.value.replace(/[^0-9]/g, "");
-    });
+// Agregar el evento 'input' a cada uno de los campos
+numericFields.forEach(field => {
+  field.addEventListener("input", function (e) {
+    this.value = this.value.replace(/[^0-9]/g, "");
   });
+});
 
 
 

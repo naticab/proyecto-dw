@@ -83,15 +83,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  // Los campos de teléfono, tarjetas y cuentas bancarias sólo puedan aceptar números
-  const numericFields = document.querySelectorAll("#phoneNumber, #debitNumber, #creditNumber, #bankAccount, #debitExpiry, #creditExpiry");
-
-  numericFields.forEach(field => {
-    field.addEventListener("input", function (e) {
-      this.value = this.value.replace(/[^0-9]/g, "");
-    });
+  // Que el campo teléfono sólo acepte números
+  document.getElementById("phoneNumber").addEventListener("input", function (e) {
+    this.value = this.value.replace(/[^0-9]/g, "");
   });
-
 
 
   // Cambiar a la pestaña de Pago al hacer clic en Finalizar compra
