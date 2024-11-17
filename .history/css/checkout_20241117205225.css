@@ -187,7 +187,17 @@ input:valid {
     flex-direction: column;
   }
 
-  .checkout-summary {
-    margin-top: 1rem;
+  #checkout-summary {
+    margin-top: 20px;
+    /* Espaciado entre las secciones */
+  }
+
+  #checkout-summary > button {
+    display: block;
+    /* Hacer que los botones se comporten como bloques */
+    width: 100%;
+    /* Ocupan el ancho completo del contenedor */
+    margin-bottom: 10px;
+    /* Espacio entre botones */
   }
 }

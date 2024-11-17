@@ -187,7 +187,17 @@ input:valid {
     flex-direction: column;
   }
 
-  .checkout-summary {
-    margin-top: 1rem;
+  #checkout-summary {
+    margin-top: 20px;
+    /* Espaciado entre las secciones */
   }
+
+  @media (max-width: 1400px) {
+    #checkout-summary>button {
+      display: block !important;
+      width: 100% !important;
+      margin-bottom: 10px !important;
+    }
+  }
+
 }

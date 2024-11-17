@@ -188,6 +188,6 @@ input:valid {
   }
 
   .checkout-summary {
-    margin-top: 1rem;
+    margin-top: 20px; /* Espaciado entre las secciones */
   }
 }
