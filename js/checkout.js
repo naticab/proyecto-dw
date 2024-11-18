@@ -143,4 +143,74 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+  document.getElementById('finalize-purchase').addEventListener('click', function (event) {
+    event.preventDefault(); // Evita el envío del formulario inicialmente
+  
+    // Obtener el grupo de radio buttons de forma de pago
+    const paymentMethods = document.querySelectorAll('input[name="payment"]');
+    let selectedMethod = null;
+  
+    // Verificar si algún radio button está seleccionado
+    paymentMethods.forEach(method => {
+      if (method.checked) {
+        selectedMethod = method.value; // Guardar el valor de la opción seleccionada
+      }
+    });
+  
+    // Si no se seleccionó ninguna forma de pago, mostrar alerta
+    if (!selectedMethod) {
+      alert('Por favor, selecciona una forma de pago.');
+      return; // Detener el envío del formulario
+    }
+  
+    // Validar los campos específicos de la forma de pago seleccionada
+    let isValid = true; // Asumir que todos los campos son válidos inicialmente
+    let errorMessage = ''; // Mensaje de error acumulado
+  
+    if (selectedMethod === 'debit') {
+      const debitNumber = document.getElementById('debitNumber').value.trim();
+      const debitExpiry = document.getElementById('debitExpiry').value.trim();
+      if (!debitNumber) {
+        isValid = false;
+        errorMessage += 'Por favor, ingresa el número de la tarjeta de débito.\n';
+      }
+      if (!debitExpiry) {
+        isValid = false;
+        errorMessage += 'Por favor, ingresa la fecha de expiración de la tarjeta de débito.\n';
+      }
+    } else if (selectedMethod === 'credit') {
+      const creditNumber = document.getElementById('creditNumber').value.trim();
+      const creditExpiry = document.getElementById('creditExpiry').value.trim();
+      if (!creditNumber) {
+        isValid = false;
+        errorMessage += 'Por favor, ingresa el número de la tarjeta de crédito.\n';
+      }
+      if (!creditExpiry) {
+        isValid = false;
+        errorMessage += 'Por favor, ingresa la fecha de expiración de la tarjeta de crédito.\n';
+      }
+    } else if (selectedMethod === 'bank_transfer') {
+      const bankAccount = document.getElementById('bankAccount').value.trim();
+      if (!bankAccount) {
+        isValid = false;
+        errorMessage += 'Por favor, ingresa el número de cuenta bancaria.\n';
+      }
+    } else if (selectedMethod === 'cash') {
+      const cashInfo = document.getElementById('cashInfo').value.trim();
+      if (!cashInfo) {
+        isValid = false;
+        errorMessage += 'Por favor, ingresa los detalles del pago en efectivo.\n';
+      }
+    }
+  
+    // Si algún campo es inválido, mostrar los errores y detener el flujo
+    if (!isValid) {
+      alert(errorMessage);
+      return;
+    }
+  
+    // Si todo es válido, continuar con el envío del formulario
+    alert('¡Compra exitosa!');
+    window.location.href= 'categories.html';
+  });
 });
