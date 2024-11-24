@@ -18,19 +18,19 @@ document.addEventListener("DOMContentLoaded", function() {
             row.innerHTML = `
                 <td><img src="${imagen}" alt="${nombre}" width="50"></td>
                 <td>${nombre}</td>
-                <td>${precio.toFixed(2)} UYU</td>
+                <td>${precio.toFixed(2)} ${moneda}</td>
                 <td>
                     <input type="number" min="1" value="${cantidad}" data-index="${index}" class="quantity-input">
                 </td>
-                <td>${itemTotal.toFixed(2)} UYU</td>
+                <td>${itemTotal.toFixed(2)} ${moneda}</td>
                 <td><button class="remove-item fa fa-trash" data-index="${index}"></button></td>
             `;
 
             cartItemsContainer.appendChild(row);
         });
 
-        subtotalContainer.textContent = `${subtotal.toFixed(2)} UYU`;
-        totalContainer.textContent = `${subtotal.toFixed(2)} UYU`;
+        subtotalContainer.textContent = `${subtotal.toFixed(2)} ${moneda}`;
+        totalContainer.textContent = `${subtotal.toFixed(2)} ${moneda}`;
 
         // Actualizamos el contador del carrito
         updateCartCounter();

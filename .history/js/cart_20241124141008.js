@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
             row.innerHTML = `
                 <td><img src="${imagen}" alt="${nombre}" width="50"></td>
                 <td>${nombre}</td>
-                <td>${precio.toFixed(2)} UYU</td>
+                <td>${precio.toFixed(2)} ${currency}</td>
                 <td>
                     <input type="number" min="1" value="${cantidad}" data-index="${index}" class="quantity-input">
                 </td>
