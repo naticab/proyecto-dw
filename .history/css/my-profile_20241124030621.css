@@ -1,0 +1,91 @@
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    main {
+      background: url('../img/background_products_and_sells.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: repeat;
+    }
+
+
+
+    
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+    }
+
+    body {
+      background-color: #eeeeee;
+      height: 100vh;
+      background: linear-gradient(to bottom, #cccccc 300px, #eeeeee 300px);
+    }
+
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 50px;
+      margin: 0 auto;
+      max-width: 800px;
+      /* Puedes ajustar esto según el diseño que quieras */
+      padding: 50px 20px 20px 20px;
+      height: 100%;
+    }
+
+    .profile-image img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+    }
+
+    form {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 20px;
+    }
+
+    input {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .col-md-6 {
+      width: 50%;
+      padding: 10px;
+    }
+
+    .btn-outline-secondary {
+      display: block;
+      margin-top: 10px;
+    }

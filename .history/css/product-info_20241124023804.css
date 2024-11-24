@@ -1,0 +1,129 @@
+main {
+  background:
+    url('../img/background_all.png');
+  background-size: 90rem;
+  background-position: top 0.2rem right 2.4rem;
+  background-repeat: repeat;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+#related-images img {
+  cursor: pointer;
+}
+
+#related-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+#image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+#buyButton {
+  border: transparent;
+}
+
+#buyButton:hover {
+  background: linear-gradient(to right, #10ABA2, #2E77CE);
+  border: transparent;
+}
+
+/*Puntaje*/
+#rating-histogram {
+  font-size: 80%;
+  flex-direction: row;
+}
+
+#average-rating {
+  font-size: 24px;
+}
+
+#total-rating {
+  display: flex;
+}
+
+#rating-count {
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+
+.toast {
+  visibility: hidden;
+  min-width: 250px;
+  margin: 0 auto;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 16px;
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 17px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease, top 0.5s ease;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  top: 100px;
+  /* Ajusta en que parte de la pantalla aparece el cartel */
+}
+
+@media(max-width:1399px) {
+  .col-md-4 {
+    margin-left: 15px;
+  }
+
+}
+
+@media (max-width:768px) {
+  #image-container {
+    overflow-x: auto;
+    flex-direction: row;
+  }
+
+  /*Parte de descripción del producto (hasta botón de agregar al carrito)*/
+  #name {
+    font-size: 22px;
+  }
+
+  #price {
+    font-size: 20px;
+  }
+
+  #category {
+    font-size: 14px;
+  }
+
+  #description {
+    font-size: 11px;
+  }
+
+  #buyButton {
+    margin-top: 6px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+
+  .col-md-4 {
+    margin-left: 15px;
+  }
+}
