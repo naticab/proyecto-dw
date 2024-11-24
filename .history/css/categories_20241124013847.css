@@ -1,0 +1,16 @@
+/*main {
+    background: url('../img/background_all.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+  }*/
+
+
+  body {
+    background:
+        url('../img/background_all.png');
+    background-size: 90rem;
+    background-repeat: repeat;
+    margin: 0;
+    padding: 0;
+}
