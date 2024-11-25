@@ -132,6 +132,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("finalize-purchase").addEventListener("click", function () {
         const cartItems = getCartItems();
+
+        if (cartItems.length === 0) {
+            // Deshabilitar finalizar compra si el carrito está vacío
+            alert("El carrito está vacío. Agrega productos antes de finalizar la compra.");
+            return;
+        }
+
         let subtotal = 0;
         cartItems.forEach((producto) => {
             const { precio, cantidad, moneda } = producto;
