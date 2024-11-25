@@ -94,21 +94,38 @@ main {
 
 }
 
-@media (max-width: 768px) {
 
+@media (max-width: 768px) {
+  /* Apilamos las columnas en vertical */
   .row {
     flex-direction: column;
   }
 
+  /* La imagen principal está debajo de los detalles del producto */
   .col-md-7 {
-    order: 2;
+    order: 2; /* Imagen después de los detalles */
   }
 
+  /* La columna de detalles del producto */
   .col-md-4 {
     display: flex;
     flex-direction: column;
   }
 
+  /* Las miniaturas deben estar encima del botón */
+  #related-images {
+    order: 1; /* Las miniaturas siempre deben estar arriba */
+  }
+
+  /* Aseguramos que el botón esté después de las miniaturas */
+  #buyButton {
+    margin-top: 20px; /* Lo alejamos de las miniaturas */
+    height: 30px;
+    font-size: 12px;
+    /* Evitamos usar 'order' aquí, ya que el botón ya está en el orden correcto por estructura HTML */
+  }
+
+  /* Ajustes de tamaño de texto */
   #name {
     font-size: 22px;
   }
@@ -123,17 +140,5 @@ main {
 
   #description {
     font-size: 11px;
-  }
-
-  #related-images {
-    order: 1;
-  }
-
-  #buyButton {
-    margin-top: 6px;
-    height: 30px;
-    font-size: 12px;
-    order: 3;
-    margin-bottom: 20px;
   }
 }

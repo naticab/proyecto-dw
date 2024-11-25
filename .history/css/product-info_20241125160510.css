@@ -105,8 +105,7 @@ main {
   }
 
   .col-md-4 {
-    display: flex;
-    flex-direction: column;
+    order: 1;
   }
 
   #name {
@@ -133,7 +132,7 @@ main {
     margin-top: 6px;
     height: 30px;
     font-size: 12px;
-    order: 3;
-    margin-bottom: 20px;
+    order: 2;
+    margin-top: 20px;
   }
 }
