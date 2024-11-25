@@ -109,6 +109,17 @@ main {
     flex-direction: column;
   }
 
+  #related-images {
+    order: 1;
+  }
+
+  #buyButton {
+    order: 2;
+    margin-top: 20px;
+    height: 30px;
+    font-size: 12px;
+  }
+
   #name {
     font-size: 22px;
   }
@@ -123,17 +134,5 @@ main {
 
   #description {
     font-size: 11px;
-  }
-
-  #related-images {
-    order: 1;
-  }
-
-  #buyButton {
-    margin-top: 6px;
-    height: 30px;
-    font-size: 12px;
-    order: 3;
-    margin-bottom: 20px;
   }
 }
