@@ -79,7 +79,6 @@
       <div id="toast" class="toast"></div>
       <div class="row">
         <div id="image-container" class="d-flex">
-
           <div class="col-md-7">
             <!-- Imagen principal -->
             <div id="productCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
@@ -99,11 +98,6 @@
                 <span class="visually-hidden">Next</span>
               </button>
             </div>
-
-            <!-- Miniaturas -->
-            <div id="related-images" class="mt-3">
-              <!-- Las miniaturas se agregarán desde JS -->
-            </div>
           </div>
 
           <div class="col-md-1"></div>
@@ -112,7 +106,6 @@
           <div class="col-md-4">
             <div class="product-details">
               <h3 id="name">Nombre</h3>
-              <!-- Rating Histogram -->
               <div id="rating-histogram">
                 <div id="total-rating">
                   <div id="average-rating">0.0</div>
@@ -120,17 +113,25 @@
                 </div>
                 <p id="rating-count">(0 calificaciones)</p>
               </div>
-
               <p id="price" class="product-price">precio</p>
               <p id="category" class="product-category">Categoría</p>
               <p id="description" class="product-description">Descripción</p>
               <p id="soldCount" class="sold-count">Vendidos</p>
-            </div> <br>
-            <button id="buyButton" class="btn btn-primary"> <i class="fas fa-shopping-cart"></i> Agregar al
-              Carrito</button>
+            </div>
+
+            <!-- Las miniaturas de imágenes -->
+            <div id="related-images" class="mt-3">
+              <!-- Las miniaturas se agregarán desde JS -->
+            </div>
+
+            <!-- Botón debajo de las miniaturas -->
+            <button id="buyButton" class="btn btn-primary">
+              <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+            </button>
           </div>
         </div>
       </div>
+
 
       <div id="title-related-products">
         <h5>Productos Similares...</h5>

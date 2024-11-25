@@ -23,7 +23,7 @@ main {
 
 .col-md-7 {
 
-  justify-items: center;
+justify-items: center;
 }
 
 
@@ -33,7 +33,7 @@ main {
 }
 
 #buyButton:hover {
-  background-color: #2E77CE;
+  background-color: #2E77CE; 
   border: transparent;
   transition: color 0.5s, text-shadow 0.5s;
   transform: scale(1.01);
@@ -95,20 +95,20 @@ main {
 }
 
 @media (max-width: 768px) {
-
+  /* Hacemos que el contenedor de la imagen se apile encima de los detalles del producto */
   .row {
-    flex-direction: column;
+    flex-direction: column; /* Apilar las columnas verticalmente */
   }
 
   .col-md-7 {
-    order: 2;
+    order: 2; /* La imagen estará en el segundo lugar (debajo de los detalles) */
   }
 
   .col-md-4 {
-    display: flex;
-    flex-direction: column;
+    order: 1; /* Los detalles del producto estarán primero (encima de la imagen) */
   }
 
+  /* Para asegurarnos de que el diseño se vea bien, podemos ajustar otros estilos */
   #name {
     font-size: 22px;
   }
@@ -125,15 +125,9 @@ main {
     font-size: 11px;
   }
 
-  #related-images {
-    order: 1;
-  }
-
   #buyButton {
     margin-top: 6px;
     height: 30px;
     font-size: 12px;
-    order: 3;
-    margin-bottom: 20px;
   }
 }

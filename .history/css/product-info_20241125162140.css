@@ -134,6 +134,7 @@ main {
     height: 30px;
     font-size: 12px;
     order: 3;
+    margin-top: 20px;
     margin-bottom: 20px;
   }
 }
