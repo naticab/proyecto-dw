@@ -1,0 +1,146 @@
+/* body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+} */
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(80vh - 80px);
+    padding-bottom: 30px;
+    box-sizing: border-box;
+    background: url('../img/background_products_and_sells.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+
+.login-container {
+    width: 30em;
+    text-align: center;
+}
+
+input,
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 50%;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: color 0.5s, text-shadow 0.5s;
+}
+
+button:hover {
+    background-color: #2179d7;
+    transition: color 0.5s, text-shadow 0.5s;
+    transform: scale(1.01);
+}
+
+
+a:hover {
+    cursor: pointer;
+    transition: background 0.5s, color 0.5s, transform 0.5s, text-shadow 0.5s;
+    transform: scale(1.01);
+}
+
+
+.password-container {
+    position: relative;
+}
+
+.password-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #aaa;
+}
+
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    box-sizing: border-box;
+    /* El padding no afecte el ancho total */
+    margin: 0;
+}
+
+.header-container {
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Love Ya Like A Sister", cursive;
+    margin: 0;
+}
+
+.e-commerce-logo {
+    width: 33rem;
+    height: 33rem;
+    margin-bottom: 0;
+    margin-top: 1rem;
+    background: url('../img/login_dark.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+
+@media (max-width: 768px) {
+    .login-container {
+        width: 25em;
+    }
+}
+
+@media (max-width: 576px) {
+
+    body {
+        background-color: #AAA8A4;
+    }
+
+    .login-container {
+        width: 20em;
+        padding: 15px;
+    }
+
+    button {
+        width: 50%;
+    }
+
+    input {
+        margin: 5px 0;
+    }
+
+    footer {
+        visibility: hidden;
+    }
+}
+
+input.error {
+    border: 2px solid red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+    margin-bottom: 1rem;
+}
