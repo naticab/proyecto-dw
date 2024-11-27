@@ -185,7 +185,6 @@ button {
 }
 
 .payment_fields input {
-  width: 43%;
   padding: 12px;
   font-size: 16px;
   border-radius: 8px;
@@ -236,14 +235,14 @@ label[for="payInCash"] {
   transform: translate(-50%, -50%);
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 70%;
   z-index: 1000;
   padding: 20px;
   border-radius: 10px;
 }
 
 .popup-message p {
-  background-color: #15a3aaf1;
+  background-color: #15a3aaba;
   color: #fff;
   padding: 20px;
   border-radius: 10px;

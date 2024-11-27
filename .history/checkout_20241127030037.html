@@ -143,19 +143,25 @@
             <div class="form-group">
               <label for="state" aria-label="Departamento">Departamento</label>
               <select class="form-control" id="state" required>
-                <option value="">Seleccione un departamento</option>
+                <option value="" disabled selected>Seleccione un departamento</option>
+                <!-- Otras opciones del departamento -->
               </select>
             </div>
+
             <div class="form-group">
               <label for="district" aria-label="Localidad">Localidad</label>
               <select class="form-control" id="district" required>
-                <option value="">Seleccione una localidad</option>
+                <option value="" disabled selected>Seleccione una localidad</option>
+                <!-- Otras opciones de localidad -->
               </select>
             </div>
+
             <div class="form-group">
               <label for="zipCode" aria-label="Código postal">Código postal</label>
               <input type="number" class="form-control" id="zipCode" required>
             </div>
+
+
             <div class="form-group">
               <label for="addressLine1" aria-label="Calle">Calle</label>
               <input type="text" class="form-control" id="addressLine1" required>
@@ -238,7 +244,8 @@
           </div>
           <div id="cashFields" class="payment_fields" style="display: none;">
             <label for="cashInfo" aria-label="Efectivo">Detalles del pago en efectivo:</label>
-            <textarea id="cashInfo" class="form-control" rows="1" placeholder="¿Necesitas que el repartidor lleve cambio?"></textarea>
+            <textarea id="cashInfo" class="form-control" rows="1"
+              placeholder="¿Necesitas que el repartidor lleve cambio?"></textarea>
 
           </div>
 

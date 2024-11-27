@@ -98,7 +98,6 @@
         <div class="tab-pane fade show active" id="shipping" role="tabpanel">
           <div class="checkout-card">
             <h4>Tipo de Envío</h4>
-            <hr>
             <div class="shipping_choice" required>
               <div>
                 <input type="radio" name="shipping" value="premium" id="premiumShipping">
@@ -138,7 +137,6 @@
         <!-- Dirección de Envío -->
         <div class="tab-pane fade" id="address" role="tabpanel">
           <h4>Dirección de Envío</h4>
-          <hr>
           <form>
             <div class="form-group">
               <label for="state" aria-label="Departamento">Departamento</label>
@@ -186,7 +184,6 @@
         <!-- Forma de Pago -->
         <div class="tab-pane fade" id="payment" role="tabpanel">
           <h4>Forma de Pago</h4>
-          <hr>
           <div class="payment_method" required>
 
             <!-- Campos para tarjeta de débito -->
@@ -238,15 +235,13 @@
           </div>
           <div id="cashFields" class="payment_fields" style="display: none;">
             <label for="cashInfo" aria-label="Efectivo">Detalles del pago en efectivo:</label>
-            <textarea id="cashInfo" class="form-control" rows="1" placeholder="¿Necesitas que el repartidor lleve cambio?"></textarea>
-
+            <input type="text" id="cashInfo" placeholder="¿Necesitas que el repartidor lleve cambio?">
           </div>
 
           <!--<div class="form-group">
           <button type="button" id="finishPayment" class="btn btn-success">Finalizar Compra</button>
         </div> -->
         </div>
-
         <div>
           <aside class="checkout-summary">
             <h2> Importe total </h2>

@@ -98,7 +98,6 @@
         <div class="tab-pane fade show active" id="shipping" role="tabpanel">
           <div class="checkout-card">
             <h4>Tipo de Envío</h4>
-            <hr>
             <div class="shipping_choice" required>
               <div>
                 <input type="radio" name="shipping" value="premium" id="premiumShipping">
@@ -138,7 +137,6 @@
         <!-- Dirección de Envío -->
         <div class="tab-pane fade" id="address" role="tabpanel">
           <h4>Dirección de Envío</h4>
-          <hr>
           <form>
             <div class="form-group">
               <label for="state" aria-label="Departamento">Departamento</label>
@@ -186,67 +184,62 @@
         <!-- Forma de Pago -->
         <div class="tab-pane fade" id="payment" role="tabpanel">
           <h4>Forma de Pago</h4>
-          <hr>
           <div class="payment_method" required>
-
-            <!-- Campos para tarjeta de débito -->
             <div>
               <input type="radio" name="payment" value="debit" id="debitCard">
               <label for="debitCard" aria-label="Débito"><img src="img/icons/payment_method_debit-card.png"
                   alt="Ícono Débito" class="checkout-icons">Añadir tarjeta de débito</label>
             </div>
+            <!-- Campos para tarjeta de débito -->
             <div id="debitFields" class="payment_fields" style="display: none;">
               <label for="debitNumber" aria-label="Número de tarjeta">Número de tarjeta:</label>
               <input type="tel" id="debitNumber" placeholder="Introduce el número de tarjeta" pattern="[0-9]{16}">
               <label for="debitExpiry" aria-label="Expiración">Fecha de expiración:</label>
               <input type="tel" id="debitExpiry" placeholder="MM/AA">
             </div>
-
-
-            <!-- Campos para tarjeta de crédito -->
             <div>
               <input type="radio" name="payment" value="credit" id="creditCard">
               <label for="creditCard" aria-label="Crédito"><img src="img/icons/payment_method_credit-card.png"
                   alt="Ícono Crédito" class="checkout-icons">Añadir tarjeta de crédito</label>
             </div>
-            <div id="creditFields" class="payment_fields" style="display: none;">
-              <label for="creditNumber" aria-label="Número de tarjeta">Número de tarjeta:</label>
-              <input type="tel" id="creditNumber" placeholder="Introduce el número de tarjeta" pattern="[0-9]{16}">
-              <label for="creditExpiry" aria-label="Expiración">Fecha de expiración:</label>
-              <input type="tel" id="creditExpiry" placeholder="MM/AA">
-            </div>
-
-
-            <!-- Campos para transferencia bancaria -->
             <div>
               <input type="radio" name="payment" value="bank_transfer" id="bankTransfer">
               <label for="bankTransfer" aria-label="Transferencia"><img src="img/icons/payment_method_transfer.png"
                   alt="Ícono Transferencia" class="checkout-icons">Realizar transferencia bancaria</label>
             </div>
-            <div id="bankFields" class="payment_fields" style="display: none;">
-              <label for="bankAccount" aria-label="Cuenta bancaria">Número de cuenta bancaria:</label>
-              <input type="tel" id="bankAccount" placeholder="Introduce el número de cuenta" pattern="[0-9]{8,20}">
-            </div>
-
-
-            <!-- Campos para pagar en efectivo -->
             <div>
               <input type="radio" name="payment" value="cash" id="payInCash">
               <label for="payInCash" aria-label="Efectivo"><img src="img/icons/payment_method_cash.png"
                   alt="Ícono Efectivo" class="checkout-icons">Pagar en efectivo al recibir</label>
             </div>
           </div>
+
+
+
+          <!-- Campos para tarjeta de crédito -->
+          <div id="creditFields" class="payment_fields" style="display: none;">
+            <label for="creditNumber" aria-label="Número de tarjeta">Número de tarjeta:</label>
+            <input type="tel" id="creditNumber" placeholder="Introduce el número de tarjeta" pattern="[0-9]{16}">
+            <label for="creditExpiry" aria-label="Expiración">Fecha de expiración:</label>
+            <input type="tel" id="creditExpiry" placeholder="MM/AA">
+          </div>
+
+          <!-- Campos para transferencia bancaria -->
+          <div id="bankFields" class="payment_fields" style="display: none;">
+            <label for="bankAccount" aria-label="Cuenta bancaria">Número de cuenta bancaria:</label>
+            <input type="tel" id="bankAccount" placeholder="Introduce el número de cuenta" pattern="[0-9]{8,20}">
+          </div>
+
+          <!-- Campos para pagar en efectivo -->
           <div id="cashFields" class="payment_fields" style="display: none;">
             <label for="cashInfo" aria-label="Efectivo">Detalles del pago en efectivo:</label>
-            <textarea id="cashInfo" class="form-control" rows="1" placeholder="¿Necesitas que el repartidor lleve cambio?"></textarea>
-
+            <input type="text" id="cashInfo" placeholder="¿Necesitas que el repartidor lleve cambio?">
           </div>
 
           <!--<div class="form-group">
           <button type="button" id="finishPayment" class="btn btn-success">Finalizar Compra</button>
         </div> -->
         </div>
-
         <div>
           <aside class="checkout-summary">
             <h2> Importe total </h2>
