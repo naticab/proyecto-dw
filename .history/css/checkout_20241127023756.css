@@ -181,11 +181,11 @@ button {
   display: block;
   font-size: 14px;
   color: #333;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .payment_fields input {
-  width: 43%;
+  width: fit-content;
   padding: 12px;
   font-size: 16px;
   border-radius: 8px;
@@ -236,14 +236,14 @@ label[for="payInCash"] {
   transform: translate(-50%, -50%);
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 50%;
   z-index: 1000;
   padding: 20px;
   border-radius: 10px;
 }
 
 .popup-message p {
-  background-color: #15a3aaf1;
+  background-color: #15a3aaba;
   color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -260,25 +260,11 @@ label[for="payInCash"] {
 
   .checkout-summary {
     margin-top: 1rem;
-    margin-bottom: 10px;
   }
 
   button {
     margin: 0.5rem 0;
     border-radius: 5px;
     width: 100%;
-  }
-
-  #shipping + #address + #payment{
-    width: 577.5px;
-  }
-}
-
-@media (max-width: 768px) {
-  #shipping + #address + #payment{
-    width: 516px;
-  }
-  .checkout-summary{
-    width: 516px;
   }
 }
