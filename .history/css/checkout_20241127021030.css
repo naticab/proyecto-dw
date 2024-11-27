@@ -1,0 +1,269 @@
+main {
+  background:
+    url('../img/background_all.png');
+  background-size: 90rem;
+  background-position: top 0.2rem right 2.4rem;
+  background-repeat: repeat;
+  margin: 0;
+  padding: 0;
+}
+
+input:invalid {
+  border-color: red;
+}
+
+input:valid {
+  border-color: initial;
+}
+
+.nav-tabs {
+  border-bottom: 2px solid #ddd;
+}
+
+.nav-tabs .nav-item .nav-link {
+  color: #6c6c6c;
+  background-color: #179FAC4b;
+  font-weight: 500;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  color: #fff;
+  background-color: #179FAC;
+  border-color: #179FAC;
+}
+
+.nav-tabs .nav-item .nav-link.disabled {
+  color: #1e1d1d8b;
+  background-color: #868c908f;
+  border-color: #868c908f;
+}
+
+.tab-pane {
+  background-color: #ffffffbf;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1.2rem;
+  color: #000000;
+  width: 43rem;
+
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+
+.shipping_choice {
+  margin-top: 10px;
+}
+
+.shipping_choice div {
+  margin-bottom: 10px;
+}
+
+.shipping_choice label {
+  margin-left: 5px;
+}
+
+
+/* Address Form */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.form-control:focus {
+  border-color: #f8c2d3;
+  outline: none;
+}
+
+.payment_method div {
+  margin-bottom: 10px;
+}
+
+.payment_method label {
+  margin-left: 5px;
+}
+
+
+.tab-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+
+/* Checkout Summary */
+
+#checkoutTabsContent {
+  flex: 1;
+}
+
+.checkout-summary {
+  width: fit-content;
+  flex: 1;
+  background-color: #ffffffbf;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1.2rem;
+  color: #000000;
+}
+
+.checkout-summary h2 {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.checkout-summary p {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.discount {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.discount:hover {
+  text-decoration: underline;
+}
+
+
+.checkout-summary h3 {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+button {
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.checkout-summary button:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.checkout-summary .btn-success {
+  background-color: #1e8d38;
+  border: none;
+}
+
+.checkout-summary .btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.checkout-summary .btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.payment_fields {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.payment_fields label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.payment_fields input {
+  width: fit-content;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+
+/* Icons */
+
+#shippingTab,
+#addressTab,
+#paymentTab,
+label[for="premiumShipping"],
+label[for="expressShipping"],
+label[for="standardShipping"],
+label[for="freeShipping"],
+label[for="debitCard"],
+label[for="creditCard"],
+label[for="bankTransfer"],
+label[for="payInCash"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  vertical-align: middle;
+}
+
+.checkout-icons {
+  width: 3rem;
+  height: 3rem;
+}
+
+.cart-icons {
+  width: 2rem;
+  height: 2rem;
+  margin-left: 10px;
+}
+
+
+/* Pop-up | Compra exitosa */
+
+.popup-message {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  z-index: 1000;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.popup-message p {
+  background-color: #7bd0f1;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 4px rgba(75, 135, 232, 0.2);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+
+@media (max-width: 1400px) {
+  .tab-content {
+    flex-direction: column;
+  }
+
+  .checkout-summary {
+    margin-top: 1rem;
+  }
+
+  button {
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    width: 100%;
+  }
+}
