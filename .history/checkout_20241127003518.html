@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/products.css" rel="stylesheet">
+  <link href="css/checkout.css" rel="stylesheet">
+  <link href="css/header-and-footer.css" rel="stylesheet">
+  <link href="css/product-info.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="py-3">
+    <div class="container d-flex justify-content-between align-items-center hamburger">
+      <a id="inicio" href="index.html">
+        <h1 class="m-0">Cositas Montevideo</h1>
+      </a>
+      <nav class="navbar navbar-expand-lg">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav w-100 justify-content-between">
+            <li class="nav-item subtitulos-header">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item subtitulos-header">
+              <a class="nav-link" href="categories.html">Categorías</a>
+            </li>
+            <li class="nav-item subtitulos-header">
+              <a class="nav-link" href="sell.html">Vender</a>
+            </li>
+            <!-- Menú desplegable Usuario dentro del menú hamburguesa -->
+            <li class="nav-item d-flex align-items-center">
+              <div class="dropdown">
+                <a class="btn dropdown-toggle" id="user-image" type="button" data-bs-toggle="dropdown"
+                  data-bs-display="static" aria-expanded="false">
+                  <img src="img/usuario.png" id="profilePic" alt="avatar" class="user-avatar">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
+                  <li><a class="dropdown-item" href="cart.html">Carrito de Compras</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="login.html" id="log-out">Cerrar sesión</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <button id="mode-toggle" class="btn btn-outline-secondary">
+                <i id="theme-icon" class="fas fa-moon"></i>
+              </button>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <a id="cart-button" class="btn btn-outline-secondary" href="cart.html">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <ul class="nav nav-tabs" id="checkoutTabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="shippingTab" data-bs-toggle="tab" href="#shipping" role="tab">
+            <img src="img/icons/shipping_method.png" alt="Ícono Envío" class="checkout-icons">Tipo de Envío
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="addressTab" data-bs-toggle="tab" href="#address" role="tab">
+            <img src="img/icons/address.png" alt="Ícono Dirección" class="checkout-icons">Dirección de Envío
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="paymentTab" data-bs-toggle="tab" href="#payment" role="tab">
+            <img src="img/icons/payment_method.png" alt="Ícono Pago" class="checkout-icons">Forma de Pago
+          </a>
+        </li>
+      </ul>
+  
+      <div class="tab-content" id="checkoutTabsContent">
+        <!-- Tipo de Envío -->
+        <div class="tab-pane fade show active" id="shipping" role="tabpanel">
+          <div class="checkout-card">
+            <h4>Tipo de Envío</h4>
+            <div class="shipping_choice" required>
+              <div>
+                <input type="radio" name="shipping" value="premium" id="premiumShipping">
+                <label for="premiumShipping">Premium 2 a 5 días (15%)</label>
+              </div>
+              <div>
+                <input type="radio" name="shipping" value="express" id="expressShipping">
+                <label for="expressShipping">Express 5 a 8 días (7%)</label>
+              </div>
+              <div>
+                <input type="radio" name="shipping" value="standard" id="standardShipping">
+                <label for="standardShipping">Standard 12 a 15 días (5%)</label>
+              </div>
+              <div>
+                <input type="radio" name="shipping" value="free" id="freeShipping">
+                <label for="freeShipping">Pick-up / Recogida (gratis)</label>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Dirección de Envío -->
+        <div class="tab-pane fade" id="address" role="tabpanel">
+          <h4>Dirección de Envío</h4>
+          <form>
+            <div class="form-group">
+              <label for="state">Departamento</label>
+              <select class="form-control" id="state" required>
+                <option value="">Seleccione un departamento</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="district">Localidad</label>
+              <select class="form-control" id="district" required>
+                <option value="">Seleccione una localidad</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="zipCode">Código postal</label>
+              <input type="number" class="form-control" id="zipCode" required>
+            </div>
+            <div class="form-group">
+              <label for="addressLine1">Calle</label>
+              <input type="text" class="form-control" id="addressLine1" required>
+            </div>
+            <div class="form-group">
+              <label for="streetNumber">Número de puerta</label>
+              <input type="number" class="form-control" id="streetNumber" required>
+            </div>
+            <div class="form-group">
+              <label for="addressLine2">Esquina</label>
+              <input type="text" class="form-control" id="addressLine2" required>
+            </div>
+            <div class="form-group">
+              <label for="floorNumber">Piso / Número de apartamento</label>
+              <input type="text" class="form-control" id="floorNumber">
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Teléfono de contacto</label>
+              <input type="tel" class="form-control" id="phoneNumber" pattern="[0-9]{8,9}">
+            </div>
+          </form>
+        </div>
+  
+        <!-- Forma de Pago -->
+        <div class="tab-pane fade" id="payment" role="tabpanel">
+          <h4>Forma de Pago</h4>
+          <div class="payment_method" required>
+            <div>
+              <input type="radio" name="payment" value="debit" id="debitCard">
+              <label for="debitCard">Añadir tarjeta de débito</label>
+            </div>
+            <div>
+              <input type="radio" name="payment" value="credit" id="creditCard">
+              <label for="creditCard">Añadir tarjeta de crédito</label>
+            </div>
+            <div>
+              <input type="radio" name="payment" value="bank_transfer" id="bankTransfer">
+              <label for="bankTransfer">Realizar transferencia bancaria</label>
+            </div>
+            <div>
+              <input type="radio" name="payment" value="cash" id="payInCash">
+              <label for="payInCash">Pagar en efectivo al recibir</label>
+            </div>
+          </div>
+        </div>
+  
+        <aside class="checkout-summary">
+          <h2> Importe total </h2>
+          <p>Subtotal: <span id="subtotal">0.00 UYU</span></p>
+          <p>Envío: <span id="envio">0.00</span></p>
+          <h3>Total: <span id="total">0.00 UYU</span></h3>
+          <button id="finalize-purchase" class="btn btn-success btn-block">Finalizar compra</button>
+        </aside>
+      </div>
+    </div>
+  </main>
+  
+
+
+  <footer class="text-center py-2">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">Este sitio forma parte de <a class="footer-link" href="https://jovenesaprogramar.edu.uy/"
+            target="_blank">Jóvenes a Programar</a></p>
+        <p class="footer-link-end">
+          <a class="footer-link" href="#">Volver arriba</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/checklogin.js"></script>
+  <script src="js/header-and-footer.js"></script>
+  <script src="js/my-profile.js"></script>
+  <script src="js/contador.js"></script>
+  <script src="js/states-and-districts.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+
+</html>
