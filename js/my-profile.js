@@ -2,37 +2,37 @@ document.addEventListener("DOMContentLoaded", function () {
   const defaultFile = 'img/usuario.png';
   const fileInput = document.getElementById('foto');
   const profilePic = document.getElementById('profilePic');
-  const profilePicHeader= document.getElementById('profilePicHeader');
+  const profilePicHeader = document.getElementById('profilePicHeader');
   const userImageElement = document.getElementById('user-image');
   const userImage = userImageElement ? userImageElement.querySelector('img') : null;
 
-  // Cargar la imagen de perfil desde localStorage 
+  let tempImage = null; // Variable para almacenar temporalmente la imagen seleccionada
+
+  // Cargar la imagen de perfil desde localStorage al iniciar
   const savedImage = localStorage.getItem('profileImage');
   if (savedImage) {
     profilePic.src = savedImage;
-    profilePicHeader.src= savedImage; // Actualiza la imagen en el perfil
-    if (userImage) userImage.src = savedImage; // Actualiza la imagen en el header 
+    if (userImage) userImage.src = savedImage;
   } else {
-    profilePic.src = defaultFile; // Imagen por defecto
-    if (userImage) userImage.src = defaultFile; // Imagen por defecto 
+    profilePic.src = defaultFile;
+    if (userImage) userImage.src = defaultFile;
   }
 
+  // Escuchar cambios en el input de archivo
   fileInput.addEventListener('change', e => {
     if (e.target.files[0]) {
       const reader = new FileReader();
       reader.onload = function (e) {
-        const imageBase = e.target.result;
-        profilePic.src = imageBase; // Actualiza la imagen en el perfil
-        if (userImage) userImage.src = imageBase; // Actualiza la imagen en el header 
-        localStorage.setItem('profileImage', imageBase); // Guarda la imagen en localStorage
+        tempImage = e.target.result; // Guardar la imagen temporalmente
+        profilePic.src = tempImage; // Actualizar la vista previa de la imagen
       };
-      reader.readAsDataURL(e.target.files[0]); // Lee el archivo como URL en Base64
+      reader.readAsDataURL(e.target.files[0]);
     } else {
-      profilePic.src = defaultFile; // Imagen por defecto
-      if (userImage) userImage.src = defaultFile; // Imagen por defecto 
-      localStorage.removeItem('profileImage'); // Eliminar imagen de localStorage
+      tempImage = null; // Borrar la imagen temporal
+      profilePic.src = defaultFile; // Revertir a la imagen por defecto
     }
   });
+
 
   // Recuperar los datos guardados en localStorage al cargar la página
   const nombre1 = document.getElementById("nombre1");
@@ -83,12 +83,19 @@ document.addEventListener("DOMContentLoaded", function () {
       email.classList.add("is-valid");
     }
 
-    // Si todo es válido, guardar en localStorage
-    if (isValid) {
-      localStorage.setItem("nombre", nombre1.value);
-      localStorage.setItem("apellido", apellido.value);
-      localStorage.setItem("userEmail", email.value);
-      alert("Datos guardados con éxito.");
+   // Si todo es válido, guardar datos en localStorage
+   if (isValid) {
+    localStorage.setItem("nombre", nombre1.value);
+    localStorage.setItem("apellido", apellido.value);
+    localStorage.setItem("userEmail", email.value);
+
+    // Guardar la imagen de perfil solo si se seleccionó y se presionó guardar cambios
+    if (tempImage) {
+      localStorage.setItem('profileImage', tempImage);
+      if (userImage) userImage.src = tempImage; // Actualizar imagen en el header
     }
-  });
+
+    alert("Datos guardados con éxito.");
+  }
+});
 });
