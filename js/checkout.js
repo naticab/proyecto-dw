@@ -65,8 +65,15 @@ document.addEventListener("DOMContentLoaded", function () {
         input.classList.remove("is-invalid"); // Eliminar la clase de error si está lleno
       }
     });
+    if (valid) {
+      paymentTab.classList.remove("disabled");
+    }
     return valid;
   }
+
+  addressInputs.forEach((input) => {
+    input.addEventListener('input', validateAddressSection);
+  });
 
   // Los campos de teléfono, tarjetas y cuentas bancarias sólo puedan aceptar números
   const numericFields = document.querySelectorAll("#phoneNumber, #debitNumber, #creditNumber, #bankAccount, #debitExpiry, #creditExpiry");
