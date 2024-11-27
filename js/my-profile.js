@@ -2,13 +2,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const defaultFile = 'img/usuario.png';
   const fileInput = document.getElementById('foto');
   const profilePic = document.getElementById('profilePic');
+  const profilePicHeader= document.getElementById('profilePicHeader');
   const userImageElement = document.getElementById('user-image');
   const userImage = userImageElement ? userImageElement.querySelector('img') : null;
 
   // Cargar la imagen de perfil desde localStorage 
   const savedImage = localStorage.getItem('profileImage');
   if (savedImage) {
-    profilePic.src = savedImage; // Actualiza la imagen en el perfil
+    profilePic.src = savedImage;
+    profilePicHeader.src= savedImage; // Actualiza la imagen en el perfil
     if (userImage) userImage.src = savedImage; // Actualiza la imagen en el header 
   } else {
     profilePic.src = defaultFile; // Imagen por defecto
