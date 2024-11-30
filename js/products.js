@@ -48,7 +48,7 @@ function saveProductId(productId) {
 async function loadProducts() {
     const catID = getCatID();
     // const productsUrl = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
-    const productsUrl = `http://localhost:3000/emercado-api/cats_products/${catID}.json`;
+    const productsUrl = `http://localhost:3000/emercado-api-main/cats_products/${catID}`;
 
     try {
         const response = await fetch(productsUrl);

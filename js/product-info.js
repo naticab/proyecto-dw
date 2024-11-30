@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 async function loadProductData(productId) {
     try {
         // const response = await fetch(`https://japceibal.github.io/emercado-api/products/${productId}.json`);
-        const response = await fetch(`http://localhost:3000/emercado-api/products/${productId}.json`);
+        const response = await fetch(`http://localhost:3000/emercado-api-main/products/${productId}`);
         const product = await response.json();
 
         updateProduct(product);
@@ -72,7 +72,7 @@ function updateProduct(product) {
 // Función para cargar comentarios del producto
 async function loadComments(productId) {
     try {
-        const reviewsResponse = await fetch(`${PRODUCT_INFO_COMMENTS_URL}${productId}${EXT_TYPE}`);
+        const reviewsResponse = await fetch(`${PRODUCT_INFO_COMMENTS_URL}${productId}`);
         const comments = await reviewsResponse.json();
 
         comments.forEach(comment => addCommentToDOM(comment));
