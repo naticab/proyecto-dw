@@ -47,7 +47,8 @@ function saveProductId(productId) {
 // Función para cargar productos desde el JSON
 async function loadProducts() {
     const catID = getCatID();
-    const productsUrl = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
+    // const productsUrl = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
+    const productsUrl = `http://localhost:3000/emercado-api/cats_products/${catID}.json`;
 
     try {
         const response = await fetch(productsUrl);

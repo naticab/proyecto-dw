@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 // Función para cargar los datos del producto
 async function loadProductData(productId) {
     try {
-        const response = await fetch(`https://japceibal.github.io/emercado-api/products/${productId}.json`);
+        // const response = await fetch(`https://japceibal.github.io/emercado-api/products/${productId}.json`);
+        const response = await fetch(`http://localhost:3000/emercado-api/products/${productId}.json`);
         const product = await response.json();
 
         updateProduct(product);
