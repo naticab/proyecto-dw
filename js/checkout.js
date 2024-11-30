@@ -210,4 +210,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Si todo es válido, mostrar el mensaje y redirigir
     showSuccessMessageAndRedirect();
   });
+  
+  function confirmCheckoutExit() {
+    window.onbeforeunload = function(e) {
+      return 'mensaje';
+    };
+   }
+   
+   // Call the function when entering checkout process
+   confirmCheckoutExit();
 });
