@@ -211,6 +211,12 @@ document.addEventListener("DOMContentLoaded", function () {
     showSuccessMessageAndRedirect();
   });
   
+  function confirmCheckoutExit() {
+    window.onbeforeunload = function(e) {
+      return 'mensaje';
+    };
+   }
+   
    // Call the function when entering checkout process
    confirmCheckoutExit();
 });
