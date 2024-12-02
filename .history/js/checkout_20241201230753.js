@@ -211,6 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
     showSuccessMessageAndRedirect();
   });
   
+
    // Call the function when entering checkout process
    confirmCheckoutExit();
 });

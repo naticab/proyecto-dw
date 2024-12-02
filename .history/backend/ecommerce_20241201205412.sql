@@ -1,5 +1,3 @@
--- Script para crear la base de datos de EmercadoDB.
--- Contiene tablas para usuarios, categorías, productos, carrito de compras y checkout.
 CREATE DATABASE EmercadoDB;
 
 USE EmercadoDB;
@@ -37,7 +35,7 @@ CREATE TABLE Product (
     ProductSoldCount INT NOT NULL,
     ProductQuantity INT NOT NULL,
     PRIMARY KEY (ProductId),
-    CONSTRAINT FK_Product_CategoryId FOREIGN KEY (CategoryId) REFERENCES Category(CategoryId) ON DELETE CASCADE
+    CONSTRAINT FK_Product_CategoryId FOREIGN KEY (CategoryId) REFERENCES Category(CategoryId)
 );
 
 CREATE TABLE ShoppingCart (
@@ -62,6 +60,6 @@ CREATE TABLE Checkout (
     CheckoutDiscount DECIMAL(20, 2) NOT NULL,
     CheckoutTotalPrice DECIMAL(20, 2) NOT NULL,
     PRIMARY KEY (CheckoutId),
-    CONSTRAINT FK_Checkout_ShoppingCartId FOREIGN KEY (ShoppingCartId) REFERENCES ShoppingCart(ShoppingCartId) ON DELETE CASCADE,
-    CONSTRAINT FK_Checkout_UserId FOREIGN KEY (UserId) REFERENCES User(UserId) ON DELETE CASCADE
+    CONSTRAINT FK_ShoppingCart_ProductId FOREIGN KEY (ProductId) REFERENCES Product(ProductId) ON DELETE CASCADE,
+    CONSTRAINT FK_ShoppingCart_UserId FOREIGN KEY (UserId) REFERENCES User(UserId) ON DELETE CASCADE
 );

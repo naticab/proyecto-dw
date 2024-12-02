@@ -12,6 +12,9 @@ const PORT = 3000;                  // Puerto en el que correrá el servidor
 app.use(cors());              // Habilitar CORS para solicitudes externas
 app.use(express.json());       // Permite que Express maneje las solicitudes JSON
 
+// Usamos cartApi.js para manejar las rutas del carrito
+const cartApi = require('./api/cartApi');  // Importamos cartApi.js
+app.use('/emercado-api-main/cart', cartApi(db));  // Ruta para las operaciones del carrito (se integra en el servidor)
 
 // Servir archivos estáticos de la carpeta 'emercado-api-main'
 app.use(express.static(path.join(__dirname, 'emercado-api-main')));
@@ -66,3 +69,11 @@ app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
 
+// Cerrar la conexión a la base de datos cuando el servidor se detenga
+process.on('SIGINT', () => {
+    db.end((err) => {
+        if (err) console.error('Error al cerrar la conexión:', err);
+        console.log('Conexión a la base de datos cerrada.');
+        process.exit(0);
+    });
+});

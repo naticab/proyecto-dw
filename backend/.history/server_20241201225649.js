@@ -66,3 +66,11 @@ app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
 
+// Cerrar la conexión a la base de datos cuando el servidor se detenga
+process.on('SIGINT', () => {
+    db.end((err) => {
+        if (err) console.error('Error al cerrar la conexión:', err);
+        console.log('Conexión a la base de datos cerrada.');
+        process.exit(0);
+    });
+});
