@@ -69,10 +69,10 @@ function updateProduct(product) {
     });
 }
 
-
+// Función para cargar comentarios del producto
 async function loadComments(productId) {
     try {
-        const reviewsResponse = await fetch(PRODUCT_INFO_COMMENTS_URL + `/${productId}${EXT_TYPE}`);
+        const reviewsResponse = await fetch(`${PRODUCT_INFO_COMMENTS_URL}${productId}`);
         const comments = await reviewsResponse.json();
 
         comments.forEach(comment => addCommentToDOM(comment));
@@ -81,8 +81,6 @@ async function loadComments(productId) {
         console.error('Error al obtener los comentarios', error);
     }
 }
-
-
 
 // Función para añadir un comentario al DOM
 function addCommentToDOM(comment) {
