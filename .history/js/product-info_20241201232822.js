@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 // Función para cargar los datos del producto
 async function loadProductData(productId) {
     try {
-        const response = await fetch(`https://japceibal.github.io/emercado-api/products/${productId}.json`);
+        const response = await fetch(`https://japceibal.github.io/emercado-api/products/${productId}`);
         // const response = await fetch(`http://localhost:3000/emercado-api-main/products/${productId}`);
         const product = await response.json();
 
@@ -69,10 +69,10 @@ function updateProduct(product) {
     });
 }
 
-
+// Función para cargar comentarios del producto
 async function loadComments(productId) {
     try {
-        const reviewsResponse = await fetch(PRODUCT_INFO_COMMENTS_URL + `/${productId}${EXT_TYPE}`);
+        const reviewsResponse = await fetch(`${PRODUCT_INFO_COMMENTS_URL}${productId}`);
         const comments = await reviewsResponse.json();
 
         comments.forEach(comment => addCommentToDOM(comment));
@@ -81,8 +81,6 @@ async function loadComments(productId) {
         console.error('Error al obtener los comentarios', error);
     }
 }
-
-
 
 // Función para añadir un comentario al DOM
 function addCommentToDOM(comment) {
